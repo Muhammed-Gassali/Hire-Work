@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>OTP Login Page</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="Validate Login & Register Forms Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Meta tag Keywords -->
+
+	<!-- css files -->
+	<link rel="stylesheet" href="{% static 'seekerlogincss/style.css' %}" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link href="{% static 'seekerlogincss/font-awesome.min.css' %}" rel="stylesheet">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+	<!-- web-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Magra:400,700&amp;subset=latin-ext" rel="stylesheet">
+	<!-- //web-fonts -->
+	  <!-- icon -->
+	  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
+	  <!-- //icon -->
+	  <link rel="stylesheet" type="text/css" href="{% static 'seekerlogincss/util.css' %}">
+	  <link rel="stylesheet" type="text/css" href="{% static 'seekerlogincss/main.css' %}">
+</head>
+
+<body>
+    <!-- content -->
+    {%  if otp == 1 %}
+	<div class="container-agille">
+		<div class="formBox level-login">
+			<div class="box boxShaddow"></div>
+			<div class="box loginBox">
+			
+				<form class="form" action="#" method="post">
+                    {% csrf_token %}
+					<div class="f_row-2">
+						<input type="text" pattern="[0-9]{10}" class="input-field" placeholder="Enter your registered Mobile Number" name="phone" required>
+					</div>
+					<input class="submit-w3" type="submit" value="send OTP">
+                    <br><br>	
+                    {% for message in messages %}
+                    <p style="color:rgb(236, 14, 14);">{{message}}</p>
+                {% endfor %}
+					
+					<div class="f_link">
+						<a href="{% url 'customer-register' %}" >Are you not Registered?</a>
+					</div>
+				</form>
+			</div>
+		</div>
+    </div>
+    {%  elif otp == 0 %}
+    <div class="container-agille">
+		<div class="formBox level-login">
+			<div class="box boxShaddow"></div>
+			<div class="box loginBox">
+			
+				<form class="form" action="{% url 'confirm-otp' %}" method="post">
+                    {% csrf_token %}
+					<div class="f_row-2">
+						<input type="text" class="input-field" placeholder="Enter OTP" name="otp" required>
+					</div>
+					<input class="submit-w3" type="submit" value="submit">
+                    <br><br>	
+                    {% for message in messages %}
+                    <p style="color:black;">{{message}}</p>
+                {% endfor %}
+					
+					<div class="f_link">
+						<a href="{% url 'customer-register' %}" >Are you not Registered?</a>
+					</div>
+				</form>
+			</div>
+		</div>
+    </div>
+    {% endif %}
+	<!-- //content -->
+
+	<!-- copyright -->
+	<div class="footer-w3ls">
+		
+	</div>
+	<!-- //copyright -->
+
+
+	<!-- js files -->
+	<!-- Jquery -->
+	<script src="{% static 'seekerloginjs/jquery-2.2.3.min.js' %}"></script>
+	<!-- //Jquery -->
+	<!-- input fields js -->
+	<script src="{% static 'seekerloginjs/input-field.js' %}"></script>
+	<!-- //input fields js -->
+
+	<!-- password-script -->
+	<script>
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+	</script>
+
+
+
+</body>
+
+</html>

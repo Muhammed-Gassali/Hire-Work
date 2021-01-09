@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 
 			 <div class="top-nav">
 				<ul class="memenu skyblue"><li class="active"><a href="#">Home</a></li>
-					<li class="grid"><a href="#">Catoeory</a>
+					<li class="grid"><a href="#">Catogeory</a>
 						<div class="mepanel">
 							<div class="row">
 								<div class="col1 me-one">
@@ -87,7 +87,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</li>
 					<!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
-					<li class="grid"><a href="#">Login</a></li>
+					<!-- <li class="grid"><a href="#">Login</a></li> -->
+					<li class="grid"><a href="#">Login</a>
+						<div class="mepanel">
+							<div class="row">
+								<div class="col1 me-one">
+									<ul>
+										<li><a href="{% url 'customer-login' %}">Customer</a></li>
+										<li><a href="{% url 'seeker-login' %}">Job Seeker</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
 				</ul>
 				<div class="clearfix"> </div>
 			 </div>
@@ -199,6 +211,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <div class="arrival-info">
 						 <h4>{{value.name}}</h4>
 						 <p>{{value.place}}</p>
+						 <p>{{value.expected_salary}}/day</p>
+						 <p>{{value.experience}} yrs of experience</p>
 					 </div>
 					 <div class="viw">
 						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -223,9 +237,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="product.html"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
-						<p>Rs 12000</p>
-						<span class="pric1"><del>Rs 18000</del></span>
-						<span class="disc">[12% Off]</span>
+						<p>{{value.place}}</p>
+						<p>{{value.expected_salary}}/day</p>
+						<p>{{value.experience}} yrs of experience</p>
 					</div>
 					<div class="viw">
 					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -251,10 +265,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-3 feature-grid jewel">
 				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
-						<h4>Jewellerys #1</h4>
-						<p>Rs 12000</p>
-						<span class="pric1"><del>Rs 18000</del></span>
-						<span class="disc">[12% Off]</span>
+						<h4>{{value.name}}</h4>
+						<p>{{value.place}}</p>
+						<p>{{value.expected_salary}}/day</p>
+						<p>{{value.experience}} yrs of experience</p>
 					</div>
 					<div class="viw">
 					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -279,10 +293,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-3 feature-grid jewel">
 				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
-						<h4>Jewellerys #1</h4>
-						<p>Rs 12000</p>
-						<span class="pric1"><del>Rs 18000</del></span>
-						<span class="disc">[12% Off]</span>
+						<h4>{{value.name}}</h4>
+						<p>{{value.place}}</p>
+						<p>{{value.expected_salary}}/day</p>
+						<p>{{value.experience}} yrs of experience</p>
 					</div>
 					<div class="viw">
 					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -306,10 +320,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-3 feature-grid jewel">
 				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
-						<h4>Jewellerys #1</h4>
-						<p>Rs 12000</p>
-						<span class="pric1"><del>Rs 18000</del></span>
-						<span class="disc">[12% Off]</span>
+						<h4>{{value.name}}</h4>
+						<p>{{value.place}}</p>
+						<p>{{value.expected_salary}}/day</p>
+						<p>{{value.experience}} yrs of experience</p>
 					</div>
 					<div class="viw">
 					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -324,7 +338,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div>
-<div class="featured">
+<!-- <div class="featured">
 	<div class="container">
 		<h3>Catering</h3>
 		<div class="feature-grids">
@@ -333,10 +347,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-3 feature-grid jewel">
 				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
-						<h4>Jewellerys #1</h4>
-						<p>Rs 12000</p>
-						<span class="pric1"><del>Rs 18000</del></span>
-						<span class="disc">[12% Off]</span>
+						 <h4>{{value.name}}</h4>
+						 <p>{{value.place}}</p>
+						 <p>{{value.expected_salary}}/day</p>
+						 <p>{{value.experience}} of experience</p>
 					</div>
 					<div class="viw">
 					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -353,17 +367,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <div class="featured">
 	<div class="container">
-		<h3>Maid</h3>
+		<h3>House Keeping</h3>
 		<div class="feature-grids">
 			{% for value in detials %}
-			{% if value.category.category_name == 'Welder' %}
+			{% if value.category.category_name == 'House Keeping' %}
 			<div class="col-md-3 feature-grid jewel">
 				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
-						<h4>Jewellerys #1</h4>
-						<p>Rs 12000</p>
-						<span class="pric1"><del>Rs 18000</del></span>
-						<span class="disc">[12% Off]</span>
+						 <h4>{{value.name}}</h4>
+						 <p>{{value.place}}</p>
+						 <p>{{value.expected_salary}}/day</p>
+						 <p>{{value.experience}} of experience</p>
 					</div>
 					<div class="viw">
 					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -383,13 +397,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h3>Welder</h3>
 		<div class="feature-grids">
 			{% for value in detials %}
+			{% if value.category.category_name == 'Welder' %}
 			<div class="col-md-3 feature-grid jewel">
 				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
-						<h4>Jewellerys #1</h4>
-						<p>Rs 12000</p>
-						<span class="pric1"><del>Rs 18000</del></span>
-						<span class="disc">[12% Off]</span>
+						 <h4>{{value.name}}</h4>
+						 <p>{{value.place}}</p>
+						 <p>{{value.expected_salary}}/day</p>
+						 <p>{{value.experience}} of experience</p>
 					</div>
 					<div class="viw">
 					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -398,6 +413,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					</div></a>
 			</div>
+			{% endif %}
 			{% endfor %}
 			<div class="clearfix"></div>
 		</div>
@@ -408,13 +424,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h3>Plumber</h3>
 		<div class="feature-grids">
 			{% for value in detials %}
+			{% if value.category.category_name == 'Plumber' %}
 			<div class="col-md-3 feature-grid jewel">
 				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
-						<h4>Jewellerys #1</h4>
-						<p>Rs 12000</p>
-						<span class="pric1"><del>Rs 18000</del></span>
-						<span class="disc">[12% Off]</span>
+						 <h4>{{value.name}}</h4>
+						 <p>{{value.place}}</p>
+						 <p>{{value.expected_salary}}/day</p>
+						 <p>{{value.experience}} of experience</p>
 					</div>
 					<div class="viw">
 					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
@@ -423,11 +440,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					</div></a>
 			</div>
+			{% endif %}
 			{% endfor %}
 			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>
+</div> -->
 <!---->
 <div  class="arrivals">
 	 <div class="container">	

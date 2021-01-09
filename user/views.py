@@ -24,8 +24,8 @@ def seeker_login(request):
 
 
 def customer_login(request):
-    # if request.user.is_authenticated:
-    #     return redirect(registered_user_home_page)
+    if request.user.is_authenticated:
+        return redirect(registered_customer_homepage)
     if request.method == "POST":
         user_name = request.POST['username']
         password = request.POST['password']
@@ -48,6 +48,8 @@ def customer_login(request):
     
 
 def customer_register(request):
+    if request.user.is_authenticated:
+        return redirect(registered_customer_homepage)
     if request.method == 'POST':
         name = request.POST['name']
         user_name = request.POST['username']
@@ -69,8 +71,8 @@ def customer_register(request):
 
 
 def otp_login(request):
-    # if request.user.is_authenticated:
-    #     return redirect(registered_user_home_page)
+    if request.user.is_authenticated:
+        return redirect(registered_customer_homepage)
     otp = 1
     if request.method == 'POST':
         phone_number = request.POST['phone']
@@ -113,7 +115,7 @@ def otp_login(request):
    
 def confirm_otp(request):
     if request.user.is_authenticated:
-        return HttpResponse("hoi")
+        return redirect(registered_customer_homepage)
         # return redirect(registered_user_home_page)
     else:
         if request.method == 'POST':
@@ -158,5 +160,27 @@ def confirm_otp(request):
             return HttpResponse("oops")
 
 def customer_homepage(request):
-    customer_detials = JobSeeker.objects.all()
-    return render(request, 'customer/index.html', {"detials":customer_detials})
+    if request.user.is_authenticated:
+        return redirect(registered_customer_homepage)   
+    seeker_detials = JobSeeker.objects.all()
+    return render(request, 'customer/index.html', {"detials":seeker_detials})
+
+def registered_customer_homepage(request):
+    if request.user.is_authenticated:
+        user = request.user
+        seeker_detials = JobSeeker.objects.all()
+        context = {'user':user, 'detials':seeker_detials}
+        return render(request, 'customer/registeredcustomerhomepage.html',context)
+    else:
+        return redirect(customer_homepage)
+    
+def registered_customer_logout(request):
+    if request.user.is_authenticated:
+        auth.logout(request)
+        return redirect(customer_homepage)
+    else:
+        return redirect(customer_homepage)
+    
+def customer_profile(request):
+    
+    return render(request, 'customer/customerprofile.html')

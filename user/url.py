@@ -10,6 +10,10 @@ urlpatterns = [
     path('otp-login', views.otp_login, name="otp-login"),
     path('confirm-otp', views.confirm_otp, name="confirm-otp"),
     path('customer-homepage', views.customer_homepage, name="customer-homepage"),
+    path('registered-customer-homepage', views.registered_customer_homepage, name="registered-customer-homepage"),
+    path('registered-customer-logout', views.registered_customer_logout, name="registered-customer-logout"),
+    path('customer-profile', views.customer_profile, name="customer-profile")
+
 
 
 

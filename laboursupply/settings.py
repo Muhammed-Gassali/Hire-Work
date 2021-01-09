@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Admin',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,19 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    # 'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = 'customer-login'
+LOGIN_REDIRECT_URL = 'registered-customer-homepage'
+LOGOUT_URL = 'customer-homepage'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "101781562401-9igcns3407nfko0jlj09ee9coh3tql5m.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "LLX1OVu96wpHRyMFCMWkJy89"
 
 ROOT_URLCONF = 'laboursupply.urls'
 
@@ -65,6 +79,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect'
             ],
         },
     },

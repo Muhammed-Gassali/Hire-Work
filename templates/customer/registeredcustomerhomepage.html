@@ -23,6 +23,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>	
 <!-- /start menu -->
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- model  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>`
 </head>
 <body> 
 <!--header-->	
@@ -31,14 +35,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header_top-sec">
 			<div class="top_right">
 				<ul>
+					
 					<li><a href="contact.html">Contact</a></li>|
-					<li><a href="login.html">Order Confirmations</a></li>
+					<li><a href="login.html">Order Confirmation</a></li>
 				</ul>
 			</div>
 			<div class="top_left">
 				<ul>
-					<li class="top_link">Email:<a href="mailto:info@example.com">mail@example.com</a></li>|
-					<li class="top_link"><a href="login.html">{{user.username}}</a></li>					
+					<li class="top_link">Email:<a href="mailto:info@example.com">{{user.email}}</a></li>|
+					<li class="top_link"><a href="login.html">{{user.username}}</a></li>				
 				</ul>
 			</div>
 				<div class="clearfix"> </div>
@@ -49,8 +54,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <div class="header-bottom">
 		 <div class="container">			
 				<div class="logo">
-					<a href="#"><h1>Hire&Work</h1></a>
-				</div>
+					<a href="index.html"><h1>Hire&Get</h1></a>
+				</div>	
 			 <!---->
 		 
 			 <div class="top-nav">
@@ -198,7 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Construction' %}
 			 <div class="col-md-3 feature-grid jewel">
-					<a href="#"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+					<a href="{% url 'quickview' %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	</a>
 					 <div class="arrival-info">
 						 <h4>{{value.name}}</h4>
 						 <p>{{value.place}}</p>
@@ -206,11 +211,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <p>{{value.experience}} yrs of experience</p>
 					 </div>
 					 <div class="viw">
-						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="{% url 'quickview' %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" ></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
+						<a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					 </div>
 			 </div>
 			 {% endif %}
 			 {% endfor %}
@@ -218,6 +223,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 </div>
 	 </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		  ...
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  <button type="button" class="btn btn-primary">Save changes</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- //model  -->
 <div class="featured">
 	<h3>Painter</h3>
 	<div class="container">

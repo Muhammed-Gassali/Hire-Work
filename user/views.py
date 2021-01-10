@@ -182,5 +182,46 @@ def registered_customer_logout(request):
         return redirect(customer_homepage)
     
 def customer_profile(request):
-    
-    return render(request, 'customer/customerprofile.html')
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            first_name = request.POST['first_name']
+            last_name = request.POST['last_name']
+            email = request.POST['email']
+            phone_number = request.POST['mobile']
+            address = request.POST['address']
+            place = request.POST['place']
+
+            user = request.user
+            print(user)
+            user.first_name = first_name
+            user.last_name = last_name
+            user.email = email
+            user.save()
+            if CustomerDetials.objects.filter(user=user).exists():
+                detials = CustomerDetials.objects.get(user=user)
+                detials.mobile_number = phone_number
+                detials.address = address
+                detials.place = place
+                detials.save()
+                context = {"value":user, "customer_detials":detials}
+                return render(request, 'customer/customerprofile.html', context)
+            else:   
+                detials = CustomerDetials.objects.create(user=user, mobile_number=phone_number, address=address, place=place)
+                context = {"value":user, "customer_detials":detials}
+                return render(request, 'customer/customerprofile.html', context)
+        else:
+            user = request.user
+            detials = User.objects.filter(username=user)
+            customer_detials = CustomerDetials.objects.get(user=user)
+            context = {"detials":detials, 'value':user, 'customer_detials':customer_detials}
+            return render(request, 'customer/customerprofile.html', context)
+    else:
+        return render(customer_homepage)
+
+def edit_profile(request):
+    pass
+
+def quickview(request):
+    detials = User.objects.all()
+    context = {"detials":detials}
+    return render(request, 'customer/single.html', context)

@@ -83,11 +83,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!---->
 			
 				<div class="top-nav">
-				   <ul class="memenu skyblue"><li class="active"><a href="#">Home</a></li>
+				   <ul class="memenu skyblue"><li class="active"><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
 					   
 					   <!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
 					   <li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
-					   <li class="grid"><a href="{% url 'customer-profile' %}">Make a profile</a></li>
+					   <li class="grid"><a href="">Make a profile</a></li>
 					   
 					   
 				   </ul>
@@ -131,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#detials">Detials</a></li>
               
-                <li><a data-toggle="tab" href="#edit">edit</a></li>
+                <li><a data-toggle="tab" href="#edit">Add detials</a></li>
               </ul>
 
               
@@ -143,32 +143,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="first_name"><h4>Name</h4></label>
-                              <input type="text" class="form-control" name="name" id="name" placeholder="Name" title="enter your first name if any."readonly value ="{{value.first_name}}">
+                              <label for="first_name"><h4>First Name</h4></label>
+                              <input type="text" class="form-control" name="name" id="name"  readonly value ="{{value.first_name}}">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                            <label for="last_name"><h4>	User name</h4></label>
-                              <input type="text" class="form-control" name="username" id="username" placeholder="username" title="enter your user name if any." readonly value ="{{value.username}}">
+                            <label for="last_name"><h4>	Last name</h4></label>
+                              <input type="text" class="form-control" name="username" id="username"   readonly value ="{{value.last_name}}">
                           </div>
                       </div>
           
-					  <div class="form-group">
-                          
+					  <div class="form-group">  
 						<div class="col-xs-6">
 							<label for="email"><h4>Email</h4></label>
-							<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email." readonly value ="{{value.email}}">
+							<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com"  readonly value ="{{value.email}}">
 						</div>
 					</div>	
           
                       <div class="form-group">
                           <div class="col-xs-6">
-                             <label for="mobile"><h4>Mobile</h4></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." readonly value ="{{value.last_name}}">
+                             <label for="mobile"><h4>Mobile Number</h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number"  readonly value ="{{customer_detials.mobile_number}}">
                           </div>
-                      </div>
+					  </div>
+					  <div class="form-group">
+						<div class="col-xs-6">
+						   <label for="mobile"><h4>Address</h4></label>
+							<input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter Address"  readonly value ="{{customer_detials.address}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-6">
+						   <label for="mobile"><h4>Place</h4></label>
+							<input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter the place"  readonly value ="{{customer_detials.place}}">
+						</div>
+					</div>
               	<!-- </form> -->
               
               <hr>
@@ -176,44 +187,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              </div><!--/tab-pane-->
              <!--/tab-pane-->
              <div class="tab-pane" id="edit">
-            		
-               	
                   <hr>
-                  
 					{% csrf_token %}
-					<div class="form-group">
-                          
+					<div class="form-group">     
 						<div class="col-xs-6">
-							<label for="first_name"><h4>Name</h4></label>
-							<input type="text" class="form-control" name="name" id="name" placeholder="Name" title="enter your first name if any." value ="{{value.first_name}}">
+							<label for="first_name"><h4>First Name</h4></label>
+							<input type="text" class="form-control" name="first_name" id="name" placeholder="Name"  value ="{{value.first_name}}">
 						</div>
 					</div>
                       <div class="form-group">
-                          
 						<div class="col-xs-6">
-						  <label for="last_name"><h4>	User name</h4></label>
-							<input type="text" class="form-control" name="username" id="username" placeholder="username" title="enter your user name if any." value ="{{value.username}}">
+						  <label for="last_name"><h4>Last Name</h4></label>
+							<input type="text" class="form-control" name="last_name" id="username" placeholder="username"  value ="{{value.last_name}}">
 						</div>
 					</div>
-          
 					<div class="form-group">
-                          
 						<div class="col-xs-6">
 							<label for="email"><h4>Email</h4></label>
-							<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email ." value ="{{value.email}}">
+							<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com"  value ="{{value.email}}">
 						</div>
 					</div>
-          
                       <div class="form-group">
                           <div class="col-xs-6">
-                             <label for="mobile"><h4>Mobile</h4></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." value ="{{value.last_name}}">
+                             <label for="mobile"><h4>Mobile Number</h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" value ="{{customer_detials.mobile_number}}">
                           </div>
-                      </div>
-                     
-                      
-                      
-                      
+					  </div>
+					  <div class="form-group">
+						<div class="col-xs-6">
+						   <label for="mobile"><h4>Address</h4></label>
+							<input type="text" class="form-control" name="address" id="mobile" placeholder="enter your Address" value ="{{customer_detials.address}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-6">
+						   <label for="mobile"><h4>Place</h4></label>
+							<input type="text" class="form-control" name="place" id="mobile" placeholder="enter your place" value ="{{customer_detials.place}}">
+						</div>
+					</div>
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
@@ -223,12 +234,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       </div>
               	</form>
               </div>
-               
 			  </div><!--/tab-pane-->
 			  
           </div><!--/tab-content-->
 		  	<!-- addresses showing  -->
-			<br><br><br>	
+			<!-- <br><br><br>	
 			<div class="row">
 				{% for x in address %}
 				<div class="col-sm-6 p-5">
@@ -247,8 +257,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  </div>
 				</div>
 				{% endfor %}
-			  </div>
-			  <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+			  </div> -->
+			  <!-- <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -277,7 +287,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</form>
     </div>
   </div>
-</div>
+</div> -->
 			  <br><br>
 			  <h3></h3>
 			<!-- //addresses showing  -->

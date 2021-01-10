@@ -12,7 +12,11 @@ urlpatterns = [
     path('customer-homepage', views.customer_homepage, name="customer-homepage"),
     path('registered-customer-homepage', views.registered_customer_homepage, name="registered-customer-homepage"),
     path('registered-customer-logout', views.registered_customer_logout, name="registered-customer-logout"),
-    path('customer-profile', views.customer_profile, name="customer-profile")
+    path('customer-profile', views.customer_profile, name="customer-profile"),
+    path('edit-profile', views.edit_profile, name="edit-profile"),
+    path('quickview', views.quickview, name="quickview"),
+
+
 
 
 

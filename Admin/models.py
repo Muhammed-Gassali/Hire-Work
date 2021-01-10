@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Category(models.Model):
@@ -28,3 +29,9 @@ class JobSeeker(models.Model):
         except:
             url=''
         return url
+
+class CustomerDetials(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True) 
+    mobile_number = models.CharField(max_length=128, null=True, blank=True)
+    address = models.CharField(max_length=128, null=True, blank=True)
+    place = models.CharField(max_length=128, null=True, blank=True)

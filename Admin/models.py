@@ -35,3 +35,9 @@ class CustomerDetials(models.Model):
     mobile_number = models.CharField(max_length=128, null=True, blank=True)
     address = models.CharField(max_length=128, null=True, blank=True)
     place = models.CharField(max_length=128, null=True, blank=True)
+
+
+class Collection(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    seeker = models.ForeignKey(JobSeeker, on_delete=models.CASCADE, blank=True, null=True)
+    total_price = models.IntegerField(blank=True, null=True)

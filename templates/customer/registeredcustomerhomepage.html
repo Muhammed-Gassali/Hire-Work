@@ -203,7 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Construction' %}
 			 <div class="col-md-3 feature-grid jewel">
-					<a href="{% url 'quickview' %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	</a>
+					<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	</a>
 					 <div class="arrival-info">
 						 <h4>{{value.name}}</h4>
 						 <p>{{value.place}}</p>
@@ -211,7 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <p>{{value.experience}} yrs of experience</p>
 					 </div>
 					 <div class="viw">
-						<a href="{% url 'quickview' %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" ></span>Quick View</a>
+						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" ></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
 						<a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
@@ -251,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Painter' %}
 			<div class="col-md-3 feature-grid jewel">
-				<a href="product.html"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
@@ -259,11 +259,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>{{value.experience}} yrs of experience</p>
 					</div>
 					<div class="viw">
-					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					</div></a>
+					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					</div>
 			</div>
 			{% endif %}
 			{% endfor %}	
@@ -280,7 +280,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Electrician' %}
 			<div class="col-md-3 feature-grid jewel">
-				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
@@ -288,11 +288,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>{{value.experience}} yrs of experience</p>
 					</div>
 					<div class="viw">
-					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					</div></a>
+					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					</div>
 			</div>
 			{% endif %}
 			{% endfor %}
@@ -308,7 +308,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Carpenter' %}
 			<div class="col-md-3 feature-grid jewel">
-				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
@@ -316,10 +316,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>{{value.experience}} yrs of experience</p>
 					</div>
 					<div class="viw">
-					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div></a>
 			</div>
 			{% endif %}
@@ -335,7 +335,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Driver' %}
 			<div class="col-md-3 feature-grid jewel">
-				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
@@ -343,11 +343,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>{{value.experience}} yrs of experience</p>
 					</div>
 					<div class="viw">
-					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					</div></a>
+					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					</div>
 			</div>
 			{% endif %}
 			{% endfor %}
@@ -362,7 +362,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Catering' %}
 			<div class="col-md-3 feature-grid jewel">
-				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>
 					<div class="arrival-info">
 						 <h4>{{value.name}}</h4>
 						 <p>{{value.place}}</p>
@@ -370,11 +370,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <p>{{value.experience}} of experience</p>
 					</div>
 					<div class="viw">
-					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					</div></a>
+					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					</div>
 			</div>
 			{% endif %}
 			{% endfor %}
@@ -389,7 +389,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'House Keeping' %}
 			<div class="col-md-3 feature-grid jewel">
-				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
 					<div class="arrival-info">
 						 <h4>{{value.name}}</h4>
 						 <p>{{value.place}}</p>
@@ -397,11 +397,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <p>{{value.experience}} of experience</p>
 					</div>
 					<div class="viw">
-					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					</div></a>
+					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					</div>
 			</div>
 			{% endif %}
 			{% endfor %}
@@ -416,7 +416,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Welder' %}
 			<div class="col-md-3 feature-grid jewel">
-				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>
 					<div class="arrival-info">
 						 <h4>{{value.name}}</h4>
 						 <p>{{value.place}}</p>
@@ -424,11 +424,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <p>{{value.experience}} of experience</p>
 					</div>
 					<div class="viw">
-					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					</div></a>
+					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					</div>
 			</div>
 			{% endif %}
 			{% endfor %}
@@ -443,7 +443,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			{% for value in detials %}
 			{% if value.category.category_name == 'Plumber' %}
 			<div class="col-md-3 feature-grid jewel">
-				<a href=""><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
 					<div class="arrival-info">
 						 <h4>{{value.name}}</h4>
 						 <p>{{value.place}}</p>
@@ -451,10 +451,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <p>{{value.experience}} of experience</p>
 					</div>
 					<div class="viw">
-					   <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div></a>
 			</div>
 			{% endif %}

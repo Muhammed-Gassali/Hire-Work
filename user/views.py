@@ -218,10 +218,30 @@ def customer_profile(request):
     else:
         return render(customer_homepage)
 
-def edit_profile(request):
-    pass
 
-def quickview(request):
-    detials = User.objects.all()
-    context = {"detials":detials}
-    return render(request, 'customer/single.html', context)
+def quickview(request, id):
+    if request.user.is_authenticated:
+        detials = JobSeeker.objects.filter(id=id).first()
+        seekers = JobSeeker.objects.all()
+        category = detials.category.category_name
+        index = 0
+        context = {"detials":detials, "seekers":seekers, "category":category, "index":index}
+        return render(request, 'customer/quickview.html', context)
+    else:
+        detials = JobSeeker.objects.filter(id=id).first()
+        seekers = JobSeeker.objects.all()
+        category = detials.category.category_name
+        index = 1
+        context = {"detials":detials, "seekers":seekers, "category":category, "index":index}
+        return render(request, 'customer/quickview.html', context)
+    
+
+def collection(request):
+    if request.user.is_authenticated:
+        return render(request, 'customer/checkout.html')
+    else:
+        return redirect(customer_homepage)
+
+def add_to_collection(request):
+    # if request.user.is_authenticated:
+        pass

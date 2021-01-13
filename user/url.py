@@ -17,6 +17,14 @@ urlpatterns = [
     path('collection', views.collection, name="collection"),
     path('add-to-collection/<int:id>', views.add_to_collection, name="add-to-collection"),
     path('delete-collection/<int:id>', views.delete_collection, name="delete-collection"),
+    path('seeker-profile', views.seeker_profile, name="seeker-profile"),
+    path('seeker-logout', views.seeker_logout, name="seeker-logout"),
+    path('seeker-available/<int:id>', views.seeker_available, name="seeker-available"),
+    path('seeker-not-available/<int:id>', views.seeker_not_available, name="seeker-not-available"),
+
+
+
+
 
 
 

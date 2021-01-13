@@ -49,11 +49,12 @@
 			<div class="box loginBox">
 				<h3>Login Here</h3>
 				<form class="form" action="#" method="post">
+					{% csrf_token %}
 					<div class="f_row-2">
-						<input type="text" class="input-field" placeholder="Username" name="name" required>
+						<input type="text" class="input-field" placeholder="Username" name="username" required>
 					</div>
 					<div class="f_row-2 last">
-						<input type="password" name="password" placeholder="Password" class="input-field" required>
+						<input type="password" name="password" placeholder="password" class="input-field" required>
 					</div>
 					<input class="submit-w3" type="submit" value="Login">
 					<br><br>	

@@ -100,6 +100,8 @@ def save_edit(request, id):
 def seeker_manage(request):
     if request.session.has_key('admin_username'):
         seeker = JobSeeker.objects.all()
+        for s in seeker:
+            print(s.ImageURL)
         return render(request, 'admin/seekermanage.html', {'seeker':seeker})
     else:
         return render(request, 'admin/adminlogin.html')

@@ -242,7 +242,7 @@ def collection(request):
         total_price = 0
         for x in data:
             total_price = total_price + x.get_total
-            
+
         context = {"data":data, "total_price":total_price}
         return render(request, 'customer/collection.html', context)
     else:
@@ -269,3 +269,80 @@ def delete_collection(request, id):
         return redirect(collection)
     else:
         return redirect(customer_homepage)
+
+
+# *****************************************************************************seeker************************************************************************************************
+
+def seeker_profile(request):
+    if request.session.has_key('user_name'):
+        user_name = request.session['user_name']
+        seeker = JobSeeker.objects.filter(username=user_name).first()
+        context = {"detials":seeker}
+        return render(request, 'seeker/seekerprofile.html', context)
+    else:
+        return redirect(seeker_login)
+    
+    
+
+def seeker_login(request):
+    if request.session.has_key('user_name'):
+        return redirect(seeker_profile)
+    if request.method == "POST":
+        user_name = request.POST['username']
+        password = request.POST['password']
+        seeker = JobSeeker.objects.filter(username=user_name).first()
+
+        if JobSeeker.objects.filter(username=user_name, password=password):
+            request.session['user_name']= user_name
+            return redirect(seeker_profile)
+        else:
+            return HttpResponse("fail")
+    else:
+        return render(request, 'seeker/seekerlogin.html')
+
+        # if customer is not None and check_password(password,customer.password):
+        #     if customer.is_active == False:
+        #         messages.info(request, 'user is blocked')
+        #         return redirect(user_login)
+        #     else:
+        #         auth.login(request, customer)
+        #         # return redirect(registered_user_home_page)
+        #         return HttpResponse("Home Page Of Customer")
+        # else:   
+        #     value={"username":user_name}
+        #     messages.info(request, 'invalid credentials')
+        #     return render(request, 'customer/customerlogin.html')
+    # else:
+    #     return render(request, 'customer/customerlogin.html')
+
+
+    
+def seeker_logout(request):
+    if request.session.has_key('user_name'):
+        request.session.flush()
+        return redirect(seeker_login)
+    else:
+        return render(request, 'seeker/seekerlogin.html')
+        
+
+def seeker_available(request, id):
+    if request.session.has_key('user_name'):
+        seeker = JobSeeker.objects.filter(id=id).first()
+        seeker.available = False
+        print(seeker.available)
+        seeker.save()
+        return redirect(seeker_profile)
+
+    else:
+        return render(request, 'seeker/seekerlogin.html')
+
+def seeker_not_available(request, id):
+    if request.session.has_key('user_name'):
+        seeker = JobSeeker.objects.filter(id=id).first()
+        seeker.available = True
+        print(seeker.available)
+        seeker.save()
+        return redirect(seeker_profile)
+
+    else:
+        return render(request, 'seeker/seekerlogin.html')

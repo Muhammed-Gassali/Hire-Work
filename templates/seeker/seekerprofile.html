@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Seeker Profile</title>
+<link href="{% static 'seekerprofilecss/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'seekerprofilejs/jquery.min.js' %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static 'seekerprofilecss/style.css' %}" rel='stylesheet' type='text/css' />
+ <!-- Custom Theme files -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="keywords" content="Preface Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<!-- webfonts -->
+	<link href='//fonts.googleapis.com/css?family=Asap:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+<!-- webfonts -->
+ <!---- start-smoth-scrolling---->
+<script type="text/javascript" src="{% static 'seekerprofilejs/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'seekerprofilejs/easing.js' %}"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+ <!---- start-smoth-scrolling---->
+</head>
+	<body>
+		<!-- container -->
+			<!-- header -->
+			<div id="home" class="header">
+				<div class="container">
+				<!-- top-hedader -->
+				<div class="top-header">
+					<!-- /logo -->
+					<!--top-nav---->
+					<div class="top-nav">
+					<div class="navigation">
+					<div class="logo">
+						<h1><a href="index.html"><span>P</span>REFACE</a></h1>
+					</div>
+					<div class="navigation-right">
+						<span class="menu"><img src="{% static 'seekerprofileimages/menu.png' %}" alt=" " /></span>
+						<nav class="link-effect-3" id="link-effect-3">
+							<ul class="nav1 nav nav-wil">
+								<li class="active"><a data-hover="Home" href="index.html">Home</a></li>
+								<li class="active"><a class="scroll" data-hover="About" href="#about">About</a></li>
+								<li class="active"><a   href="{% url 'seeker-logout' %}" >Logout</a></li>
+								<li><a class="scroll" data-hover="Experience" href="#work">Experience</a></li>
+								<li><a class="scroll" data-hover="Portfolio" href="#port">Portfolio</a></li>
+								<li><a class="scroll" data-hover="Blog" href="#blogs">Blog</a></li>
+								<li><a class="scroll" data-hover="Contact" href="#contact">Contact</a></li>
+							</ul>
+						</nav>
+							<!-- script-for-menu -->
+								<script>
+								   $( "span.menu" ).click(function() {
+									 $( "ul.nav1" ).slideToggle( 300, function() {
+									 // Animation complete.
+									  });
+									 });
+								</script>
+							<!-- /script-for-menu -->
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!-- /top-hedader -->
+				</div>
+			<div class="banner-info">
+				<div class="col-md-7 header-right">
+					{% if detials.available == True %}
+					<h1>Available !</h1>
+					{% elif detials.available == False %}
+					<h1>Not Available !</h1>
+					{% endif %}
+					<!-- <h1>{{detials.available}}</h1> -->
+					<h6>{{detials.category.category_name}}</h6>
+					<ul class="address">
+					
+					<li>
+							<ul class="address-text">
+								<li><b>NAME</b></li>
+								<li>{{detials.name}}</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>Gender</b></li>
+								<li>{{detials.gender}}</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>Place </b></li>
+								<li>{{detials.place}}</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>ADDRESS </b></li>
+								<li>{{detials.address}}</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>E-MAIL </b></li>
+								<li>{{detials.email}}</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>Phone Number</b></li>
+								<li>{{detials.phone_number}}</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>Salary</b></li>
+								<li>{{detials.expected_salary}}</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>Age</b></li>
+								<li>{{detials.age}}</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>Experience</b></li>
+								<li>{{detials.experience}} yrs</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>Username</b></li>
+								<li>{{detials.username}}</li>
+
+							</ul>
+						</li>
+						
+					</ul>
+				</div>
+				<div class="col-md-5 header-left">
+					<img src="{{detials.ImageURL}}" alt="ff"><br><br>
+					<!-- <img src="{{detials.ImageURL}}"	> -->
+					<!-- <button type="button" class="btn btn-primary" onclick="change()" value="available"></button> -->
+					<!-- <input onclick="change()" type="button" value="Available" id="myButton1"></input> -->
+					{% if detials.available == True %}
+					<button><a href="{% url 'seeker-available' detials.id %}">Not Available</a></button>
+					{% elif detials.available == False %}
+					<button><a href="{% url 'seeker-not-available' detials.id %}">Available</a></button>
+					{% endif %}
+				</div>
+				<div class="clearfix"> </div>
+						
+		      </div>
+			</div>
+		</div>
+	</div>
+
+
+		
+
+<a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<!--start-smooth-scrolling-->
+						<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+								<!--end-smooth-scrolling-->
+<!-- //for bootstrap working -->
+	<script src="{% static 'seekerprofilejs/bootstrap.js' %}"></script>
+	<script>
+		function change() // no ';' here
+		{
+    		var elem = document.getElementById("myButton1");
+    		if (elem.value=="Available") elem.value = "Available";
+    		else elem.value = "Not Available";
+		}
+	</script>
+
+	</body>
+</html>
+

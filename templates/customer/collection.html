@@ -22,6 +22,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>	
 <!-- /start menu -->
+<!-- delete icon  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- //delete icon -->
 </head>
 <body> 
 <!--header-->	
@@ -109,23 +113,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 					 <div class="in-check" >
 						  <ul class="unit">
-							<li><span>Item</span></li>
-							<li><span>Product Name</span></li>		
-							<li><span>Unit Price</span></li>
-							<li><span>Stock Status</span></li>
-							<li> </li>
+							<li><span></span></li>
+							<li><span>Name</span></li>		
+							<li><span>Category</span></li>
+							<li><span>Salary</span></li>
+							<li>
+					   </li>
 							<div class="clearfix"> </div>
 						  </ul>
+						  {% for value in data %}
 						  <ul class="cart-header">
 						   <div class="close1"> </div>
-							<li class="ring-in"><a href="single.html" ><img src="{% static 'customerhomepageimages/f1.jpg' %}" class="img-responsive" alt=""></a>
+							<li class="ring-in"><a href="" ><img src="{{value.seeker.ImageURL}}" class="img-responsive" alt=""></a>
 							</li>
-							<li><span>Woo Dress</span></li>
-							<li><span>$ 60.00</span></li>
-							<li><span>In Stock</span></li>
+							<li><span>{{value.seeker.name}}</span></li>
+							<li><span>{{value.seeker.category.category_name}}</span></li>
+							<li><span>{{value.seeker.expected_salary}}</span></li>
+							<li><span><a href="{% url 'delete-collection' value.id %}">
+								<span class="glyphicon glyphicon-remove-sign"></span>
+							  </a></span></li>
+
 							<!-- <li> <a href="single.html" class="add-cart cart-check">ADD TO CART</a></li> -->
 							<div class="clearfix"> </div>
 							</ul>
+							{% endfor %}
 						
 					 </div>
 				  </div>					  
@@ -135,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 			 
 			 <h4 class="last-price">TOTAL</h4>
-			 <span class="total final">450.00</span>
+			 <span class="total final">{{total_price}}</span>
 			 <div class="clearfix"></div>
 			 <a class="order" href="#">Place Order</a>
 			 

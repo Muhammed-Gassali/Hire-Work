@@ -41,3 +41,8 @@ class Collection(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     seeker = models.ForeignKey(JobSeeker, on_delete=models.CASCADE, blank=True, null=True)
     total_price = models.IntegerField(blank=True, null=True)
+
+    @property
+    def get_total(self):
+        total = self.seeker.expected_salary 
+        return total

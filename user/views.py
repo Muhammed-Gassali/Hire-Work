@@ -238,10 +238,34 @@ def quickview(request, id):
 
 def collection(request):
     if request.user.is_authenticated:
-        return render(request, 'customer/checkout.html')
+        data = Collection.objects.all()
+        total_price = 0
+        for x in data:
+            total_price = total_price + x.get_total
+            
+        context = {"data":data, "total_price":total_price}
+        return render(request, 'customer/collection.html', context)
     else:
         return redirect(customer_homepage)
 
-def add_to_collection(request):
-    # if request.user.is_authenticated:
-        pass
+def add_to_collection(request, id):
+    if request.user.is_authenticated:
+        user = request.user
+        seeker = JobSeeker.objects.get(id=id)
+        if Collection.objects.filter(customer=user, seeker=seeker).exists():
+            return redirect(registered_customer_homepage)
+        else:
+            data = Collection.objects.create(customer=user, seeker=seeker, total_price=seeker.expected_salary)
+            print(data)
+            return redirect(registered_customer_homepage)
+    else:
+        return redirect(customer_homepage)
+
+def delete_collection(request, id):
+    if request.user.is_authenticated:
+        value = Collection.objects.get(id = id)
+        value.delete()
+        messages.info(request, 'deleted successfully')
+        return redirect(collection)
+    else:
+        return redirect(customer_homepage)

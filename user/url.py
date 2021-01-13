@@ -15,6 +15,10 @@ urlpatterns = [
     path('customer-profile', views.customer_profile, name="customer-profile"),
     path('quickview/<int:id>', views.quickview, name="quickview"),
     path('collection', views.collection, name="collection"),
+    path('add-to-collection/<int:id>', views.add_to_collection, name="add-to-collection"),
+    path('delete-collection/<int:id>', views.delete_collection, name="delete-collection"),
+
+
 
 
 

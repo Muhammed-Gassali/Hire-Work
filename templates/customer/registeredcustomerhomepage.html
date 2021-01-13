@@ -29,13 +29,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>`
 </head>
 <body> 
-<!--header-->	
 <div class="top_bg">
 	<div class="container">
 		<div class="header_top-sec">
 			<div class="top_right">
 				<ul>
-					
 					<li><a href="contact.html">Contact</a></li>|
 					<li><a href="login.html">Order Confirmation</a></li>
 				</ul>
@@ -101,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </div>
 			 <!---->
 			 <div id="jj" class="cart box_1">
-				 <a href="checkout.html">
+				 <a href="{% url 'collection' %}">
 					<h3> <div class="total">
 					<!-- <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>)</div> -->
 					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h3>
@@ -214,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" ></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+						<a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					 </div>
 			 </div>
 			 {% endif %}
@@ -262,7 +260,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -291,7 +289,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -319,7 +317,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div></a>
 			</div>
 			{% endif %}
@@ -346,7 +344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -373,7 +371,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -400,7 +398,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -427,7 +425,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -454,7 +452,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div></a>
 			</div>
 			{% endif %}

@@ -4,6 +4,8 @@ from Admin.models import *
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.hashers import check_password
 import json
+from django.contrib import messages
+import uuid
 
 # image loading
 from  django.core.files.storage import FileSystemStorage
@@ -12,6 +14,10 @@ from django.core.files import File
 
 # otp
 import requests
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
 
 
 # Create your views here.
@@ -130,6 +136,7 @@ def confirm_otp(request):
             ]
             headers = {
             'Authorization': 'Token 7b965deb9feaf5d0601c369eda9ff2e04c56d9ce'
+            # 'Authorization': 'Token 13ff28cd8a3bc23d426420f75b84879c7f958c4c'
             }
             response = requests.request("POST", url, headers=headers, data = payload, files = files)
             print(response.text.encode('utf8'))
@@ -216,7 +223,7 @@ def customer_profile(request):
             context = {"detials":detials, 'value':user, 'customer_detials':customer_detials}
             return render(request, 'customer/customerprofile.html', context)
     else:
-        return render(customer_homepage)
+        return redirect(customer_homepage)
 
 
 def quickview(request, id):
@@ -238,7 +245,9 @@ def quickview(request, id):
 
 def collection(request):
     if request.user.is_authenticated:
-        data = Collection.objects.all()
+        # data = Collection.objects.all()
+        user = request.user
+        data = Collection.objects.filter(customer=user)
         total_price = 0
         for x in data:
             total_price = total_price + x.get_total
@@ -271,6 +280,77 @@ def delete_collection(request, id):
         return redirect(customer_homepage)
 
 
+def order_verify(request):
+    if request.user.is_authenticated:
+        user = request.user
+        if request.method == "POST":
+            name = request.POST['name']
+            address = request.POST['ad']    
+            mobile_number = request.POST['mobile']
+            place = request.POST['place']
+            land_mark = request.POST['mark']
+            pincode = request.POST['pin']
+            time = request.POST['time']
+            date = request.POST['date']
+            transaction_id = uuid.uuid4()
+            collection = Collection.objects.filter(customer=user)
+            for x in collection:
+                confirm_order = order.objects.create(customer=user,seeker=x.seeker, name=name, address=address, mobile_number=mobile_number, place=place, land_mark=land_mark, pincode=pincode, time=time, date=date, transaction_id=transaction_id)
+            collection.delete()
+
+            order_phone = order.objects.filter(transaction_id=transaction_id)
+            for x in order_phone:
+                phone_number=x.seeker.phone_number
+            
+                # sms verificaion
+                mobile_number = str(91) + phone_number
+                url = "https://http-api.d7networks.com/send"
+                querystring = {
+                "username":"imjq2616",
+                "password":"MfEcnAqr",
+                "from":"Test%20SMS",
+                "content":"Hi sir, you are hired.Detials you can see in your profile, Please confirm it ASAP",
+                "dlr-method":"POST",
+                "dlr-url":"https://4ba60af1.ngrok.io/receive",
+                "dlr":"yes",
+                "dlr-level":"3",
+                "to":mobile_number,
+                }
+                headers = {
+                'cache-control': "no-cache"
+                }
+                response = requests.request("GET", url, headers=headers, params=querystring)
+                print(response.text)
+                # //sms verification
+
+            return redirect(registered_customer_homepage)
+        detials = CustomerDetials.objects.get(user=user)
+        collections = Collection.objects.filter(customer=user)
+        total_price = 0
+        for x in collections:
+            total_price = total_price + x.get_total
+
+        context = {"customer":user, "detials":detials, "collections":collections, "total_price":total_price}
+        return render(request, 'customer/order.html', context)
+    else:
+        return redirect(customer_homepage)
+
+
+def order_confirmation(request):
+    if request.user.is_authenticated:
+        user =request.user
+        print(user)
+        order_verify = order.objects.filter(customer=user)
+        context = {"order":order_verify}
+        return render(request, 'customer/orderconfirmation.html', context)
+    else:
+        return redirect(customer_homepage)
+    
+
+
+def contact(request):
+    return render(request, 'customer/contact.html')
+
 # *****************************************************************************seeker************************************************************************************************
 
 def seeker_profile(request):
@@ -296,26 +376,12 @@ def seeker_login(request):
             request.session['user_name']= user_name
             return redirect(seeker_profile)
         else:
-            return HttpResponse("fail")
+            messages.info(request, 'invalid credentials')
+            return render(request, 'seeker/seekerlogin.html')
     else:
         return render(request, 'seeker/seekerlogin.html')
 
-        # if customer is not None and check_password(password,customer.password):
-        #     if customer.is_active == False:
-        #         messages.info(request, 'user is blocked')
-        #         return redirect(user_login)
-        #     else:
-        #         auth.login(request, customer)
-        #         # return redirect(registered_user_home_page)
-        #         return HttpResponse("Home Page Of Customer")
-        # else:   
-        #     value={"username":user_name}
-        #     messages.info(request, 'invalid credentials')
-        #     return render(request, 'customer/customerlogin.html')
-    # else:
-    #     return render(request, 'customer/customerlogin.html')
-
-
+       
     
 def seeker_logout(request):
     if request.session.has_key('user_name'):
@@ -346,3 +412,90 @@ def seeker_not_available(request, id):
 
     else:
         return render(request, 'seeker/seekerlogin.html')
+
+
+def edit_profile(request, id):
+    if request.session.has_key('user_name'):
+        seeker = JobSeeker.objects.get(id=id)
+        print(seeker.name)
+        context = {"seeker":seeker}
+        return render(request, 'seeker/editprofile.html', context)
+    else:
+        return render(request, 'seeker/seekerlogin.html')
+    
+
+def editing_profile(request):
+    if request.session.has_key('user_name'):
+        if request.method == "POST":
+            user = request.session['user_name']
+            seeker = JobSeeker.objects.get(username=user)
+            # name = request.POST['name']
+            # print(name)
+            
+            seeker.name = request.POST['name']
+            seeker.place = request.POST['place']
+            seeker.address = request.POST['address']
+            seeker.email = request.POST['email']
+            seeker.phone_number = request.POST['phone']
+            seeker.expected_salary = request.POST['salary']
+            seeker.age = request.POST['age']
+            seeker.experience = request.POST['experience']
+            seeker.username = request.POST['username']
+            seeker.image = request.FILES.get('image')
+            seeker.save()
+
+        # else
+        seeker = JobSeeker.objects.get(username=user)
+        context = {"seeker":seeker}
+        return render(request, 'seeker/editprofile.html', context)
+    else:
+        return render(request, 'seeker/seekerlogin.html')
+
+
+
+def seeker_order(request, id):
+    if request.session.has_key('user_name'):
+        print(id)
+        my_order = order.objects.filter(seeker=id)
+        print(my_order)
+        context = {"my_order":my_order}
+        return render(request, 'seeker/seekerorder.html', context)
+
+    else:
+        return render(request, 'seeker/seekerlogin.html')
+
+
+def seeker_order_confirm(request, id):
+    if request.session.has_key('user_name'):
+        print(id)
+        order_data = order.objects.get(seeker=id)
+        if order_data.order_verify == False:
+            order_data.order_verify = True
+            order_data.save()
+        else:
+            order_data.order_verify == False
+        return redirect(seeker_order, id)
+    else:
+        return render(request, 'seeker/seekerlogin.html')
+
+ ################################################################### rest API ##############################################################
+
+class rest(APIView):
+    def get(self, requests):
+        return Response({"status":'done'})
+
+    def post(self, request):
+        print(request.data['username'])
+        return Response({"status":'done'})
+
+    
+
+class rest_login(APIView):
+    def post(self, request):
+        username = request.data['username']
+        password = request.data['password']
+        if username =="gassali" and password =="5554":
+            return Response({"status":"ok"})
+        else:
+             return Response({"status":"failed"})
+

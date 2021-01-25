@@ -17,10 +17,42 @@ urlpatterns = [
     path('collection', views.collection, name="collection"),
     path('add-to-collection/<int:id>', views.add_to_collection, name="add-to-collection"),
     path('delete-collection/<int:id>', views.delete_collection, name="delete-collection"),
+    path('order', views.order_verify, name="order"),
+    path('order-confirmation', views.order_confirmation, name="order-confirmation"),
+    path('contact', views.contact, name="contact"),
+
+
+
+
+
+    path('rest', views.rest.as_view(), name="rest"),
+    path('rest-login', views.rest_login.as_view(), name="rest-login"),
+
+
+
+
+
+
     path('seeker-profile', views.seeker_profile, name="seeker-profile"),
     path('seeker-logout', views.seeker_logout, name="seeker-logout"),
     path('seeker-available/<int:id>', views.seeker_available, name="seeker-available"),
     path('seeker-not-available/<int:id>', views.seeker_not_available, name="seeker-not-available"),
+    path('edit-profile/<int:id>', views.edit_profile, name="edit-profile"),
+    path('editing-profile', views.editing_profile, name="editing-profile"),
+    path('seeker-order/<int:id>', views.seeker_order, name="seeker-order"),
+    path('seeker-order-confirm/<int:id>', views.seeker_order_confirm, name="seeker-order-confirm"),
+
+
+
+
+
+
+    # path('test', views.test, name="test"),
+
+
+
+
+
 
 
 

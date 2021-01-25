@@ -62,7 +62,14 @@
 						<ul class="social-icons-top">
 							<a href="" class="resetTag"><P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					          Login with OTP</P></a>
+							  Login with OTP
+							<br>
+							{% for message in messages %}
+							<p style="color: black;">{{message}}</p>
+								{% endfor %}
+						</P></a>
+							  
+							
 						</ul>
 						<a href="#" class="btn-face m-b-20">
 							<i class="fa fa-facebook-official"></i>

@@ -31,8 +31,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header_top-sec">
 			<div class="top_right">
 				<ul>
-					<li><a href="contact.html">Contact</a></li>|
-					<li><a href="login.html">Order Confirmations</a></li>
+					<li><a href="{% url 'contact' %}">Contact</a></li>|
+					<li><a href="{% url 'customer-login' %}">Order Confirmations</a></li>
 				</ul>
 			</div>
 			<div class="top_left">
@@ -105,17 +105,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </div>
 			 <!---->
 			 <div id="jj" class="cart box_1">
-				 <a href="checkout.html">
-					<h3> <div class="total">
-					<!-- <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>)</div> -->
-					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h3>
-				</a>
-				<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-			 	<div class="clearfix"> </div>
-			 </div>
-			 <div class="clearfix"> </div>
-			 <!---->			 
-			 </div>
+				<a href="{% url 'customer-login' %}">
+				   <h3> <div class="total">
+					   <img style="width: 30px; height:30px" src="{% static 'customerhomepageimages/man.png' %}" alt=""><br>
+					   <p>collections</p>
+				   <!-- <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h3> -->
+			   </a>
+				<div class="clearfix"> </div>
+			</div>
 			<div class="clearfix"> </div>
 	  </div>
 </div>
@@ -132,10 +129,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 </div>
 		 <div class="col-md-9 welcome-right">
 			 <h3>Proin ornare massa eu enim pretium efficitur.</h3>
-			 <p>Etiam fermentum consectetur nulla, sit amet dapibus orci sollicitudin vel. 
-			 Nulla consequat turpis in molestie fermentum. In ornare, tellus non interdum ultricies, elit 
-			 ex lobortis ex, aliquet accumsan arcu tortor in leo. Nullam molestie elit enim. Donec ac 
-			 aliquam quam, ac iaculis diam. Donec finibus scelerisque erat, non convallis felis commodo ac.</p>
+			 <p>Hire&Get is statnding for getting Jobs and Hire workers. Here you have two choices, either you can enroll as a worker and get job apt to you like we mentioned in the category section nor you can enroll as a customer and hire workers according to their profession for your needs.
+
+				For workers, Here we are offering best oppertunities to get works everyday if you guys properly follow our rules and regulations. You guys want to register here by providing some of details like your Name, profession, how much you expected salary per day, etc...
+				
+				For customers, Here we are offering the workers which will satisfies you with their works. You can hire workers accordig to their salary expecatation , how much year they have experience in that field etc..
+				
+				</p>
 		 </div>
 	 </div>
 </div>
@@ -144,57 +144,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <div class="container">
 		 <div class="col-md-4 bride-grid">
 			 <div class="content-grid l-grids">
-				 <figure class="effect-bubba">
-						<img src="{% static 'customerhomepageimages/b1.jpg' %}" alt=""/>
-						<figcaption>
-							<h4>Nullam molestie </h4>
-							<p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>																
-						</figcaption>			
-				 </figure>
+						<img src="{% static 'customerhomepageimages/c.jpg' %}" alt=""/>
 				 <div class="clearfix"></div>
-				 <h3>Wedding Dresses</h3>
+				 <h3>Construction</h3>
 			 </div>
 			 <div class="content-grid l-grids">
-				 <figure class="effect-bubba">
-						<img src="{% static 'customerhomepageimages/b2.jpg' %}" alt=""/>
-						<figcaption>
-							<h4>Nullam molestie </h4>
-							<p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>																
-						</figcaption>			
-				 </figure>	
+						<img src="{% static 'customerhomepageimages/cr.jpg' %}" alt=""/>	
 				 <div class="clearfix"></div>
-				 <h3>BridalParty & Dresses</h3>
+				 <h3>Carpentry</h3>
 			 </div>
 		 </div>
 		 <div class="col-md-4 bride-grid">
 				<div class="content-grid l-grids">
-						<img src="{% static 'customerhomepageimages/brid.jpg' %}" alt=""/>
-						
-				 <h3>Bridesmaid Dresses</h3>
+						<img src="{% static 'customerhomepageimages/w.jpg' %}" alt=""/>
+				 <h3>Welding</h3>
 			 </div>
 		 </div>
 		 <div class="col-md-4 bride-grid">
 			 <div class="content-grid l-grids">
-				 <figure class="effect-bubba">
-						<img src="{% static 'customerhomepageimages/b3.jpg' %}" alt=""/>
-						<figcaption>
-							<h4>Nullam molestie </h4>
-							<p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>																
-						</figcaption>			
-				 </figure>	
+						<img src="{% static 'customerhomepageimages/p.jpg' %}" alt=""/>	
 				 <div class="clearfix"></div>
-				 <h3>Wedding</h3>
+				 <h3>Painting</h3>
 			 </div>
 			 <div class="content-grid l-grids">
-				 <figure class="effect-bubba">
-						<img src="{% static 'customerhomepageimages/b4.jpg' %}" alt=""/>
-						<figcaption>
-							<h4>Nullam molestie </h4>
-							<p>In sit amet sapien eros Integer in tincidunt labore et dolore magna aliqua</p>																
-						</figcaption>			
-				 </figure>
+						<img src="{% static 'customerhomepageimages/d.jpg' %}" alt=""/>
 					<div class="clearfix"></div>
-				 <h3>Most Beautiful</h3>
+				 <h3>Driving</h3>
 			 </div>
 		 </div>
 		 <div class="clearfix"></div>
@@ -211,14 +186,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <div class="arrival-info">
 						 <h4>{{value.name}}</h4>
 						 <p>{{value.place}}</p>
-						 <p>{{value.expected_salary}}/day</p>
+						 <p>₹ {{value.expected_salary}}/day</p>
 						 <p>{{value.experience}} yrs of experience</p>
+						 <button type="button" class="btn btn-success">Hire</button>
 					 </div>
 					 <div class="viw">
 						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					 </div>
 			 </div>
 			 {% endif %}
@@ -238,14 +214,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
-						<p>{{value.expected_salary}}/day</p>
+						<p>₹ {{value.expected_salary}}/day</p>
 						<p>{{value.experience}} yrs of experience</p>
+						<button type="button" class="btn btn-success">Hire</button>
 					</div>
 					<div class="viw">
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -267,14 +244,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
-						<p>{{value.expected_salary}}/day</p>
+						<p>₹ {{value.expected_salary}}/day</p>
 						<p>{{value.experience}} yrs of experience</p>
+						<button type="button" class="btn btn-success">Hire</button>
 					</div>
 					<div class="viw">
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -295,14 +273,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
-						<p>{{value.expected_salary}}/day</p>
+						<p>₹ {{value.expected_salary}}/day</p>
 						<p>{{value.experience}} yrs of experience</p>
+						<button type="button" class="btn btn-success">Hire</button>
 					</div>
 					<div class="viw">
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}
@@ -322,14 +301,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
-						<p>{{value.expected_salary}}/day</p>
+						<p>₹ {{value.expected_salary}}/day</p>
 						<p>{{value.experience}} yrs of experience</p>
+						<button type="button" class="btn btn-success">Hire</button>
 					</div>
 					<div class="viw">
 					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
 					</div>
 			</div>
 			{% endif %}

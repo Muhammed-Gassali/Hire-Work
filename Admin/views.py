@@ -201,11 +201,41 @@ def update_category(request, id):
             messages.info(request, 'Edited successfully')
             return redirect(category_management)
     else:
-        return render(request, 'admin/index.html')
+        return render(request, 'admin/adminlogin.html')
 
 def admin_logout(request):
     if request.session.has_key('admin_username'):
         request.session.flush()
         return redirect(admin_login)
     else:
-        return render(request, 'admin/index.html')
+        return render(request, 'admin/adminlogin.html')
+
+def edit_seeker(request, id):
+    if request.session.has_key('admin_username'):
+        if request.method =="POST":
+            value = JobSeeker.objects.get(id=id)
+            value.name = request.POST['name']
+            value.email = request.POST['email']
+            value.phone_number = request.POST['phone']
+            value.address = request.POST['address']
+            value.place = request.POST['place']
+            value.age = request.POST['age']
+            value.expected_salary = request.POST['salary']
+            value.experience = request.POST['experience']
+            value.username = request.POST['username']
+            
+
+            if 'image' not in request.POST:
+                image = request.FILES.get('image')
+            else:
+                image = value.image
+            value.image = image
+            value.save()
+            return redirect(seeker_manage)
+
+        seeker = JobSeeker.objects.get(id=id)
+        category = Category.objects.all()
+        context = {"detials":seeker, "category":category}
+        return render(request, 'admin/editseeker.html', context)
+    else:
+        return render(request, 'admin/adminlogin.html')

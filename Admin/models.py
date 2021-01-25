@@ -46,3 +46,20 @@ class Collection(models.Model):
     def get_total(self):
         total = self.seeker.expected_salary 
         return total
+
+class order(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    seeker = models.ForeignKey(JobSeeker, on_delete=models.CASCADE, blank=True, null=True)
+    total_price = models.IntegerField(blank=True, null=True)
+    name = models.CharField(max_length=200, null=True, blank=True)
+    address = models.CharField(max_length=200, null=True, blank=True)
+    mobile_number = models.CharField(max_length=128, null=True, blank=True)
+    place = models.CharField(max_length=128, null=True, blank=True)
+    land_mark = models.CharField(max_length=128, null=True, blank=True)
+    pincode = models.CharField(max_length=128, null=True, blank=True)
+    time =models.TimeField()
+    date = models.DateField()
+    order_verify = models.BooleanField(default=False, null=True, blank=False)
+    customer_cancel = models.BooleanField(default=True, null=True, blank=False)
+    transaction_id = models.CharField(max_length=200, null=True)
+

@@ -41,20 +41,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!--top-nav---->
 					<div class="top-nav">
 					<div class="navigation">
-					<div class="logo">
-						<h1><a href="index.html"><span>P</span>REFACE</a></h1>
+					<div >
+						<!-- <h1><a href="index.html"><span>P</span>REFACE</a></h1> -->
+						<h1 style="color: black;"><a href="">Hire&Get</a></h1>
+
 					</div>
 					<div class="navigation-right">
 						<span class="menu"><img src="{% static 'seekerprofileimages/menu.png' %}" alt=" " /></span>
 						<nav class="link-effect-3" id="link-effect-3">
 							<ul class="nav1 nav nav-wil">
-								<li class="active"><a data-hover="Home" href="index.html">Home</a></li>
-								<li class="active"><a class="scroll" data-hover="About" href="#about">About</a></li>
-								<li class="active"><a   href="{% url 'seeker-logout' %}" >Logout</a></li>
-								<li><a class="scroll" data-hover="Experience" href="#work">Experience</a></li>
-								<li><a class="scroll" data-hover="Portfolio" href="#port">Portfolio</a></li>
-								<li><a class="scroll" data-hover="Blog" href="#blogs">Blog</a></li>
-								<li><a class="scroll" data-hover="Contact" href="#contact">Contact</a></li>
+								<li class="active"><a href="">Profile</a></li>
+								<li class="active"><a href="{% url 'edit-profile' detials.id %}">Edit Profile</a></li>
+								<li class="active"><a href="{% url 'seeker-logout' %}" >Logout</a></li>
+								<li class="active"><a  href="{% url 'seeker-order' detials.id %}" >Your Orders</a></li>
 							</ul>
 						</nav>
 							<!-- script-for-menu -->
@@ -140,8 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<ul class="address-text">
 								<li><b>Username</b></li>
 								<li>{{detials.username}}</li>
-
-							</ul>
+					</ul>
 						</li>
 						
 					</ul>

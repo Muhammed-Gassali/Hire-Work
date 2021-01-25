@@ -26,7 +26,9 @@ SECRET_KEY = 'bs1-(p8dp@knyx(q&y0zaqt6$#ofs#*@nc)&5=(+oe&f83+b4x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+
 
 
 # Application definition
@@ -39,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Admin',
+    'user',
     'social_django',
+    'rest_framework',
+    'django_twilio',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +153,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 MEDIA_URL = '/images/'
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}

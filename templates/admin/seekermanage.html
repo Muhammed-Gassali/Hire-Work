@@ -178,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<th>Category</th>
 											<th>Expected Salary</th>
 											<th>Username</th>
-											<th>Available</th>
+											<!-- <th>Available</th> -->
 											<th>Image</th>
 
 											<!-- <th>Id Proof</th> -->
@@ -200,16 +200,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<td>{{data.category.category_name}}</td>
 											<td>{{data.expected_salary}}</td>
 											<td>{{data.username}}</td>
-											{% if data.available == True %}
+											<!-- {% if data.available == True %}
 											<td>Yes</td>
 											{% else %}
 											<td>No</td>
-											{% endif %}
+											{% endif %} -->
 											<td><img  style="width:70px;height:70px;" src="{{data.ImageURL}}"></td>
 											<!-- <td><img  style="width:70px;height:70px;" src="{{data.ImageURL}}"></td> -->
 											
 											<td>
-												<a href="#"  data-toggle="tooltip"><i onclick="return confirm('are you sure you wanat to Edit this')" class="material-icons" style="font-size:20px;color:red">border_color</i></a>
+												<a href="{% url 'edit-seeker' data.id %}"  data-toggle="tooltip"><i onclick="return confirm('are you sure you wanat to Edit this')" class="material-icons" style="font-size:20px;color:red">border_color</i></a>
 												&nbsp;&nbsp;<a href="{% url 'delete-seeker' data.id %}"  data-toggle="tooltip"><i style="font-size:20px;color:red" onclick="return confirm('are you sure you wanat to delete')" class="material-icons">&#xE872;</i></a>
 											</td>
 										</tr>

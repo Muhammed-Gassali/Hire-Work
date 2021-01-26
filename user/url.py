@@ -20,6 +20,7 @@ urlpatterns = [
     path('order', views.order_verify, name="order"),
     path('order-confirmation', views.order_confirmation, name="order-confirmation"),
     path('contact', views.contact, name="contact"),
+    path('customer-order-cancel/<int:id>', views.customer_order_cancel, name="customer-order-cancel"),
 
 
 

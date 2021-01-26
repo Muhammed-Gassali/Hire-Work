@@ -2,342 +2,375 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hire&Get : {{user.username}} Homepage</title>
-<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
-<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />	
-<!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+	<title>Hire&Get : {{user.username}} Homepage</title>
+	<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
+	<!-- Custom Theme files -->
+	<!--theme-style-->
+	<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!--//theme-style-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- start menu -->
-<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
-<!-- start menu -->
-<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
-<script>$(document).ready(function(){$(".memenu").memenu();});</script>	
-<!-- /start menu -->
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- start menu -->
+	<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
+	<!-- start menu -->
+	<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
+	<script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+	<!-- /start menu -->
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<!-- model  -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>`
+	<!-- model  -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>`
 </head>
+
 <body>
-<div class="top_bg">
-	<div class="container">
-		<div class="header_top-sec">
-			<div class="top_right">
-				<ul>
-					<li><a href="contact.html">Contact</a></li>|
-					<li><a href="{% url 'order-confirmation' %}">Order Confirmation</a></li>
-				</ul>
-			</div>
-			<div class="top_left">
-				<ul>
-					<li class="top_link">Email:<a href="mailto:info@example.com">{{user.email}}</a></li>|
-					<li class="top_link"><a href="login.html">{{user.username}}</a></li>				
-				</ul>
-			</div>
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top-sec">
+				<div class="top_right">
+					<ul>
+						<li><a href="contact.html">Contact</a></li>|
+						<li><a href="{% url 'order-confirmation' %}">Order Confirmation</a></li>
+					</ul>
+				</div>
+				<div class="top_left">
+					<ul>
+						<li class="top_link">Email:<a href="mailto:info@example.com">{{user.email}}</a></li>|
+						<li class="top_link"><a href="login.html">{{user.username}}</a></li>
+					</ul>
+				</div>
 				<div class="clearfix"> </div>
+			</div>
 		</div>
 	</div>
-</div>
-<div class="header-top">
-	 <div class="header-bottom">
-		 <div class="container">			
+	<div class="header-top">
+		<div class="header-bottom">
+			<div class="container">
 				<div class="logo">
-					<a href="index.html"><h1>Hire&Get</h1></a>
-				</div>	
-			 <!---->
-		 
-			 <div class="top-nav">
-				<ul class="memenu skyblue"><li class="active"><a href="#">Home</a></li>
-					<li class="grid"><a href="#">Category</a>
-						<div class="mepanel">
-							<div class="row">
-								<div class="col1 me-one">
-								
-									<ul>
-										<li><a href="#">Construction</a></li>
-										<li><a href="#">Painter</a></li>
-										<li><a href="#">Electrician</a></li>
-									</ul>
-								</div>
-								<div class="col1 me-one">
-							
-									<ul>
-										<li><a href="#">Carpenter</a></li>
-										<li><a href="#">Driver</a></li>
-										<li><a href="#">Catering</a></li>
-									</ul>	
-								</div>
-								<div class="col1 me-one">
-									
-									<ul>
-										<li><a href="#">Maid</a></li>
-										<li><a href="#">Welder</a></li>
-										<li><a href="#">Plumber</a></li>
-										
-									</ul>	
+					<a href="index.html">
+						<h1>Hire&Get</h1>
+					</a>
+				</div>
+				<!---->
+
+				<div class="top-nav">
+					<ul class="memenu skyblue">
+						<li class="active"><a href="#">Home</a></li>
+						<li class="grid"><a href="#">Category</a>
+							<div class="mepanel">
+								<div class="row">
+									<div class="col1 me-one">
+
+										<ul>
+											<li><a href="#">Construction</a></li>
+											<li><a href="#">Painter</a></li>
+											<li><a href="#">Electrician</a></li>
+										</ul>
+									</div>
+									<div class="col1 me-one">
+
+										<ul>
+											<li><a href="#">Carpenter</a></li>
+											<li><a href="#">Driver</a></li>
+											<li><a href="#">Catering</a></li>
+										</ul>
+									</div>
+									<div class="col1 me-one">
+
+										<ul>
+											<li><a href="#">Maid</a></li>
+											<li><a href="#">Welder</a></li>
+											<li><a href="#">Plumber</a></li>
+										</ul>
+									</div>
 								</div>
 							</div>
-						</div>
-					</li>
-					<!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
-                    <li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
-					<li class="grid"><a href="{% url 'customer-profile' %}">Make a profile</a></li>
-                    
-					
-				</ul>
+						</li>
+						<li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
+						<li class="grid"><a href="{% url 'customer-profile' %}">Make a profile</a></li>
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+				<!---->
+				<div id="jj" class="cart box_1">
+					<a href="{% url 'collection' %}">
+						<h3>
+							<div class="total">
+								<img style="width: 30px; height:30px"
+									src="{% static 'customerhomepageimages/man.png' %}" alt=""><br>
+									
+								<p>collections</p>
+								<!-- <span class="badge badge-pill badge-success">Info</span> -->
+								<span class="badge badge-success">Info</span>
+
+							</div>
+					</a>
+					<div class="clearfix"> </div>
+				</div>
 				<div class="clearfix"> </div>
-			 </div>
-			 <!---->
-			 <div id="jj" class="cart box_1">
-				 <a href="{% url 'collection' %}">
-					<h3> <div class="total">
-						<img style="width: 30px; height:30px" src="{% static 'customerhomepageimages/man.png' %}" alt=""><br>
-						<p>collections</p>
-					<!-- <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h3> -->
-				</a>
-				
-			 	<div class="clearfix"> </div>
-			 </div>
-			 <div class="clearfix"> </div>
-			 <!---->			 
-			 </div>
+				<!---->
+			</div>
 			<div class="clearfix"> </div>
-	  </div>
-</div>
-<!---->
-<div class="banner">
-	 <div class="container">
-	 </div>
-</div>
-<!---->
-<div class="welcome">
-	 <div class="container">
-		 <div class="col-md-3 welcome-left">
-			 <h2>Welcome to Hire&Work</h2>
-		 </div>
-		 <div class="col-md-9 welcome-right">
-			 <h3>Proin ornare massa eu enim pretium efficitur.</h3>
-			 <p>Hire&Get is statnding for getting Jobs and Hire workers. Here you have two choices, either you can enroll as a worker and get job apt to you like we mentioned in the category section nor you can enroll as a customer and hire workers according to their profession for your needs.
+		</div>
+	</div>
+	<!---->
+	<div class="banner">
+		<div class="container">
+		</div>
+	</div>
+	<!---->
+	<div class="welcome">
+		<div class="container">
+			<div class="col-md-3 welcome-left">
+				<h2>Welcome to Hire&Work</h2>
+			</div>
+			<div class="col-md-9 welcome-right">
+				<h3>Proin ornare massa eu enim pretium efficitur.</h3>
+				<p>Hire&Get is statnding for getting Jobs and Hire workers. Here you have two choices, either you can
+					enroll as a worker and get job apt to you like we mentioned in the category section nor you can
+					enroll as a customer and hire workers according to their profession for your needs.
 
-				For workers, Here we are offering best oppertunities to get works everyday if you guys properly follow our rules and regulations. You guys want to register here by providing some of details like your Name, profession, how much you expected salary per day, etc...
-				
-				For customers, Here we are offering the workers which will satisfies you with their works. You can hire workers accordig to their salary expecatation , how much year they have experience in that field etc..
-				
+					For workers, Here we are offering best oppertunities to get works everyday if you guys properly
+					follow our rules and regulations. You guys want to register here by providing some of details like
+					your Name, profession, how much you expected salary per day, etc...
+
+					For customers, Here we are offering the workers which will satisfies you with their works. You can
+					hire workers accordig to their salary expecatation , how much year they have experience in that
+					field etc..
 				</p>
-		 </div>
-	 </div>
-</div>
-<!---->
-<div class="bride-grids">
-	<div class="container">
-		<div class="col-md-4 bride-grid">
-			<div class="content-grid l-grids">
-					   <img src="{% static 'customerhomepageimages/c.jpg' %}" alt=""/>
-				<div class="clearfix"></div>
-				<h3>Construction</h3>
 			</div>
-			<div class="content-grid l-grids">
-					   <img src="{% static 'customerhomepageimages/cr.jpg' %}" alt=""/>	
-				<div class="clearfix"></div>
-				<h3>Carpentry</h3>
-			</div>
-		</div>
-		<div class="col-md-4 bride-grid">
-			   <div class="content-grid l-grids">
-					   <img src="{% static 'customerhomepageimages/w.jpg' %}" alt=""/>
-				<h3>Welding</h3>
-			</div>
-		</div>
-		<div class="col-md-4 bride-grid">
-			<div class="content-grid l-grids">
-					   <img src="{% static 'customerhomepageimages/p.jpg' %}" alt=""/>	
-				<div class="clearfix"></div>
-				<h3>Painting</h3>
-			</div>
-			<div class="content-grid l-grids">
-					   <img src="{% static 'customerhomepageimages/d.jpg' %}" alt=""/>
-				   <div class="clearfix"></div>
-				<h3>Driving</h3>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
-<div class="featured">
-	 <div class="container">
-		 <h3>Construction</h3>
-		 <div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Construction' %}
-			 <div class="col-md-3 feature-grid jewel">
-					<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	</a>
-					 <div class="arrival-info">
-						 <h4>{{value.name}}</h4>
-						 <p>{{value.place}}</p>
-						 <p>₹ {{value.expected_salary}}/day</p>
-						 <p>{{value.experience}} yrs of experience</p>
-						 <a href="{% url 'add-to-collection' value.id %}"><button type="button" class="btn btn-success">Hire</button></a>
-					 </div>
-					 <div class="viw">
-						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" ></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					 </div>
-			 </div>
-			 {% endif %}
-			 {% endfor %}
-			 <div class="clearfix"></div>
-		 </div>
-	 </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-		<div class="modal-body">
-		  ...
-		</div>
-		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		  <button type="button" class="btn btn-primary">Save changes</button>
-		</div>
-	  </div>
-	</div>
-  </div>
-  <!-- //model  -->
-<div class="featured">
-	<h3>Painter</h3>
-	<div class="container">
-		<div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Painter' %}
-			<div class="col-md-3 feature-grid jewel">
-				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
-					<div class="arrival-info">
-						<h4>{{value.name}}</h4>
-						<p>{{value.place}}</p>
-						<p>₹ {{value.expected_salary}}/day</p>
-						<p>{{value.experience}} yrs of experience</p>
-						<a href="{% url 'add-to-collection' value.id %}"><button type="button" class="btn btn-success">Hire</button></a>
-					</div>
-					<div class="viw">
-					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					</div>
-					<div class="shrt">
-					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					</div>
-			</div>
-			{% endif %}
-			{% endfor %}	
-			<div class="clearfix"></div>
-		</div>
-		
-	</div>
-	
-</div>
-<div class="featured">
-	<div class="container">
-		<h3>Electrician</h3>
-		<div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Electrician' %}
-			<div class="col-md-3 feature-grid jewel">
-				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
-					<div class="arrival-info">
-						<h4>{{value.name}}</h4>
-						<p>{{value.place}}</p>
-						<p>₹ {{value.expected_salary}}/day</p>
-						<p>{{value.experience}} yrs of experience</p>
-						<a href="{% url 'add-to-collection' value.id %}"><button type="button" class="btn btn-success">Hire</button></a>
-					</div>
-					<div class="viw">
-					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					</div>
-					<div class="shrt">
-					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					</div>
-			</div>
-			{% endif %}
-			{% endfor %}
-			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>
 
-<div class="featured">
-	<div class="container">
-		<h3>Carpenter</h3>
-		<div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Carpenter' %}
-			<div class="col-md-3 feature-grid jewel">
-				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
+	<div class="bride-grids">
+		<div class="container">
+			<div class="col-md-4 bride-grid">
+				<div class="content-grid l-grids">
+					<img src="{% static 'customerhomepageimages/c.jpg' %}" alt="" />
+					<div class="clearfix"></div>
+					<h3>Construction</h3>
+				</div>
+				<div class="content-grid l-grids">
+					<img src="{% static 'customerhomepageimages/cr.jpg' %}" alt="" />
+					<div class="clearfix"></div>
+					<h3>Carpentry</h3>
+				</div>
+			</div>
+			<div class="col-md-4 bride-grid">
+				<div class="content-grid l-grids">
+					<img src="{% static 'customerhomepageimages/w.jpg' %}" alt="" />
+					<h3>Welding</h3>
+				</div>
+			</div>
+			<div class="col-md-4 bride-grid">
+				<div class="content-grid l-grids">
+					<img src="{% static 'customerhomepageimages/p.jpg' %}" alt="" />
+					<div class="clearfix"></div>
+					<h3>Painting</h3>
+				</div>
+				<div class="content-grid l-grids">
+					<img src="{% static 'customerhomepageimages/d.jpg' %}" alt="" />
+					<div class="clearfix"></div>
+					<h3>Driving</h3>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="featured">
+		<div class="container">
+			<h3>Construction</h3>
+			<div class="feature-grids">
+				{% for value in detials %}
+				{% if value.category.category_name == 'Construction' %}
+				<div class="col-md-3 feature-grid jewel">
+					<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+							src="{{value.ImageURL}}" alt="" /> </a>
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
 						<p>₹ {{value.expected_salary}}/day</p>
 						<p>{{value.experience}} yrs of experience</p>
-						<a href="{% url 'add-to-collection' value.id %}"><button type="button" class="btn btn-success">Hire</button></a>
+						<a href="{% url 'add-to-collection' value.id %}"><button type="button"
+								class="btn btn-success">Hire</button></a>
 					</div>
 					<div class="viw">
-					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+								aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					</div></a>
+						<a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star"
+								aria-hidden="true"></span>Hire</a>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+				<div class="clearfix"></div>
 			</div>
-			{% endif %}
-			{% endfor %}
-			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>
-<div class="featured">
-	<div class="container">
-		<h3>Driver</h3>
-		<div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Driver' %}
-			<div class="col-md-3 feature-grid jewel">
-				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
+	<!-- Modal -->
+	<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //model  -->
+	<div class="featured">
+		<h3>Painter</h3>
+		<div class="container">
+			<div class="feature-grids">
+				{% for value in detials %}
+				{% if value.category.category_name == 'Painter' %}
+				<div class="col-md-3 feature-grid jewel">
+					<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+							src="{{value.ImageURL}}" alt="" /></a>
 					<div class="arrival-info">
 						<h4>{{value.name}}</h4>
 						<p>{{value.place}}</p>
 						<p>₹ {{value.expected_salary}}/day</p>
 						<p>{{value.experience}} yrs of experience</p>
-						<a href="{% url 'add-to-collection' value.id %}"><button type="button" class="btn btn-success">Hire</button></a>
+						<a href="{% url 'add-to-collection' value.id %}"><button type="button"
+								class="btn btn-success">Hire</button></a>
 					</div>
 					<div class="viw">
-					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+								aria-hidden="true"></span>Quick View</a>
 					</div>
 					<div class="shrt">
-					   <a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
+						<a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star"
+								aria-hidden="true"></span>Hire</a>
 					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+				<div class="clearfix"></div>
 			</div>
-			{% endif %}
-			{% endfor %}
-			<div class="clearfix"></div>
+
+		</div>
+
+	</div>
+	<div class="featured">
+		<div class="container">
+			<h3>Electrician</h3>
+			<div class="feature-grids">
+				{% for value in detials %}
+				{% if value.category.category_name == 'Electrician' %}
+				<div class="col-md-3 feature-grid jewel">
+					<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+							src="{{value.ImageURL}}" alt="" /></a>
+					<div class="arrival-info">
+						<h4>{{value.name}}</h4>
+						<p>{{value.place}}</p>
+						<p>₹ {{value.expected_salary}}/day</p>
+						<p>{{value.experience}} yrs of experience</p>
+						<a href="{% url 'add-to-collection' value.id %}"><button type="button"
+								class="btn btn-success">Hire</button></a>
+					</div>
+					<div class="viw">
+						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+								aria-hidden="true"></span>Quick View</a>
+					</div>
+					<div class="shrt">
+						<a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star"
+								aria-hidden="true"></span>Hire</a>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+				<div class="clearfix"></div>
+			</div>
 		</div>
 	</div>
-</div>
-<!-- <div class="featured">
+
+	<div class="featured">
+		<div class="container">
+			<h3>Carpenter</h3>
+			<div class="feature-grids">
+				{% for value in detials %}
+				{% if value.category.category_name == 'Carpenter' %}
+				<div class="col-md-3 feature-grid jewel">
+					<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+							src="{{value.ImageURL}}" alt="" />
+						<div class="arrival-info">
+							<h4>{{value.name}}</h4>
+							<p>{{value.place}}</p>
+							<p>₹ {{value.expected_salary}}/day</p>
+							<p>{{value.experience}} yrs of experience</p>
+							<a href="{% url 'add-to-collection' value.id %}"><button type="button"
+									class="btn btn-success">Hire</button></a>
+						</div>
+						<div class="viw">
+							<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+									aria-hidden="true"></span>Quick View</a>
+						</div>
+						<div class="shrt">
+							<a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star"
+									aria-hidden="true"></span>Hire</a>
+						</div>
+					</a>
+				</div>
+				{% endif %}
+				{% endfor %}
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div class="featured">
+		<div class="container">
+			<h3>Driver</h3>
+			<div class="feature-grids">
+				{% for value in detials %}
+				{% if value.category.category_name == 'Driver' %}
+				<div class="col-md-3 feature-grid jewel">
+					<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+							src="{{value.ImageURL}}" alt="" /></a>
+					<div class="arrival-info">
+						<h4>{{value.name}}</h4>
+						<p>{{value.place}}</p>
+						<p>₹ {{value.expected_salary}}/day</p>
+						<p>{{value.experience}} yrs of experience</p>
+						<a href="{% url 'add-to-collection' value.id %}"><button type="button"
+								class="btn btn-success">Hire</button></a>
+					</div>
+					<div class="viw">
+						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+								aria-hidden="true"></span>Quick View</a>
+					</div>
+					<div class="shrt">
+						<a href="{% url 'add-to-collection' value.id %}"><span class="glyphicon glyphicon-star"
+								aria-hidden="true"></span>Hire</a>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="featured">
 	<div class="container">
 		<h3>Catering</h3>
 		<div class="feature-grids">
@@ -445,227 +478,255 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div> -->
-<!---->
-<div  class="arrivals">
-	 <div class="container">	
-		 <h3>Categories</h3>
-		 <div class="arrival-grids">			 
-			 <ul id="flexiselDemo1">
-				 <li>
-					 <a href="product.html"><img src="{% static 'customerhomepageimages/a1.jpg' %}" alt=""/>	
-					 <div class="arrival-info">
-						 <span class="disc">Construction</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
-				 <li>
-					 <a href="product.html"><img src="{% static 'customerhomepageimages/a2.jpg' %}" alt=""/>
-						<div class="arrival-info">
-						 <span class="disc">Carpenter</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
-				 <li>
-					 <a href="product.html"><img src="{% static 'customerhomepageimages/a3.jpg' %}" alt=""/>	
-						<div class="arrival-info">
-						 <span class="disc">Painter</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
-				 <li>
-				    <a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt=""/>	
-						<div class="arrival-info">
-						 <span class="disc">Electrician</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
-				 <li>
-				    <a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt=""/>	
-						<div class="arrival-info">
-						 <span class="disc">Driver</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
-				 <li>
-				    <a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt=""/>	
-						<div class="arrival-info">
-						 <span class="disc">Catering</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
-				 <li>
-				    <a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt=""/>	
-						<div class="arrival-info">
-						 <span class="disc">Maid</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
-				 <li>
-				    <a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt=""/>	
-						<div class="arrival-info">
-						 <span class="disc">Welder</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
-				 <li>
-				    <a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt=""/>	
-						<div class="arrival-info">
-						 <span class="disc">Plum</span>
-					 </div>
-					 <div class="viw">
-						<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
-					 </div></a>
-				 </li>
+	<!---->
+	<div class="arrivals">
+		<div class="container">
+			<h3>Categories</h3>
+			<div class="arrival-grids">
+				<ul id="flexiselDemo1">
+					<li>
+						<a href="product.html"><img src="{% static 'customerhomepageimages/a1.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Construction</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="product.html"><img src="{% static 'customerhomepageimages/a2.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Carpenter</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="product.html"><img src="{% static 'customerhomepageimages/a3.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Painter</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Electrician</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Driver</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Catering</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Maid</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Welder</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="product.html"> <img src="{% static 'customerhomepageimages/a4.jpg' %}" alt="" />
+							<div class="arrival-info">
+								<span class="disc">Plum</span>
+							</div>
+							<div class="viw">
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick
+									View</a>
+							</div>
+							<div class="shrt">
+								<a href="#"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"></span>Shortlist</a>
+							</div>
+						</a>
+					</li>
 				</ul>
 				<script type="text/javascript">
-				 $(window).load(function() {			
-				  $("#flexiselDemo1").flexisel({
-					visibleItems: 4,
-					animationSpeed: 1000,
-					autoPlay: true,
-					autoPlaySpeed: 3000,    		
-					pauseOnHover:true,
-					enableResponsiveBreakpoints: true,
-					responsiveBreakpoints: { 
-						portrait: { 
-							changePoint:480,
-							visibleItems: 1
-						}, 
-						landscape: { 
-							changePoint:640,
-							visibleItems: 2
-						},
-						tablet: { 
-							changePoint:768,
-							visibleItems: 3
-						}
-					}
-				});
-				});
+					$(window).load(function () {
+						$("#flexiselDemo1").flexisel({
+							visibleItems: 4,
+							animationSpeed: 1000,
+							autoPlay: true,
+							autoPlaySpeed: 3000,
+							pauseOnHover: true,
+							enableResponsiveBreakpoints: true,
+							responsiveBreakpoints: {
+								portrait: {
+									changePoint: 480,
+									visibleItems: 1
+								},
+								landscape: {
+									changePoint: 640,
+									visibleItems: 2
+								},
+								tablet: {
+									changePoint: 768,
+									visibleItems: 3
+								}
+							}
+						});
+					});
 				</script>
-				<script type="text/javascript" src="{% static 'customerhomepagejs/jquery.flexisel.js' %}"></script>			 
-		  </div>
-	 </div>
-</div>
+				<script type="text/javascript" src="{% static 'customerhomepagejs/jquery.flexisel.js' %}"></script>
+			</div>
+		</div>
+	</div>
 
-<!---->
-<div class="shoping">
-	 <div class="container">
-		 <div class="shpng-grids">
-			 <div class="col-md-4 shpng-grid">
-				 <h3>Free Shipping</h3>
-				 <p>On Order Over Rs999</p>
-			 </div>
-			 <div class="col-md-4 shpng-grid">
-				 <h3>Order Return</h3>
-				 <p>Return Within 14days</p>
-			 </div>
-			 <div class="col-md-4 shpng-grid">
-				 <h3>COD</h3>
-				 <p>Cash On Delivery</p>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>
-	 </div>
-</div>
-<!---->
-<div class="footer">
-	 <div class="container">
-		 <div class="ftr-grids">
-			 <div class="col-md-3 ftr-grid">
-				 <h4>About Us</h4>
-				 <ul>
-					 <li><a href="#">Who We Are</a></li>
-					 <li><a href="contact.html">Contact Us</a></li>
-					 <li><a href="#">Our Sites</a></li>
-					 <li><a href="#">In The News</a></li>
-					 <li><a href="#">Team</a></li>
-					 <li><a href="#">Careers</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Customer service</h4>
-				 <ul>
-					 <li><a href="#">FAQ</a></li>
-					 <li><a href="#">Shipping</a></li>
-					 <li><a href="#">Cancellation</a></li>
-					 <li><a href="#">Returns</a></li>
-					 <li><a href="#">Bulk Orders</a></li>
-					 <li><a href="#">Buying Guides</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Your account</h4>
-				 <ul>
-					 <li><a href="account.html">Your Account</a></li>
-					 <li><a href="#">Personal Information</a></li>
-					 <li><a href="#">Addresses</a></li>
-					 <li><a href="#">Discount</a></li>
-					 <li><a href="#">Track your order</a></li>					 					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Categories</h4>
-				 <ul>
-					 <li><a href="#">> Wedding</a></li>
-					 <li><a href="#">> Jewellerys</a></li>
-					 <li><a href="#">> Shoes</a></li>
-					 <li><a href="#">> Flowers</a></li>
-					 <li><a href="#">> Cakes</a></li>
-					 <li><a href="#">...More</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>		
-	 </div>
-</div>
-<!---->
- <div class="copywrite">
-	 <div class="container">
-		 </div>
-</div>		 
+	<!---->
+	<div class="shoping">
+		<div class="container">
+			<div class="shpng-grids">
+				<div class="col-md-4 shpng-grid">
+					<h3>Free Shipping</h3>
+					<p>On Order Over Rs999</p>
+				</div>
+				<div class="col-md-4 shpng-grid">
+					<h3>Order Return</h3>
+					<p>Return Within 14days</p>
+				</div>
+				<div class="col-md-4 shpng-grid">
+					<h3>COD</h3>
+					<p>Cash On Delivery</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!---->
+	<div class="footer">
+		<div class="container">
+			<div class="ftr-grids">
+				<div class="col-md-3 ftr-grid">
+					<h4>About Us</h4>
+					<ul>
+						<li><a href="#">Who We Are</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="#">Our Sites</a></li>
+						<li><a href="#">In The News</a></li>
+						<li><a href="#">Team</a></li>
+						<li><a href="#">Careers</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Customer service</h4>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Shipping</a></li>
+						<li><a href="#">Cancellation</a></li>
+						<li><a href="#">Returns</a></li>
+						<li><a href="#">Bulk Orders</a></li>
+						<li><a href="#">Buying Guides</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Your account</h4>
+					<ul>
+						<li><a href="account.html">Your Account</a></li>
+						<li><a href="#">Personal Information</a></li>
+						<li><a href="#">Addresses</a></li>
+						<li><a href="#">Discount</a></li>
+						<li><a href="#">Track your order</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Categories</h4>
+					<ul>
+						<li><a href="#">> Wedding</a></li>
+						<li><a href="#">> Jewellerys</a></li>
+						<li><a href="#">> Shoes</a></li>
+						<li><a href="#">> Flowers</a></li>
+						<li><a href="#">> Cakes</a></li>
+						<li><a href="#">...More</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!---->
+	<div class="copywrite">
+		<div class="container">
+		</div>
+	</div>
 </body>
+
 </html>

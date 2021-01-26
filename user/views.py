@@ -465,15 +465,88 @@ def seeker_order(request, id):
         return render(request, 'seeker/seekerlogin.html')
 
 
+def customer_order_cancel(request, id):
+    if request.user.is_authenticated:
+        order_data = order.objects.get(id=id)
+        mobile_number = str(91) + order_data.seeker.phone_number
+        if order_data.customer_cancel == False:
+            order_data.customer_cancel = True
+        else:
+            # sms notification 
+            url = "https://http-api.d7networks.com/send"
+            querystring = {
+            "username":"ibmg4607",
+            "password":"8Hw24TjM",
+            "from":"Test%20SMS",
+            "content":"Sorry.. your order is cancelled by "+ order_data.customer.first_name + order_data.customer.last_name +". Please check your profile for more detials.",
+            "dlr-method":"POST",
+            "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            "dlr":"yes",
+            "dlr-level":"3",
+            "to":mobile_number
+            }
+            headers = {
+            'cache-control': "no-cache"
+            }
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            print(response.text)
+            # //sms notification
+            order_data.customer_cancel = False
+        order_data.save()
+        return redirect(order_confirmation)
+
+    else:
+        return redirect(customer_homepage)
+
+
+
 def seeker_order_confirm(request, id):
     if request.session.has_key('user_name'):
-        print(id)
         order_data = order.objects.get(seeker=id)
         if order_data.order_verify == False:
             order_data.order_verify = True
-            order_data.save()
+            mobile_number = str(91) + order_data.mobile_number
+            # sms notification 
+            url = "https://http-api.d7networks.com/send"
+            querystring = {
+            "username":"ibmg4607",
+            "password":"8Hw24TjM",
+            "from":"Test%20SMS",
+            "content":"Your order is confirmed by "+ order_data.seeker.name +". Please check your order confirmation for more detials.",
+            "dlr-method":"POST",
+            "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            "dlr":"yes",
+            "dlr-level":"3",
+            "to":mobile_number
+            }
+            headers = {
+            'cache-control': "no-cache"
+            }
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            print(response.text)
+            # //sms notification
         else:
-            order_data.order_verify == False
+            order_data.order_verify = False
+            # sms notification 
+            url = "https://http-api.d7networks.com/send"
+            querystring = {
+            "username":"ibmg4607",
+            "password":"8Hw24TjM",
+            "from":"Test%20SMS",
+            "content":"Your order is cancelled by "+ order_data.seeker.name +" . Please check your order confirmation for more detials.",
+            "dlr-method":"POST",
+            "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            "dlr":"yes",
+            "dlr-level":"3",
+            "to":mobile_number
+            }
+            headers = {
+            'cache-control': "no-cache"
+            }
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            print(response.text)
+            # //sms notification
+        order_data.save()
         return redirect(seeker_order, id)
     else:
         return render(request, 'seeker/seekerlogin.html')

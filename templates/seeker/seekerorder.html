@@ -100,18 +100,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <td>{{data.date}}</td>
 							  <td>{{data.time}}</td>
 							  {% if data.customer_cancel == True %}
-							  <td>success</td>
+							  <td>confirmed</td>
 							  {% else %}
 							  <td>cancelled</td>
 							  {% endif %}
 							  {% if data.order_verify == True %}
 							  <td>confirmed</td>
 							  {% else %}
-							  <td>confirmed</td>
+							  <td>cancelled</td>
 								{% endif %}
-								{% if data.€%}
+								{% if data.order_verify == False %}
 							  <td><a href="{% url 'seeker-order-confirm' data.seeker.id %}"><button type="button" class="btn btn-success">Confirm</button></a></td>
-							</tr>
+							{% else %}
+							<td><a href="{% url 'seeker-order-confirm' data.seeker.id %}"><button type="button" class="btn btn-success">cancel</button></a></td>
+							{% endif %}
+						</tr>
 							{% endfor %}
 						  </tbody>
 						</table>

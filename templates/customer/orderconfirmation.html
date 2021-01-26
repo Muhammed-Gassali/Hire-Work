@@ -109,7 +109,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <th>Salary</th>
 							  <th>Date</th>
 							  <th>Time</th>
-							  <th>Confirmed</th>
+							  <th>Seeker Confirmation</th>
+							  <th>your Confirmation</th>
+							  <th></th>
 							</tr>
 						  </thead>
 						  <tbody>
@@ -122,10 +124,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <td>{{data.date}}</td>
 							  <td>{{data.time}}</td>
 							  {% if data.order_verify == True %}
-							  <td>Yes</td>
+							  <td>success</td>
 							  {% else %}
-							  <td>No</td>
+							  <td>waiting</td>
 							  {% endif %}
+							  {% if data.customer_cancel == True %}
+							  <td>success</td>
+							  {% else %}
+							  <td>cancelled</td>
+							  {% endif %}
+							  {% if data.customer_cancel == False %}
+							  <td><a href="{% url 'customer-order-cancel' data.id %}"><button type="button" class="btn btn-success">Confirm</button></a></td>
+							{% else %}
+							<td><a href="{% url 'customer-order-cancel' data.id %}"><button type="button" class="btn btn-success">cancel</button></a></td>
+							{% endif %}
 							</tr>
 							{% endfor %}
 						  </tbody>

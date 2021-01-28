@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'user',
     'social_django',
     'rest_framework',
-    'django_twilio',
 ]
 
 MIDDLEWARE = [

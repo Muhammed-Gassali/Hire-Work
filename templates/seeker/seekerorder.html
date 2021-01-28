@@ -109,11 +109,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  {% else %}
 							  <td>cancelled</td>
 								{% endif %}
-								{% if data.order_verify == False %}
+								({% if data.order_verify == False %}
 							  <td><a href="{% url 'seeker-order-confirm' data.seeker.id %}"><button type="button" class="btn btn-success">Confirm</button></a></td>
 							{% else %}
 							<td><a href="{% url 'seeker-order-confirm' data.seeker.id %}"><button type="button" class="btn btn-success">cancel</button></a></td>
-							{% endif %}
+							{% endif %})
 						</tr>
 							{% endfor %}
 						  </tbody>

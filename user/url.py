@@ -27,7 +27,7 @@ urlpatterns = [
 
 
     path('rest', views.rest.as_view(), name="rest"),
-    path('rest-login', views.rest_login.as_view(), name="rest-login"),
+    path('rest-admin-login', views.rest_admin_login.as_view(), name="rest-admin-login"),
 
 
 

@@ -40,11 +40,10 @@ def customer_login(request):
         if customer is not None and check_password(password,customer.password):
             if customer.is_active == False:
                 messages.info(request, 'user is blocked')
-                return redirect(user_login)
+                return render(request, 'customer/customerlogin.html')
             else:
-                auth.login(request, customer)
-                # return redirect(registered_user_home_page)
-                return HttpResponse("Home Page Of Customer")
+                auth.login(request, customer,  backend='django.contrib.auth.backends.ModelBackend')
+                return redirect(registered_customer_homepage)  
         else:   
             value={"username":user_name}
             messages.info(request, 'invalid credentials')
@@ -52,6 +51,20 @@ def customer_login(request):
     else:
         return render(request, 'customer/customerlogin.html')
     
+class rest_customer_login(APIView):
+    def post(self, request):
+        username = request.data['username']
+        password = request.data['password']
+        customer = User.objects.filter(username=username).first()
+
+        if customer is not None and check_password(password,customer.password):
+            if customer.is_active == False:
+                return Response({"status":"failed"})
+            else:
+                auth.login(request, customer, backend='django.contrib.auth.backends.ModelBackend')
+                return Response({"status":"success"})
+        else:
+            return Response({"status":"failed"})
 
 def customer_register(request):
     if request.user.is_authenticated:
@@ -152,7 +165,7 @@ def confirm_otp(request):
                         messages.info(request, 'customer is blocked')
                         return redirect(customer_login)
                     else:
-                        auth.login(request, user)
+                        auth.login(request, user,  backend='django.contrib.auth.backends.ModelBackend')
                         # value = products.objects.all()
                         # return redirect(registered_user_home_page)
                         return HttpResponse("success")
@@ -324,7 +337,7 @@ def order_verify(request):
                 # //sms verification
 
             return redirect(registered_customer_homepage)
-        detials = CustomerDetials.objects.get(user=user)
+        detials = CustomerDetials.objects.filter(user=user)
         collections = Collection.objects.filter(customer=user)
         total_price = 0
         for x in collections:
@@ -563,12 +576,17 @@ class rest(APIView):
 
     
 
-class rest_login(APIView):
+class rest_admin_login(APIView):
     def post(self, request):
         username = request.data['username']
         password = request.data['password']
-        if username =="gassali" and password =="5554":
+        if username =="admin" and password =="5554":
             return Response({"status":"ok"})
         else:
              return Response({"status":"failed"})
+
+
+class rest_common_home(APIView):
+    def get(self, requests):
+        return Response({"status":"done"})
 

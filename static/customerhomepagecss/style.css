@@ -41,7 +41,7 @@ h1.b1,h2.b2,h3.b3 {
 }
 /*----*/
 .top_bg{
-  background:#00a0dc;
+  background:#621055;
 }
 .header_top-sec{
   padding: 15px 0;
@@ -206,7 +206,7 @@ h1.b1,h2.b2,h3.b3 {
 }
 /*----*/
 .banner{
-	background:url(../customerhomepageimages/ban2.jpg) no-repeat 0px 0px;
+	background:url(../customerhomepageimages/cover1.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	min-height:700px;
 }

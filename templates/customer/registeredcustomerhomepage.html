@@ -136,7 +136,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					hire workers accordig to their salary expecatation , how much year they have experience in that
 					field etc..
 				</p>
-			</div>
+			</div><br><br>
+			<!-- location  -->
+			<!-- <div class=" cart-items"> -->
+				<!-- <center><p>Choose locatoin for hiring Labours</p></center> -->
+				   <form method="POST" action="">
+				   {% csrf_token %}
+				   <!-- <div class="col-xs-6"> -->
+					   <label for="first_name"><h4>Choose locatoin for hiring Labours</h4></label>
+					   <input type="text" class="form-control" name="place" id="place" required><br>
+					   <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>show</button>
+					  <!-- <button>save</button> -->
+					   <br><br>   
+					   <!-- This product includes GeoLite2 data created by MaxMind, available from -->
+					   <!-- <a href="https://www.maxmind.com">https://www.maxmind.com</a>. -->
+				   <!-- </div> -->
+			   </form>
+			 <!-- </div> -->
+			<!-- //location  -->
 		</div>
 	</div>
 	<div class="bride-grids">

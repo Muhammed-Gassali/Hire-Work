@@ -18,6 +18,9 @@ import requests
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+from geopy.geocoders import Nominatim
+# from .utils import get_geo
+from geopy.distance import geodesic
 
 
 
@@ -95,7 +98,36 @@ def customer_register(request):
 
 # fuction for toking location from customer
 def location(request):
-    return render(request, 'customer/location.html')
+    if request.method == 'POST':
+        place = request.POST['place']
+        # geolocator = Nominatim(user_agent='user')
+        
+        # destination = geolocator.geocode(place)
+        # print(destination)
+        # d_lon = destination.longitude
+        # d_lat = destination.latitude
+        # pointA = (d_lat, d_lon)
+     
+        # data  = JobSeeker.objects.all()
+        
+        # for x in data:
+        #     place_sample = x.place
+        #     destiny = geolocator.geocode(place_sample)
+        #     sample_lat = destiny.latitude
+        #     sample_lon = destiny.longitude
+        #     pointB = (sample_lat, sample_lon)
+        #     distance = round(geodesic(pointA, pointB).km, 2)
+        #     # print(place_sample)
+        #     # print(distance)
+        #     if distance <= 100:
+        #         places = []
+        #         places.append(x)
+        #         print(places)
+        # request.session['places'] = places
+        # context = {"places":places}     
+        return redirect(registered_customer_homepage)
+    else: 
+        return render(request, 'customer/location.html')
 
 
 def otp_login(request):
@@ -196,6 +228,33 @@ def customer_homepage(request):
 
 def registered_customer_homepage(request):
     if request.user.is_authenticated:
+        if request.method == 'POST':
+            place = request.POST['place']
+            print(place)
+            geolocator = Nominatim(user_agent='user')
+        
+            destination = geolocator.geocode(place)
+            print(destination)
+            d_lon = destination.longitude
+            d_lat = destination.latitude
+            pointA = (d_lat, d_lon)
+     
+            data  = JobSeeker.objects.all()
+            values = []
+
+            for x in data:
+                place_sample = x.place
+                destiny = geolocator.geocode(place_sample)
+                sample_lat = destiny.latitude
+                sample_lon = destiny.longitude
+                pointB = (sample_lat, sample_lon)
+                distance = round(geodesic(pointA, pointB).km, 2)
+    
+                if distance <= 50:
+                    values.append(x)
+            # value = JobSeeker.objects.filter(place__in=places)
+            return render(request, 'customer/registeredcustomerhomepage.html', {"detials":values})
+
         user = request.user
         seeker_detials = JobSeeker.objects.all()
         context = {'user':user, 'detials':seeker_detials}
@@ -618,3 +677,13 @@ class rest_common_home(APIView):
     def get(self, requests):
         return Response({"status":"done"})
 
+
+        # ip  = '72.14.207.99'
+        # country, city, lat, lon = get_geo(ip)
+        # print('location country', country)
+        # print('location city', city)
+        # print('location lat, lon', lat, lon)
+        
+        # taking ip's location
+        # location = geolocator.geocode(city)
+        # print('^%$^%$%', location)

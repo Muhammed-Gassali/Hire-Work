@@ -22,7 +22,7 @@ urlpatterns = [
     path('contact', views.contact, name="contact"),
     path('customer-order-cancel/<int:id>', views.customer_order_cancel, name="customer-order-cancel"),
     path('order-paytm', views.order_paytm, name="order-paytm"),
-    path('location', views.location, name="location"),
+    # path('location', views.location, name="location"),
 
 
 
@@ -31,6 +31,8 @@ urlpatterns = [
 
     path('rest', views.rest.as_view(), name="rest"),
     path('rest-admin-login', views.rest_admin_login.as_view(), name="rest-admin-login"),
+    path('rest-customer-login', views.rest-customer-login.as_view(), name="rest-customer-login"),
+
 
 
 

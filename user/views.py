@@ -97,37 +97,37 @@ def customer_register(request):
 
 
 # fuction for toking location from customer
-def location(request):
-    if request.method == 'POST':
-        place = request.POST['place']
-        # geolocator = Nominatim(user_agent='user')
+# def location(request):
+#     if request.method == 'POST':
+#         place = request.POST['place']
+#         # geolocator = Nominatim(user_agent='user')
         
-        # destination = geolocator.geocode(place)
-        # print(destination)
-        # d_lon = destination.longitude
-        # d_lat = destination.latitude
-        # pointA = (d_lat, d_lon)
+#         # destination = geolocator.geocode(place)
+#         # print(destination)
+#         # d_lon = destination.longitude
+#         # d_lat = destination.latitude
+#         # pointA = (d_lat, d_lon)
      
-        # data  = JobSeeker.objects.all()
+#         # data  = JobSeeker.objects.all()
         
-        # for x in data:
-        #     place_sample = x.place
-        #     destiny = geolocator.geocode(place_sample)
-        #     sample_lat = destiny.latitude
-        #     sample_lon = destiny.longitude
-        #     pointB = (sample_lat, sample_lon)
-        #     distance = round(geodesic(pointA, pointB).km, 2)
-        #     # print(place_sample)
-        #     # print(distance)
-        #     if distance <= 100:
-        #         places = []
-        #         places.append(x)
-        #         print(places)
-        # request.session['places'] = places
-        # context = {"places":places}     
-        return redirect(registered_customer_homepage)
-    else: 
-        return render(request, 'customer/location.html')
+#         # for x in data:
+#         #     place_sample = x.place
+#         #     destiny = geolocator.geocode(place_sample)
+#         #     sample_lat = destiny.latitude
+#         #     sample_lon = destiny.longitude
+#         #     pointB = (sample_lat, sample_lon)
+#         #     distance = round(geodesic(pointA, pointB).km, 2)
+#         #     # print(place_sample)
+#         #     # print(distance)
+#         #     if distance <= 100:
+#         #         places = []
+#         #         places.append(x)
+#         #         print(places)
+#         # request.session['places'] = places
+#         # context = {"places":places}     
+#         return redirect(registered_customer_homepage)
+#     else: 
+#         return render(request, 'customer/location.html')
 
 
 def otp_login(request):

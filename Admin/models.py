@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
-
+    image = models.ImageField(null=True, blank=True)
 class JobSeeker(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)

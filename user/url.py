@@ -31,7 +31,7 @@ urlpatterns = [
 
     path('rest', views.rest.as_view(), name="rest"),
     path('rest-admin-login', views.rest_admin_login.as_view(), name="rest-admin-login"),
-    path('rest-customer-login', views.rest-customer-login.as_view(), name="rest-customer-login"),
+    path('rest-customer-login', views.rest_customer_login.as_view(), name="rest-customer-login"),
 
 
 
@@ -54,22 +54,6 @@ urlpatterns = [
 
 
     # path('test', views.test, name="test"),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

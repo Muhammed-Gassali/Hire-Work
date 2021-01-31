@@ -197,6 +197,8 @@ def update_category(request, id):
         if request.method == "POST":
             value = Category.objects.get(id=id)
             value.category_name = request.POST['name']
+            value.image = request.FILES.get('image')
+            print(value.image)
             value.save()
             messages.info(request, 'Edited successfully')
             return redirect(category_management)

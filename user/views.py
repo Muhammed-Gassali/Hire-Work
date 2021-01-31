@@ -69,7 +69,8 @@ class rest_customer_login(APIView):
                 return Response({"status":"failed"})
             else:
                 auth.login(request, customer, backend='django.contrib.auth.backends.ModelBackend')
-                return Response({"status":"success"})
+                context = {"status":success, "username":username}
+                return Response(context)
         else:
             return Response({"status":"failed"})
 
@@ -95,6 +96,10 @@ def customer_register(request):
     else:  
         return render(request, 'customer/registration.html')
 
+
+# def rest_customer_register(APIView):
+#     def post(self, request):
+#         name = request.data[]
 
 # fuction for toking location from customer
 # def location(request):

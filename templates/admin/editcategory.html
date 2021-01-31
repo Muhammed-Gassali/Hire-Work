@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h2>
 				<a href="{% url 'admin-homepage' %}">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Add Customer</span>
+				<span> Edit category</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -162,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="card card-6">
                                    
                                     <div class="card-body">
-                                        <form method="POST" action="/admin-panelupdate-category/{{data.id}}">
+                                        <form method="POST" action="/admin-panelupdate-category/{{data.id}}" enctype="multipart/form-data">
                                             {% csrf_token %}
                                             <div class="form-row">
                                                 <div class="name">Full name</div>
@@ -170,13 +170,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <input class="input--style-6" type="text" name="name" placeholder="full name" value="{{data.category_name}}" required>
                                                 </div>
                                             </div>
+                                            <div class="form-row">
+                                                <div class="name">Upload a photo</div>
+                                                <div class="value">
+                                                    <div class="input-group">
+                                                        <img id="myimg" src="" name="img" class="avatar img-circle img-thumbnail" alt="avatar">
+                                                        <input class="input--style-6" type="file" name="image" onchange="viewImage(event)">
+                                                    </div>
+                                                </div>
+                                            </div> 
                                     </div>
                                   
                                     <div class="card-footer">
                                         <button class="btn btn--radius-2 btn--blue-2" type="submit">Edit</button><br><br>
                                         
                                     </div>
-                                    
+                                <!-- </form> -->
                                 </div>
                             </div>
                         </div>

@@ -20,7 +20,10 @@ from rest_framework.response import Response
 
 
 
+
 # Create your views here.
+
+#function for loading common home
 def common_home(request):
     return render(request, 'common/commonhome.html')
 
@@ -50,7 +53,8 @@ def customer_login(request):
             return render(request, 'customer/customerlogin.html')
     else:
         return render(request, 'customer/customerlogin.html')
-    
+
+#function for customer login in rest api
 class rest_customer_login(APIView):
     def post(self, request):
         username = request.data['username']
@@ -87,6 +91,11 @@ def customer_register(request):
             return redirect(customer_login)
     else:  
         return render(request, 'customer/registration.html')
+
+
+# fuction for toking location from customer
+def location(request):
+    return render(request, 'customer/location.html')
 
 
 def otp_login(request):
@@ -297,7 +306,7 @@ def order_verify(request):
     if request.user.is_authenticated:
         user = request.user
         if request.method == "POST":
-            name = request.POST['name']
+            name = request.POST['full_name']
             address = request.POST['ad']    
             mobile_number = request.POST['mobile']
             place = request.POST['place']
@@ -347,6 +356,25 @@ def order_verify(request):
         return render(request, 'customer/order.html', context)
     else:
         return redirect(customer_homepage)
+
+
+def order_paytm(request):
+    param_dict={
+
+            'MID': 'WorldP64425807474247',
+            'ORDER_ID': 'order.order_id',
+            'TXN_AMOUNT': '1',
+            'CUST_ID': 'email',
+            'INDUSTRY_TYPE_ID': 'Retail',
+            'WEBSITE': 'WEBSTAGING',
+            'CHANNEL_ID': 'WEB',
+            'CALLBACK_URL':'http://127.0.0.1:8000/order',
+
+    }
+    return  render(request, 'customer/order.html', {'param_dict': param_dict})
+    return render(request, 'customer/order.html')
+   
+
 
 
 def order_confirmation(request):

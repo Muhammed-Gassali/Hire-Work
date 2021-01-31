@@ -1,285 +1,317 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Order</title>
-<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
-<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />	
-<!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+	<title>Order</title>
+	<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
+	<!-- Custom Theme files -->
+	<!--theme-style-->
+	<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!--//theme-style-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- start menu -->
-<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
-<!-- start menu -->
-<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
-<script>$(document).ready(function(){$(".memenu").memenu();});</script>	
-<!-- /start menu -->
-<!-- delete icon  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- //delete icon -->
-  
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- start menu -->
+	<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
+	<!-- start menu -->
+	<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
+	<script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+	<!-- /start menu -->
+	<!-- delete icon  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- //delete icon -->
+
 </head>
-<body> 
-<!--header-->	
-<div class="top_bg">
-	<div class="container">
-		<div class="header_top-sec">
-			<div class="top_right">
-				<ul>
-					<li><a href="contact.html">Contact</a></li>|
-					<li><a href="login.html">Order Confirmation</a></li>
-				</ul>
-			</div>
-			<div class="top_left">
-				<ul>
-					<li class="top_link">Email:<a href="mailto:info@example.com">{{user.email}}</a></li>|
-					<li class="top_link"><a href="login.html">{{user.username}}</a></li>				
-				</ul>
-			</div>
+
+<body>
+	<!--header-->
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top-sec">
+				<div class="top_right">
+					<ul>
+						<li><a href="contact.html">Contact</a></li>|
+						<li><a href="login.html">Order Confirmation</a></li>
+					</ul>
+				</div>
+				<div class="top_left">
+					<ul>
+						<li class="top_link">Email:<a href="mailto:info@example.com">{{user.email}}</a></li>|
+						<li class="top_link"><a href="login.html">{{user.username}}</a></li>
+					</ul>
+				</div>
 				<div class="clearfix"> </div>
+			</div>
 		</div>
 	</div>
-</div>
-<div class="header-top">
-	 <div class="header-bottom">
-		 <div class="container">			
+	<div class="header-top">
+		<div class="header-bottom">
+			<div class="container">
 				<div class="logo">
-					<a href="index.html"><h1>Hire&Get</h1></a>
+					<a href="index.html">
+						<h1>Hire&Get</h1>
+					</a>
 				</div>
-			 <!---->
-		 
-			 <div class="top-nav">
-				<ul class="memenu skyblue"><li class="active"><a href="#">Home</a></li>
-					
-					<!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
-                    <li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
-					<li class="grid"><a href="{% url 'customer-profile' %}">Make a profile</a></li>
-                    
-					
-				</ul>
+				<!---->
+
+				<div class="top-nav">
+					<ul class="memenu skyblue">
+						<li class="active"><a href="#">Home</a></li>
+
+						<!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
+						<li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
+						<li class="grid"><a href="{% url 'customer-profile' %}">Make a profile</a></li>
+
+
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+				<!---->
+				<div class="cart box_1">
+					<a href="{% url 'collection' %}">
+						<h3>
+							<div class="total">
+								<span>₹ {{total_price}}</span>
+							</div>
+							<img style="width: 30px; height:30px" src="{% static 'customerhomepageimages/man.png' %}"
+								alt=""><br>
+					</a>
+					<div class="clearfix"> </div>
+				</div>
 				<div class="clearfix"> </div>
-			 </div>
-			 <!---->
-			 <div class="cart box_1">
-				 <a href="{% url 'collection' %}">
-					<h3> <div class="total">
-					<span>₹ {{total_price}}</span></div>
-					<img style="width: 30px; height:30px" src="{% static 'customerhomepageimages/man.png' %}" alt=""><br>
-				</a>
-			 	<div class="clearfix"> </div>
-			 </div>
-			 <div class="clearfix"> </div>
-			 <!---->			 
-			 </div>
+				<!---->
+			</div>
 			<div class="clearfix"> </div>
-	  </div>
-</div>
-<!---->
-<div class="checkout">	 
-	 <div class="container">	
-		 <ol class="breadcrumb">
-		  <li><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
-		  <li class="active">Order Confirm</li>
-         </ol>
-         <!-- address bar  -->
-         <div class="tab-pane active" id="detials">
-            <!-- <hr>                  <form class="form" action="#" method="post" id="registrationForm"> -->
+		</div>
+	</div>
+	<!---->
+	<div class="checkout">
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
+				<li class="active">Order Confirm</li>
+			</ol>
+			<!-- address bar  -->
+			<div class="tab-pane active" id="detials">
+				<!-- <hr>                  <form class="form" action="#" method="post" id="registrationForm"> -->
 
-                 
-                  <div class="form-group">
-                      <form method="POST">
-						  {% csrf_token %}
-                      <div class="col-xs-6">
-                          <label for="first_name"><h4>Name</h4></label>
-                          <input type="text" class="form-control" name="name" id="name" placeholder="enter your name here... " value ="{{customer.first_name}}  {{customer.last_name}}">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      
-                      <div class="col-xs-6">
-                        <label for="last_name"><h4>Address</h4></label>
-                          <input type="text" class="form-control" name="ad"  placeholder="enter your address here... " value ="{{detials.address}}" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <div class="col-xs-6">
-                         <label for="mobile"><h4>Mobile Number</h4></label>
-                          <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" value ="{{detials.mobile_number}}" required>
-                      </div>
-                  </div>
-                 
-                <div class="form-group">
-                    <div class="col-xs-6">
-                       <label for="mobile"><h4>Place</h4></label>
-                        <input type="text" class="form-control" name="place" id="mobile" placeholder="enter the place" value ="{{detials.place}}" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-6">
-                       <label for="mobile"><h4>Land Mark</h4></label>
-                        <input type="text" class="form-control" name="mark" id="mobile" placeholder="enter your Land mark here.." required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-6">
-                       <label for="mobile"><h4>Pincode</h4></label>
-                        <input type="text" class="form-control" name="pin" id="mobile" placeholder="enter your pincode here..." required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-6">
-                       <label for="mobile"><h4>Time</h4></label>
-                        <input type="time" class="form-control" name="time" id="mobile" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-6">
-                       <label for="mobile"><h4>Date</h4></label>
-                        <input type="date" class="form-control" name="date" id="mobile"  required>
-                    </div>
-                </div>
-              <!-- </form> -->
-          
-          <hr>
-          
-            </div>
-         <!-- //address bar  -->
-         
-		 <div class="col-md-9 product-price1">
-             <br><br><br>
-			 <div class="check-out">			
-				 <div class=" cart-items">
-					 <h3>My Collections</h3>
-						<script>$(document).ready(function(c) {
-							$('.close1').on('click', function(c){
-								$('.cart-header').fadeOut('slow', function(c){
-									$('.cart-header').remove();
-								});
-								});	  
-							});
-					   </script>
-					<script>$(document).ready(function(c) {
-							$('.close2').on('click', function(c){
-								$('.cart-header1').fadeOut('slow', function(c){
-									$('.cart-header1').remove();
-								});
-								});	  
-							});
-					   </script>
-						
-					 <div class="in-check" >
-						  <ul class="unit">
-							<li><span></span></li>
-							<li><span>Name</span></li>		
-							<li><span>Category</span></li>
-							<li><span>Salary</span></li>
-							<li>
-					   </li>
-							<div class="clearfix"> </div>
-						  </ul>
-						  {% for value in collections %}
-						  <ul class="cart-header">
-						   <div class="close1"> </div>
-							<li class="ring-in"><a href="" ><img src="{{value.seeker.ImageURL}}" class="img-responsive" alt=""></a>
-							</li>
-							<li><span>{{value.seeker.name}}</span></li>
-							<li><span>{{value.seeker.category.category_name}}</span></li>
-							<li><span>{{value.seeker.expected_salary}}</span></li>
-							<li><span><a href="{% url 'delete-collection' value.id %}">
-								<span class="glyphicon glyphicon-remove-sign"></span>
-							  </a></span></li>
 
-							<!-- <li> <a href="single.html" class="add-cart cart-check">ADD TO CART</a></li> -->
-							<div class="clearfix"> </div>
+				<div class="form-group">
+					<form method="POST">
+						{% csrf_token %}
+						<div class="col-xs-6">
+							<label for="first_name">
+								<h4>Name</h4>
+							</label>
+							<input type="text" class="form-control" name="full_name" id="name"
+								placeholder="enter your name here... "
+								value="{{customer.first_name}}  {{customer.last_name}}">
+						</div>
+				</div>
+				<div class="form-group">
+
+					<div class="col-xs-6">
+						<label for="last_name">
+							<h4>Address</h4>
+						</label>
+						<input type="text" class="form-control" name="ad" placeholder="enter your address here... "
+							value="{{detials.address}}" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6">
+						<label for="mobile">
+							<h4>Mobile Number</h4>
+						</label>
+						<input type="text" class="form-control" name="mobile" id="mobile"
+							placeholder="enter mobile number" value="{{detials.mobile_number}}" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-6">
+						<label for="mobile">
+							<h4>Place</h4>
+						</label>
+						<input type="text" class="form-control" name="place" id="mobile" placeholder="enter the place"
+							value="{{detials.place}}" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6">
+						<label for="mobile">
+							<h4>Land Mark</h4>
+						</label>
+						<input type="text" class="form-control" name="mark" id="mobile"
+							placeholder="enter your Land mark here.." required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6">
+						<label for="mobile">
+							<h4>Pincode</h4>
+						</label>
+						<input type="text" class="form-control" name="pin" id="mobile"
+							placeholder="enter your pincode here..." required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6">
+						<label for="mobile">
+							<h4>Time</h4>
+						</label>
+						<input type="time" class="form-control" name="time" id="mobile" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6">
+						<label for="mobile">
+							<h4>Date</h4>
+						</label>
+						<input type="date" class="form-control" name="date" id="mobile" required>
+					</div>
+				</div>
+				<!-- </form> -->
+
+				<hr>
+
+			</div>
+			<!-- //address bar  -->
+
+			<div class="col-md-9 product-price1">
+				<br><br><br>
+				<div class="check-out">
+					<div class=" cart-items">
+						<h3>My Collections</h3>
+						<script>$(document).ready(function (c) {
+								$('.close1').on('click', function (c) {
+									$('.cart-header').fadeOut('slow', function (c) {
+										$('.cart-header').remove();
+									});
+								});
+							});
+						</script>
+						<script>$(document).ready(function (c) {
+								$('.close2').on('click', function (c) {
+									$('.cart-header1').fadeOut('slow', function (c) {
+										$('.cart-header1').remove();
+									});
+								});
+							});
+						</script>
+
+						<div class="in-check">
+							<ul class="unit">
+								<li><span></span></li>
+								<li><span>Name</span></li>
+								<li><span>Category</span></li>
+								<li><span>Salary</span></li>
+								<li>
+								</li>
+								<div class="clearfix"> </div>
+							</ul>
+							{% for value in collections %}
+							<ul class="cart-header">
+								<div class="close1"> </div>
+								<li class="ring-in"><a href=""><img src="{{value.seeker.ImageURL}}"
+											class="img-responsive" alt=""></a>
+								</li>
+								<li><span>{{value.seeker.name}}</span></li>
+								<li><span>{{value.seeker.category.category_name}}</span></li>
+								<li><span>{{value.seeker.expected_salary}}</span></li>
+								<li><span><a href="{% url 'delete-collection' value.id %}">
+											<span class="glyphicon glyphicon-remove-sign"></span>
+										</a></span></li>
+
+								<!-- <li> <a href="single.html" class="add-cart cart-check">ADD TO CART</a></li> -->
+								<div class="clearfix"> </div>
 							</ul>
 							{% endfor %}
 							<h4 class="last-price">TOTAL AMOUNT</h4>
 							<span class="total final">₹ {{total_price}}</span>
 							<div class="clearfix"></div>
-							<a class="order" href="#"><button onclick="return confirm('Your order is successfull and it will be shown in your order confirmation section')">Place Order</button></a>
-					 </div>
-					</form>
-				  </div>					  
-			 </div>
-		 </div>
-		 <!-- <div class="col-md-3 cart-total">
-			
-			 
-			 <h4 class="last-price">TOTAL</h4>
-			 <span class="total final">₹ {{total_price}}</span>
-			 <div class="clearfix"></div>
-			 <a class="order" href="#">Place Order</a>
-			 
-			</div> -->
-	 </div>
-</div>
-<!---->
+							<a class="order" href="#"><button
+									onclick="return confirm('Your order is successfull and it will be shown in your order confirmation section')">Place
+									Order</button></a>
+						</div>
+						</form>
+						<!-- paytm  -->
 
-<!---->
-<div class="footer">
-	 <div class="container">
-		 <div class="ftr-grids">
-			 <div class="col-md-3 ftr-grid">
-				 <h4>About Us</h4>
-				 <ul>
-					 <li><a href="#">Who We Are</a></li>
-					 <li><a href="contact.html">Contact Us</a></li>
-					 <li><a href="#">Our Sites</a></li>
-					 <li><a href="#">In The News</a></li>
-					 <li><a href="#">Team</a></li>
-					 <li><a href="#">Careers</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Customer service</h4>
-				 <ul>
-					 <li><a href="#">FAQ</a></li>
-					 <li><a href="#">Shipping</a></li>
-					 <li><a href="#">Cancellation</a></li>
-					 <li><a href="#">Returns</a></li>
-					 <li><a href="#">Bulk Orders</a></li>
-					 <li><a href="#">Buying Guides</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Your account</h4>
-				 <ul>
-					 <li><a href="account.html">Your Account</a></li>
-					 <li><a href="#">Personal Information</a></li>
-					 <li><a href="#">Addresses</a></li>
-					 <li><a href="#">Discount</a></li>
-					 <li><a href="#">Track your order</a></li>					 					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Categories</h4>
-				 <ul>
-					 <li><a href="#">> Wedding</a></li>
-					 <li><a href="#">> Jewellerys</a></li>
-					 <li><a href="#">> Shoes</a></li>
-					 <li><a href="#">> Flowers</a></li>
-					 <li><a href="#">> Cakes</a></li>
-					 <li><a href="#">...More</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>		
-	 </div>
-</div>
-<!---->
- <div class="copywrite">
-	 <div class="container">
-			 <p>Copyright © 2015 Wedding Store. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-		 </div>
-</div>		 
+						<!-- //paytm  -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!---->
+
+	<!---->
+	<div class="footer">
+		<div class="container">
+			<div class="ftr-grids">
+				<div class="col-md-3 ftr-grid">
+					<h4>About Us</h4>
+					<ul>
+						<li><a href="#">Who We Are</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="#">Our Sites</a></li>
+						<li><a href="#">In The News</a></li>
+						<li><a href="#">Team</a></li>
+						<li><a href="#">Careers</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Customer service</h4>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Shipping</a></li>
+						<li><a href="#">Cancellation</a></li>
+						<li><a href="#">Returns</a></li>
+						<li><a href="#">Bulk Orders</a></li>
+						<li><a href="#">Buying Guides</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Your account</h4>
+					<ul>
+						<li><a href="account.html">Your Account</a></li>
+						<li><a href="#">Personal Information</a></li>
+						<li><a href="#">Addresses</a></li>
+						<li><a href="#">Discount</a></li>
+						<li><a href="#">Track your order</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Categories</h4>
+					<ul>
+						<li><a href="#">> Wedding</a></li>
+						<li><a href="#">> Jewellerys</a></li>
+						<li><a href="#">> Shoes</a></li>
+						<li><a href="#">> Flowers</a></li>
+						<li><a href="#">> Cakes</a></li>
+						<li><a href="#">...More</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!---->
+	<div class="copywrite">
+		<div class="container">
+			<p>Copyright © 2015 Wedding Store. All Rights Reserved | Design by <a
+					href="http://w3layouts.com">W3layouts</a></p>
+		</div>
+	</div>
 </body>
+
 </html>

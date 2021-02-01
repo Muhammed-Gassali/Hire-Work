@@ -23,14 +23,14 @@ def admin_login(request):
         return render(request, 'admin/adminlogin.html')
 
 
-class rest_admin_login(APIView):
-    def post(self, request):
-        username = request.data['username']
-        password = request.data['password']
-        if username =="admin" and password =="5554":
-            return Response({"status":"success"})
-        else:
-             return Response({"status":"failed"})
+# class rest_admin_login(APIView):
+#     def post(self, request):
+#         username = request.data['username']
+#         password = request.data['password']
+#         if username =="admin" and password =="5554":
+#             return Response({"status":"success"})
+#         else:
+#              return Response({"status":"failed"})
 
 
 

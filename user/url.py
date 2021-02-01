@@ -34,6 +34,8 @@ urlpatterns = [
     path('rest-customer-register', views.rest_customer_register.as_view(), name="rest-customer-register"),
     path('rest-otp-login', views.rest_otp_login.as_view(), name="rest-otp-login"),
     path('rest-otp-verify', views.rest_otp_verify.as_view(), name="rest-otp-verify"),
+    path('Rest-Customer-Homepage', views.RestCustomerHomepage.as_view(), name="Rest-Customer-Homepage"),
+
 
 
 

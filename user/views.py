@@ -17,7 +17,7 @@ import requests
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from user.serializer import serialize_customer_homepage
+from user.serializer import SerializeCustomerHomepage
 from rest_framework import status
 
 from geopy.geocoders import Nominatim
@@ -72,7 +72,7 @@ class rest_customer_login(APIView):
             else:
                 auth.login(request, customer, backend='django.contrib.auth.backends.ModelBackend')
                 # context = {"status":success, "username":username}
-                return Response("status":"success")
+                return Response({"status":"success"})
         else:
             return Response({"status":"failed"})
 
@@ -108,12 +108,12 @@ class rest_customer_register(APIView):
         password = request.data['password']
         if User.objects.filter(username=user_name).exists() or User.objects.filter(email=email).exists():
             if User.objects.filter(username=user_name).exists():
-                return Response("status":"Username already exists")
+                return Response({"status":"Username already exists"})
             elif User.objects.filter(email=email).exists():
-                return Response("status":"Email already exists")
-            return Response("status":"failed")
+                return Response({"status":"Email already exists"})
+            return Response({"status":"failed"})
         else:
-            return Response("status":"success")
+            return Response({"status":"success"})
 
 
 
@@ -190,9 +190,9 @@ class rest_otp_login(APIView):
 
             id=datadict['otp_id']
             request.session['id'] = id
-            return Response("status":"enter otp")
+            return Response({"status":"enter otp"})
         else:
-            return Response("status":"mobile number does not exist")
+            return Response({"status":"mobile number does not exist"})
 
 
 
@@ -269,14 +269,14 @@ class rest_otp_verify(APIView):
             user = User.objects.filter(last_name=phone_number).first()
             if user is not None:
                 if user.is_active == False:
-                    return Response("status":"customer is blocked")
+                    return Response({"status":"customer is blocked"})
                 else:
                     auth.login(request, user,  backend='django.contrib.auth.backends.ModelBackend')
-                    return Response("status":"success")
+                    return Response({"status":"success"})
             else:
-                return Response("status":"otp entered is incorrerct")
+                return Response({"status":"otp entered is incorrerct"})
         else:
-            return Response("status":"user not exist")
+            return Response({"status":"user not exist"})
 
 
 def customer_homepage(request):

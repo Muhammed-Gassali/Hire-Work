@@ -3,5 +3,5 @@ from Admin.models import *
 
 class SerializeCustomerHomepage(serializers.ModelSerializer):
     class Meta:
-        model = JobSeeker
+        model = Category
         fields = "__all__"

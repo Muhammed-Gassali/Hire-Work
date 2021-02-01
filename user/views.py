@@ -762,3 +762,10 @@ class rest_common_home(APIView):
         # taking ip's location
         # location = geolocator.geocode(city)
         # print('^%$^%$%', location)
+
+
+def length(request):
+    name = JobSeeker.objects.all()
+    x = len(name)
+    print(x)
+    return HttpResponse("hh")

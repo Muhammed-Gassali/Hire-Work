@@ -23,6 +23,7 @@ urlpatterns = [
     path('customer-order-cancel/<int:id>', views.customer_order_cancel, name="customer-order-cancel"),
     path('order-paytm', views.order_paytm, name="order-paytm"),
     # path('location', views.location, name="location"),
+    path('length', views.length, name="length"),
 
 
 

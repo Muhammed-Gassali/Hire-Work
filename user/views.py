@@ -289,15 +289,23 @@ def customer_homepage(request):
 class RestCustomerHomepage(APIView):
     def get(self, request):
         seekers = JobSeeker.objects.all()
-        seekers_serialize = SerializeCustomerHomepage(seekers,many=True)
-        return Response(seekers_serialize.data)
+        context = {"seekers":seekers[0]}
+        return Response(context)
 
-    def post(get, request):
-        serializeobj = SerializeCustomerHomepage(data=request.data)
-        if serializeobj.is_valid():
-            serializeobj.save()
-            return Response(serializeobj.data,status=status.HTTP_201_CREATED)
-        return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
+# class RestCustomerHomepage(APIView):
+#     def get(self, request):
+#         seekers = JobSeeker.objects.all()
+#         seekers_serialize = SerializeCustomerHomepage(seekers,many=True)
+#         return Response(seekers_serialize.data)
+
+#     def post(get, request):
+#         serializeobj = SerializeCustomerHomepage(data=request.data)
+#         if serializeobj.is_valid():
+#             serializeobj.save()
+#             return Response(serializeobj.data,status=status.HTTP_201_CREATED)
+#         return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
 

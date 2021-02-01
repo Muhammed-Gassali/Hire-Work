@@ -288,8 +288,8 @@ def customer_homepage(request):
 
 class RestCustomerHomepage(APIView):
     def get(self, request):
-        seekers = JobSeeker.objects.all()
-        context = {"seekers":seekers[0]}
+        seekers = JobSeeker.objects.get(id=3)
+        context = {"seekers":seekers}
         return Response(context)
 
 

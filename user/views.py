@@ -17,6 +17,8 @@ import requests
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from user.serializer import serialize_customer_homepage
+from rest_framework import status
 
 from geopy.geocoders import Nominatim
 # from .utils import get_geo
@@ -69,8 +71,8 @@ class rest_customer_login(APIView):
                 return Response({"status":"failed"})
             else:
                 auth.login(request, customer, backend='django.contrib.auth.backends.ModelBackend')
-                context = {"status":success, "username":username}
-                return Response(context)
+                # context = {"status":success, "username":username}
+                return Response("status":"success")
         else:
             return Response({"status":"failed"})
 
@@ -97,42 +99,24 @@ def customer_register(request):
         return render(request, 'customer/registration.html')
 
 
-# def rest_customer_register(APIView):
-#     def post(self, request):
-#         name = request.data[]
+class rest_customer_register(APIView):
+    def post(self, request):
+        name = request.data['name']
+        user_name = request.data['username']
+        email = request.data['email']
+        mobile_number = request.data['mobile_number']
+        password = request.data['password']
+        if User.objects.filter(username=user_name).exists() or User.objects.filter(email=email).exists():
+            if User.objects.filter(username=user_name).exists():
+                return Response("status":"Username already exists")
+            elif User.objects.filter(email=email).exists():
+                return Response("status":"Email already exists")
+            return Response("status":"failed")
+        else:
+            return Response("status":"success")
 
-# fuction for toking location from customer
-# def location(request):
-#     if request.method == 'POST':
-#         place = request.POST['place']
-#         # geolocator = Nominatim(user_agent='user')
-        
-#         # destination = geolocator.geocode(place)
-#         # print(destination)
-#         # d_lon = destination.longitude
-#         # d_lat = destination.latitude
-#         # pointA = (d_lat, d_lon)
-     
-#         # data  = JobSeeker.objects.all()
-        
-#         # for x in data:
-#         #     place_sample = x.place
-#         #     destiny = geolocator.geocode(place_sample)
-#         #     sample_lat = destiny.latitude
-#         #     sample_lon = destiny.longitude
-#         #     pointB = (sample_lat, sample_lon)
-#         #     distance = round(geodesic(pointA, pointB).km, 2)
-#         #     # print(place_sample)
-#         #     # print(distance)
-#         #     if distance <= 100:
-#         #         places = []
-#         #         places.append(x)
-#         #         print(places)
-#         # request.session['places'] = places
-#         # context = {"places":places}     
-#         return redirect(registered_customer_homepage)
-#     else: 
-#         return render(request, 'customer/location.html')
+
+
 
 
 def otp_login(request):
@@ -177,7 +161,41 @@ def otp_login(request):
     else:
         return render(request, 'customer/otplogin.html', {'otp':otp})
 
-   
+
+class rest_otp_login(APIView):
+    def post(self, request):
+        phone_number = request.data['phone_number']
+        request.session['phone_number'] = phone_number
+
+        if User.objects.filter(last_name=phone_number).exists():
+            phone_number = str(91) + phone_number
+            url = "https://d7networks.com/api/verifier/send"
+
+            payload = {'mobile': phone_number,
+            'sender_id': 'SMSINFO',
+            'message': 'Your otp code is {code}',
+            'expiry': '900'}
+            files = [
+
+            ]
+            headers = {
+            # 'Authorization': 'Token 13ff28cd8a3bc23d426420f75b84879c7f958c4c'
+            'Authorization': 'Token 7b965deb9feaf5d0601c369eda9ff2e04c56d9ce'   
+            }
+            response = requests.request("POST", url, headers=headers, data = payload, files = files)
+            print(response.text.encode('utf8'))
+
+            data=response.text.encode('utf8')
+            datadict=json.loads(data)
+
+            id=datadict['otp_id']
+            request.session['id'] = id
+            return Response("status":"enter otp")
+        else:
+            return Response("status":"mobile number does not exist")
+
+
+
 def confirm_otp(request):
     if request.user.is_authenticated:
         return redirect(registered_customer_homepage)
@@ -213,8 +231,8 @@ def confirm_otp(request):
                     else:
                         auth.login(request, user,  backend='django.contrib.auth.backends.ModelBackend')
                         # value = products.objects.all()
-                        # return redirect(registered_user_home_page)
-                        return HttpResponse("success")
+                        return redirect(registered_user_home_page)
+                        # return HttpResponse("success")
                 else:
                     return redirect(customer_login)
                 
@@ -225,11 +243,66 @@ def confirm_otp(request):
         else:
             return HttpResponse("oops")
 
+
+class rest_otp_verify(APIView):
+    def post(self, request):
+        otp_number = request.data['otp']
+        id_otp = request.session['id']
+        url = "https://d7networks.com/api/verifier/verify"
+
+        payload = {'otp_id': id_otp,
+        'otp_code': otp_number}
+        files = [
+            ]
+        headers = {
+        'Authorization': 'Token 7b965deb9feaf5d0601c369eda9ff2e04c56d9ce'
+        # 'Authorization': 'Token 13ff28cd8a3bc23d426420f75b84879c7f958c4c'
+        }
+        response = requests.request("POST", url, headers=headers, data = payload, files = files)
+        print(response.text.encode('utf8'))
+        data=response.text.encode('utf8')
+        datadict=json.loads(data)
+        status=datadict['status']
+
+        if status == 'success':
+            phone_number = request.session['phone_number']  
+            user = User.objects.filter(last_name=phone_number).first()
+            if user is not None:
+                if user.is_active == False:
+                    return Response("status":"customer is blocked")
+                else:
+                    auth.login(request, user,  backend='django.contrib.auth.backends.ModelBackend')
+                    return Response("status":"success")
+            else:
+                return Response("status":"otp entered is incorrerct")
+        else:
+            return Response("status":"user not exist")
+
+
 def customer_homepage(request):
     if request.user.is_authenticated:
         return redirect(registered_customer_homepage)   
     seeker_detials = JobSeeker.objects.all()
     return render(request, 'customer/index.html', {"detials":seeker_detials})
+
+
+class RestCustomerHomepage(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.all()
+        seekers_serialize = SerializeCustomerHomepage(seekers,many=True)
+        return Response(seekers_serialize.data)
+
+    def post(get, request):
+        serializeobj = SerializeCustomerHomepage(data=request.data)
+        if serializeobj.is_valid():
+            serializeobj.save()
+            return Response(serializeobj.data,status=status.HTTP_201_CREATED)
+        return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+
 
 def registered_customer_homepage(request):
     if request.user.is_authenticated:
@@ -668,14 +741,7 @@ class rest(APIView):
 
     
 
-class rest_admin_login(APIView):
-    def post(self, request):
-        username = request.data['username']
-        password = request.data['password']
-        if username =="admin" and password =="5554":
-            return Response({"status":"ok"})
-        else:
-             return Response({"status":"failed"})
+
 
 
 class rest_common_home(APIView):

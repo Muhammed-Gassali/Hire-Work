@@ -30,6 +30,7 @@ urlpatterns = [
 
 
 
+    path('rest-admin-login', views.rest_admin_login.as_view(), name="rest-admin-login"),
 
     
 

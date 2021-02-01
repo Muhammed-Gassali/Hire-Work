@@ -30,8 +30,13 @@ urlpatterns = [
 
 
     path('rest', views.rest.as_view(), name="rest"),
-    path('rest-admin-login', views.rest_admin_login.as_view(), name="rest-admin-login"),
     path('rest-customer-login', views.rest_customer_login.as_view(), name="rest-customer-login"),
+    path('rest-customer-register', views.rest_customer_register.as_view(), name="rest-customer-register"),
+    path('rest-otp-login', views.rest_otp_login.as_view(), name="rest-otp-login"),
+    path('rest-otp-verify', views.rest_otp_verify.as_view(), name="rest-otp-verify"),
+
+
+
 
 
 

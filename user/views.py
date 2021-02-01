@@ -286,26 +286,22 @@ def customer_homepage(request):
     return render(request, 'customer/index.html', {"detials":seeker_detials})
 
 
+# qAWASER45
+
+
+
 class RestCustomerHomepage(APIView):
     def get(self, request):
-        seekers = JobSeeker.objects.get(id=3)
-        context = {"seekers":seekers}
-        return Response(context)
+        seekers = JobSeeker.objects.all()
+        seekers_serialize = SerializeCustomerHomepage(seekers,many=True)
+        return Response(seekers_serialize.data)
 
-
-
-# class RestCustomerHomepage(APIView):
-#     def get(self, request):
-#         seekers = JobSeeker.objects.all()
-#         seekers_serialize = SerializeCustomerHomepage(seekers,many=True)
-#         return Response(seekers_serialize.data)
-
-#     def post(get, request):
-#         serializeobj = SerializeCustomerHomepage(data=request.data)
-#         if serializeobj.is_valid():
-#             serializeobj.save()
-#             return Response(serializeobj.data,status=status.HTTP_201_CREATED)
-#         return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
+    def post(get, request):
+        serializeobj = SerializeCustomerHomepage(data=request.data)
+        if serializeobj.is_valid():
+            serializeobj.save()
+            return Response(serializeobj.data,status=status.HTTP_201_CREATED)
+        return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
 

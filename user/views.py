@@ -303,7 +303,7 @@ class RestCustomerHomepage(APIView):
         return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
 
 #class for giving seekers detials in rest
-class RestCustomerDetials(APIView):
+class RestSeekerDetials(APIView):
     def get(self, request):
         seekers = JobSeeker.objects.all()
         seekers_serialize = SerilazeSeekerDetials(seekers,many=True)

@@ -288,12 +288,12 @@ def customer_homepage(request):
 
 
 
-
+#function for giving category detials in rest
 class RestCustomerHomepage(APIView):
     def get(self, request):
-        seekers = Category.objects.all()
-        seekers_serialize = SerializeCustomerHomepage(seekers,many=True)
-        return Response(seekers_serialize.data)
+        category = Category.objects.all()
+        category_serialize = SerializeCustomerHomepage(category,many=True)
+        return Response(category_serialize.data)
 
     def post(get, request):
         serializeobj = SerializeCustomerHomepage(data=request.data)
@@ -302,7 +302,12 @@ class RestCustomerHomepage(APIView):
             return Response(serializeobj.data,status=status.HTTP_201_CREATED)
         return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
 
-
+#class for giving seekers detials in rest
+class RestCustomerDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.all()
+        seekers_serialize = SerilazeSeekerDetials(seekers,many=True)
+        return Response(seekers_serialize.data)
 
 
 

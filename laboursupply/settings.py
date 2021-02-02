@@ -54,12 +54,19 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware', #facebook
 ]
 
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.google.GoogleOAuth2',
-    # 'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+
+    'social_core.backends.facebook.FacebookOAuth2', #facebook
+    'social_core.backends.twitter.TwitterOAuth',  #facebook
+    'social_core.backends.github.GithubOAuth2',  #facebook
+ 
+    'django.contrib.auth.backends.ModelBackend', #facebook
 ]
 
 LOGIN_URL = 'customer-login'
@@ -70,6 +77,11 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "101781562401-9igcns3407nfko0jlj09ee9coh3tql5m.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "LLX1OVu96wpHRyMFCMWkJy89"
 
 ROOT_URLCONF = 'laboursupply.urls'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '337553510763555'
+SOCIAL_AUTH_FACEBOOK_SECRET = '500e5fda51898e7f07bbfd0e41fa6124'
+
+
 
 TEMPLATES = [
     {
@@ -84,7 +96,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect'
+                'social_django.context_processors.login_redirect',
+
+                'social_django.context_processors.backends',  #facebook
+                'social_django.context_processors.login_redirect',  #facebook
             ],
         },
     },

@@ -1,10 +1,14 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib import messages
-from .models import Category,JobSeeker
+from .models import *
 from django.contrib.auth.models import User,auth
 from  django.core.files.storage import FileSystemStorage
 from PIL import Image
-from django.core.files import File  
+from django.core.files import File
+
+import datetime 
+from datetime import date
+from django.db.models import Sum
 # Create your views here.
 
 def admin_login(request):
@@ -36,9 +40,40 @@ def admin_login(request):
 
 def admin_homepage(request):
     if request.session.has_key('admin_username'):
-        return render(request, 'admin/index.html')
+        print("entered")
+        length_seeker = len(JobSeeker.objects.all())
+        length_customer = len(User.objects.all())
+        number_orders = len(order.objects.all())
+        context = {"length_seeker":length_seeker, "length_customer":length_customer, "number_orders":number_orders}
+        return render(request, 'admin/index.html', context)
     else:
         return render(request, 'admin/adminlogin.html')
+
+
+
+def report(request):
+    if request.session.has_key('admin_username'):
+        if request.method == "POST":
+            start = request.POST['start_date']
+            end = request.POST['end_date']
+
+            length_seeker = len(JobSeeker.objects.all())
+            length_customer = len(User.objects.all())
+            number_orders = len(order.objects.all())
+
+            seeker_not_confirmed =  order.objects.filter(date__range=[start, end], order_verify=False)
+            customer_cancelled =  order.objects.filter(date__range=[start, end], customer_cancel=False)
+            total_orders = order.objects.filter(date__range=[start,end])
+            success_orders = order.objects.filter(date__range=[start,end], customer_cancel=True, order_verify=True)
+            print(success_orders)
+            context = {"seeker_not_confirmed":seeker_not_confirmed, "customer_cancelled":customer_cancelled, "length_seeker":length_seeker, "length_customer":length_customer, "number_orders":number_orders, "total_orders":total_orders, "success_orders":success_orders}
+            return render(request, 'admin/index.html', context) 
+    else:
+        return render(request, 'admin/adminlogin.html')
+    
+
+
+
 
 def customer_management(request):
     if request.session.has_key('admin_username'):
@@ -249,3 +284,18 @@ def edit_seeker(request, id):
         return render(request, 'admin/editseeker.html', context)
     else:
         return render(request, 'admin/adminlogin.html')
+
+
+
+def feedback_admin(request):
+    if request.session.has_key('admin_username'):
+        orders = order.objects.all()
+        context = {"orders":orders}
+        return render(request, 'admin/feedback.html', context)
+    else:
+        return render(request, 'admin/adminlogin.html')
+
+
+
+
+    

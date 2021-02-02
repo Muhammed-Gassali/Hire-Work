@@ -63,4 +63,11 @@ class order(models.Model):
     order_verify = models.BooleanField(default=False, null=True, blank=False)
     customer_cancel = models.BooleanField(default=True, null=True, blank=False)
     transaction_id = models.CharField(max_length=200, null=True)
+    seeker_feedback = models.CharField(max_length=500, null=True, blank=True)
+    customer_feedback = models.CharField(max_length=500, null=True, blank=True)
 
+class Feedback(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    seeker = models.ForeignKey(JobSeeker, on_delete=models.CASCADE, blank=True, null=True)
+    customer_feedback = models.CharField(max_length=500, null=True, blank=True)
+    seeker_feedback = models.CharField(max_length=500, null=True, blank=True)

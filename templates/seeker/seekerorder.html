@@ -1,190 +1,243 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Your Orders</title>
-<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
-<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />	
-<!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+	<title>Your Orders</title>
+	<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
+	<!-- Custom Theme files -->
+	<!--theme-style-->
+	<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!--//theme-style-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- start menu -->
-<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
-<!-- start menu -->
-<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
-<script>$(document).ready(function(){$(".memenu").memenu();});</script>	
-<!-- /start menu -->
-<!-- delete icon  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- //delete icon -->
-  
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- start menu -->
+	<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
+	<!-- start menu -->
+	<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
+	<script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+	<!-- /start menu -->
+	<!-- delete icon  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- //delete icon -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+
 </head>
-<body> 
-<!--header-->	
-<div class="top_bg">
-	<div class="container">
-		<div class="header_top-sec">
-			<div class="top_right">
-				<ul>
-					<li><a href="{% url 'contact' %}">Contact</a></li>|
-					<li><a href="#">Order Confirmation</a></li>
-				</ul>
-			</div>
-			<div class="top_left">
-				<ul>
-					<li class="top_link">Email:<a href="">{{user.email}}</a></li>|
-					<li class="top_link"><a href="">{{user.username}}</a></li>				
-				</ul>
-			</div>
+
+<body>
+	<!--header-->
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top-sec">
+				<div class="top_right">
+					<ul>
+						<li><a href="{% url 'contact' %}">Contact</a></li>|
+						<li><a href="#">Order Confirmation</a></li>
+					</ul>
+				</div>
+				<div class="top_left">
+					<ul>
+						<li class="top_link">Email:<a href="">{{user.email}}</a></li>|
+						<li class="top_link"><a href="">{{user.username}}</a></li>
+					</ul>
+				</div>
 				<div class="clearfix"> </div>
+			</div>
 		</div>
 	</div>
-</div>
-<div class="header-top">
-	 <div class="header-bottom">
-		 <div class="container">			
+	<div class="header-top">
+		<div class="header-bottom">
+			<div class="container">
 				<div class="logo">
-					<a href=""><h1>Hire&Get</h1></a>
+					<a href="">
+						<h1>Hire&Get</h1>
+					</a>
 				</div>
-			 <!---->
-			 <div class="top-nav">
-				<ul class="memenu skyblue">
-					<li class="grid"><a href="{% url 'seeker-profile' %}">profile</a></li>
-                    <li class="grid"><a href="{% url 'seeker-logout' %}">Logout</a></li>
-				</ul>
-				<div class="clearfix"> </div>
-			 </div>			 
-			 </div>
+				<!---->
+				<div class="top-nav">
+					<ul class="memenu skyblue">
+						<li class="grid"><a href="{% url 'seeker-profile' %}">profile</a></li>
+						<li class="grid"><a href="{% url 'seeker-logout' %}">Logout</a></li>
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
 			<div class="clearfix"> </div>
-	  </div>
-</div>
-<!---->
-<div class="checkout">	 
-	 <div class="container">	
-		 <ol class="breadcrumb">
-		  <li><a href="{% url 'seeker-profile' %}">Pofile</a></li>
-		  <li class="active">Your Orders</li>
-         </ol> 
-		 <div class="col-md-9 product-price1">
-             <br><br><br>
-			 <div class="check-out">			
-				 <div class=" cart-items">
-					 <!-- copied  table -->
-					 <div class="container">
-						<h2>My orders</h2><br>
-						<table class="table table-striped">
-						  <thead>
-							<tr>
-							  <th>Name</th>
-							  <th>Place</th>
-							  <th>Date</th>
-							  <th>Time</th>
-                              <th>Customer Confirmation</th>
-							  <th>Confirmation</th>
-							</tr>
-						  </thead>
-						  <tbody>
-							  {% for data in my_order %}
-							<tr>
-							  <td>{{data.name}}</td>
-							  <td>{{data.place}}</td>
-							  <td>{{data.date}}</td>
-							  <td>{{data.time}}</td>
-							  {% if data.customer_cancel == True %}
-							  <td>confirmed</td>
-							  {% else %}
-							  <td>cancelled</td>
-							  {% endif %}
-							  {% if data.order_verify == True %}
-							  <td>confirmed</td>
-							  {% else %}
-							  <td>cancelled</td>
-								{% endif %}
-								({% if data.order_verify == False %}
-							  <td><a href="{% url 'seeker-order-confirm' data.seeker.id %}"><button type="button" class="btn btn-success">Confirm</button></a></td>
-							{% else %}
-							<td><a href="{% url 'seeker-order-confirm' data.seeker.id %}"><button type="button" class="btn btn-success">cancel</button></a></td>
-							{% endif %})
-						</tr>
-							{% endfor %}
-						  </tbody>
-						</table>
-					  </div>
-					  
-					 <!-- //copied table -->
-					</form>
-				  </div>					  
-			 </div>
-		 </div>
-	 </div>
-</div>
-<!---->
+		</div>
+	</div>
+	<!---->
+	<div class="checkout">
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="{% url 'seeker-profile' %}">Pofile</a></li>
+				<li class="active">Your Orders</li>
+			</ol>
+			<div class="col-md-9 product-price1">
+				<br><br><br>
+				<div class="check-out">
+					<div class=" cart-items">
+						<!-- copied  table -->
+						<div class="container">
+							<h2>My orders</h2><br>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Place</th>
+										<th>Address</th>
+										<th>Date</th>
+										<th>Time</th>
+										<th>Customer Confirmation</th>
+										<th>Confirmation</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for data in my_order %}
+									<tr>
+										<td>{{data.name}}</td>
+										<td>{{data.place}}</td>
+										<td>{{data.address}}</td>
+										<td>{{data.date}}</td>
+										<td>{{data.time}}</td>
+										{% if data.customer_cancel == True %}
+										<td>confirmed</td>
+										{% else %}
+										<td>cancelled</td>
+										{% endif %}
+										{% if data.order_verify == True %}
+										<td>confirmed</td>
+										{% else %}
+										<td>cancelled</td>
+										{% endif %}
+										{% if data.order_verify == False %}
+										<td><a href="{% url 'seeker-order-confirm' data.id %}"><button
+													type="button" class="btn btn-success">Confirm</button></a></td>
+										{% else %}
+										<td><a href="{% url 'seeker-order-confirm' data.id %}"><button
+													type="button" class="btn btn-success">cancel</button></a></td>
+										{% endif %}
+										{% if data.order_verify == True and data.customer_cancel == True %}
+										<td><button type="button" class="btn btn-primary" data-toggle="modal"
+												data-target="#exampleModal">Feedback</button></td>
+										{% endif %}
+										<!-- Modal -->
+										<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+											aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+														<button type="button" class="close" data-dismiss="modal"
+															aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body">
+														<form action="{% url 'seeker-feedback' data.id %}" method="post">
+															{% csrf_token %}
+															<textarea id="story" name="feedback" rows="5" cols="75" required>
+			  											</textarea>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+														<button type="submit" class="btn btn-primary">Send</button>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- //model  -->
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+						<!-- //copied table -->
 
-<!---->
-<div class="footer">
-	 <div class="container">
-		 <div class="ftr-grids">
-			 <div class="col-md-3 ftr-grid">
-				 <h4>About Us</h4>
-				 <ul>
-					 <li><a href="#">Who We Are</a></li>
-					 <li><a href="contact.html">Contact Us</a></li>
-					 <li><a href="#">Our Sites</a></li>
-					 <li><a href="#">In The News</a></li>
-					 <li><a href="#">Team</a></li>
-					 <li><a href="#">Careers</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Customer service</h4>
-				 <ul>
-					 <li><a href="#">FAQ</a></li>
-					 <li><a href="#">Shipping</a></li>
-					 <li><a href="#">Cancellation</a></li>
-					 <li><a href="#">Returns</a></li>
-					 <li><a href="#">Bulk Orders</a></li>
-					 <li><a href="#">Buying Guides</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Your account</h4>
-				 <ul>
-					 <li><a href="account.html">Your Account</a></li>
-					 <li><a href="#">Personal Information</a></li>
-					 <li><a href="#">Addresses</a></li>
-					 <li><a href="#">Discount</a></li>
-					 <li><a href="#">Track your order</a></li>					 					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Categories</h4>
-				 <ul>
-					 <li><a href="#">> Wedding</a></li>
-					 <li><a href="#">> Jewellerys</a></li>
-					 <li><a href="#">> Shoes</a></li>
-					 <li><a href="#">> Flowers</a></li>
-					 <li><a href="#">> Cakes</a></li>
-					 <li><a href="#">...More</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>		
-	 </div>
-</div>
-<!---->
- <div class="copywrite">
-	 <div class="container">
-			 <p>Copyright © 2015 Wedding Store. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-		 </div>
-</div>		 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!---->
+
+	<!---->
+	<div class="footer">
+		<div class="container">
+			<div class="ftr-grids">
+				<div class="col-md-3 ftr-grid">
+					<h4>About Us</h4>
+					<ul>
+						<li><a href="#">Who We Are</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="#">Our Sites</a></li>
+						<li><a href="#">In The News</a></li>
+						<li><a href="#">Team</a></li>
+						<li><a href="#">Careers</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Customer service</h4>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Shipping</a></li>
+						<li><a href="#">Cancellation</a></li>
+						<li><a href="#">Returns</a></li>
+						<li><a href="#">Bulk Orders</a></li>
+						<li><a href="#">Buying Guides</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Your account</h4>
+					<ul>
+						<li><a href="account.html">Your Account</a></li>
+						<li><a href="#">Personal Information</a></li>
+						<li><a href="#">Addresses</a></li>
+						<li><a href="#">Discount</a></li>
+						<li><a href="#">Track your order</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 ftr-grid">
+					<h4>Categories</h4>
+					<ul>
+						<li><a href="#">> Wedding</a></li>
+						<li><a href="#">> Jewellerys</a></li>
+						<li><a href="#">> Shoes</a></li>
+						<li><a href="#">> Flowers</a></li>
+						<li><a href="#">> Cakes</a></li>
+						<li><a href="#">...More</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!---->
+	<div class="copywrite">
+		<div class="container">
+			<p>Copyright © 2015 Wedding Store. All Rights Reserved | Design by <a
+					href="http://w3layouts.com">W3layouts</a></p>
+		</div>
+	</div>
 </body>
+
 </html>

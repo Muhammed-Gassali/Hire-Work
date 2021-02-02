@@ -38,8 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header_top-sec">
 				<div class="top_right">
 					<ul>
-						<li><a href="contact.html">Contact</a></li>|
-						<li><a href="login.html">Order Confirmation</a></li>
+						<li><a href="#">Contact</a></li>|
+						<li><a href="">Order Confirmation</a></li>
 					</ul>
 				</div>
 				<div class="top_left">
@@ -56,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header-bottom">
 			<div class="container">
 				<div class="logo">
-					<a href="index.html">
+					<a href="">
 						<h1>Hire&Get</h1>
 					</a>
 				</div>
@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="top-nav">
 					<ul class="memenu skyblue">
-						<li class="active"><a href="#">Home</a></li>
+						<li class="active"><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
 
 						<!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
 						<li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
@@ -141,8 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<label for="mobile">
 							<h4>Place</h4>
 						</label>
-						<input type="text" class="form-control" name="place" id="mobile" placeholder="enter the place"
-							value="{{detials.place}}" required>
+						<input type="text" class="form-control" name="place" id="mobile" placeholder="enter the place" value="{{detials.place}}" required>
 					</div>
 				</div>
 				<div class="form-group">

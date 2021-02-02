@@ -23,10 +23,8 @@ urlpatterns = [
     path('edit-category/<int:id>', views.edit_category, name="edit-category"),
     path('update-category/<int:id>', views.update_category, name="update-category"),
     path('edit-seeker/<int:id>', views.edit_seeker, name="edit-seeker"),
-
-
-    
-
+    path('feedback-admin', views.feedback_admin, name="feedback-admin"),
+    path('report', views.report, name="report"),
 
 
 

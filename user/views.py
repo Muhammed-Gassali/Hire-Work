@@ -83,7 +83,7 @@ def customer_register(request):
         name = request.POST['name']
         user_name = request.POST['username']
         email = request.POST['email']
-        mobile = request.POST['phone']
+        last_name = request.POST['last_name']
         password = request.POST['password']    
         if User.objects.filter(username=user_name).exists() or User.objects.filter(email=email).exists():
             if User.objects.filter(username=user_name).exists():
@@ -92,7 +92,7 @@ def customer_register(request):
                 messages.info(request, 'email already exists')
             return render(request, 'customer/registration.html')
         else:
-            customer = User.objects.create_user(first_name=name, username=user_name, email=email, password=password, last_name=mobile)
+            customer = User.objects.create_user(first_name=name, username=user_name, email=email, password=password, last_name=last_name)
             # customer.save()
             return redirect(customer_login)
     else:  
@@ -286,13 +286,12 @@ def customer_homepage(request):
     return render(request, 'customer/index.html', {"detials":seeker_detials})
 
 
-# qAWASER45
 
 
 
 class RestCustomerHomepage(APIView):
     def get(self, request):
-        seekers = JobSeeker.objects.all()
+        seekers = Category.objects.all()
         seekers_serialize = SerializeCustomerHomepage(seekers,many=True)
         return Response(seekers_serialize.data)
 
@@ -355,11 +354,14 @@ def customer_profile(request):
     if request.user.is_authenticated:
         if request.method == "POST":
             first_name = request.POST['first_name']
-            last_name = request.POST['last_name']
+            last_name = request.POST['name_last']
             email = request.POST['email']
-            phone_number = request.POST['mobile']
+            phone_number = request.POST['number']
             address = request.POST['address']
             place = request.POST['place']
+            print(last_name)
+            print(phone_number)
+
 
             user = request.user
             print(user)
@@ -382,8 +384,11 @@ def customer_profile(request):
         else:
             user = request.user
             detials = User.objects.filter(username=user)
-            customer_detials = CustomerDetials.objects.get(user=user)
-            context = {"detials":detials, 'value':user, 'customer_detials':customer_detials}
+            if CustomerDetials.objects.filter(user=user).exists():
+                customer_detials = CustomerDetials.objects.get(user=user)
+                context = {"detials":detials, 'value':user, 'customer_detials':customer_detials}
+            else:
+                context = {"detials":detials, 'value':user}
             return render(request, 'customer/customerprofile.html', context)
     else:
         return redirect(customer_homepage)
@@ -466,24 +471,24 @@ def order_verify(request):
                 phone_number=x.seeker.phone_number
             
                 # sms verificaion
-                mobile_number = str(91) + phone_number
-                url = "https://http-api.d7networks.com/send"
-                querystring = {
-                "username":"imjq2616",
-                "password":"MfEcnAqr",
-                "from":"Test%20SMS",
-                "content":"Hi sir, you are hired.Detials you can see in your profile, Please confirm it ASAP",
-                "dlr-method":"POST",
-                "dlr-url":"https://4ba60af1.ngrok.io/receive",
-                "dlr":"yes",
-                "dlr-level":"3",
-                "to":mobile_number,
-                }
-                headers = {
-                'cache-control': "no-cache"
-                }
-                response = requests.request("GET", url, headers=headers, params=querystring)
-                print(response.text)
+                # mobile_number = str(91) + phone_number
+                # url = "https://http-api.d7networks.com/send"
+                # querystring = {
+                # "username":"imjq2616",
+                # "password":"MfEcnAqr",
+                # "from":"Test%20SMS",
+                # "content":"Hi sir, you are hired.Detials you can see in your profile, Please confirm it ASAP",
+                # "dlr-method":"POST",
+                # "dlr-url":"https://4ba60af1.ngrok.io/receive",
+                # "dlr":"yes",
+                # "dlr-level":"3",
+                # "to":mobile_number,
+                # }
+                # headers = {
+                # 'cache-control': "no-cache"
+                # }
+                # response = requests.request("GET", url, headers=headers, params=querystring)
+                # print(response.text)
                 # //sms verification
 
             return redirect(registered_customer_homepage)
@@ -532,6 +537,9 @@ def order_confirmation(request):
 
 def contact(request):
     return render(request, 'customer/contact.html')
+
+
+
 
 # *****************************************************************************seeker************************************************************************************************
 
@@ -655,23 +663,23 @@ def customer_order_cancel(request, id):
             order_data.customer_cancel = True
         else:
             # sms notification 
-            url = "https://http-api.d7networks.com/send"
-            querystring = {
-            "username":"ibmg4607",
-            "password":"8Hw24TjM",
-            "from":"Test%20SMS",
-            "content":"Sorry.. your order is cancelled by "+ order_data.customer.first_name + order_data.customer.last_name +". Please check your profile for more detials.",
-            "dlr-method":"POST",
-            "dlr-url":"https://4ba60af1.ngrok.io/receive",
-            "dlr":"yes",
-            "dlr-level":"3",
-            "to":mobile_number
-            }
-            headers = {
-            'cache-control': "no-cache"
-            }
-            response = requests.request("GET", url, headers=headers, params=querystring)
-            print(response.text)
+            # url = "https://http-api.d7networks.com/send"
+            # querystring = {
+            # "username":"ibmg4607",
+            # "password":"8Hw24TjM",
+            # "from":"Test%20SMS",
+            # "content":"Sorry.. your order is cancelled by "+ order_data.customer.first_name + order_data.customer.last_name +". Please check your profile for more detials.",
+            # "dlr-method":"POST",
+            # "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            # "dlr":"yes",
+            # "dlr-level":"3",
+            # "to":mobile_number
+            # }
+            # headers = {
+            # 'cache-control': "no-cache"
+            # }
+            # response = requests.request("GET", url, headers=headers, params=querystring)
+            # print(response.text)
             # //sms notification
             order_data.customer_cancel = False
         order_data.save()
@@ -684,54 +692,86 @@ def customer_order_cancel(request, id):
 
 def seeker_order_confirm(request, id):
     if request.session.has_key('user_name'):
-        order_data = order.objects.get(seeker=id)
+        order_data = order.objects.get(id=id)
+        # print(order_data.order_verify)
+        # return HttpResponse("olakka")
         if order_data.order_verify == False:
             order_data.order_verify = True
-            mobile_number = str(91) + order_data.mobile_number
-            # sms notification 
-            url = "https://http-api.d7networks.com/send"
-            querystring = {
-            "username":"ibmg4607",
-            "password":"8Hw24TjM",
-            "from":"Test%20SMS",
-            "content":"Your order is confirmed by "+ order_data.seeker.name +". Please check your order confirmation for more detials.",
-            "dlr-method":"POST",
-            "dlr-url":"https://4ba60af1.ngrok.io/receive",
-            "dlr":"yes",
-            "dlr-level":"3",
-            "to":mobile_number
-            }
-            headers = {
-            'cache-control': "no-cache"
-            }
-            response = requests.request("GET", url, headers=headers, params=querystring)
-            print(response.text)
+            # mobile_number = str(91) + order_data.mobile_number
+            # # sms notification 
+            # url = "https://http-api.d7networks.com/send"
+            # querystring = {
+            # "username":"ibmg4607",
+            # "password":"8Hw24TjM",
+            # "from":"Test%20SMS",
+            # "content":"Your order is confirmed by "+ order_data.seeker.name +". Please check your order confirmation for more detials.",
+            # "dlr-method":"POST",
+            # "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            # "dlr":"yes",
+            # "dlr-level":"3",
+            # "to":mobile_number
+            # }
+            # headers = {
+            # 'cache-control': "no-cache"
+            # }
+            # response = requests.request("GET", url, headers=headers, params=querystring)
+            # print(response.text)
             # //sms notification
         else:
             order_data.order_verify = False
-            # sms notification 
-            url = "https://http-api.d7networks.com/send"
-            querystring = {
-            "username":"ibmg4607",
-            "password":"8Hw24TjM",
-            "from":"Test%20SMS",
-            "content":"Your order is cancelled by "+ order_data.seeker.name +" . Please check your order confirmation for more detials.",
-            "dlr-method":"POST",
-            "dlr-url":"https://4ba60af1.ngrok.io/receive",
-            "dlr":"yes",
-            "dlr-level":"3",
-            "to":mobile_number
-            }
-            headers = {
-            'cache-control': "no-cache"
-            }
-            response = requests.request("GET", url, headers=headers, params=querystring)
-            print(response.text)
+            # mobile_number = str(91) + order_data.mobile_number
+            # # sms notification 
+            # url = "https://http-api.d7networks.com/send"
+            # querystring = {
+            # "username":"ibmg4607",
+            # "password":"8Hw24TjM",
+            # "from":"Test%20SMS",
+            # "content":"Your order is cancelled by "+ order_data.seeker.name +" . Please check your order confirmation for more detials.",
+            # "dlr-method":"POST",
+            # "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            # "dlr":"yes",
+            # "dlr-level":"3",
+            # "to":mobile_number
+            # }
+            # headers = {
+            # 'cache-control': "no-cache"
+            # }
+            # response = requests.request("GET", url, headers=headers, params=querystring)
+            # print(response.text)
             # //sms notification
         order_data.save()
+        id = order_data.seeker.id
         return redirect(seeker_order, id)
     else:
         return render(request, 'seeker/seekerlogin.html')
+
+
+
+def seeker_feedback(request, id):
+    if request.session.has_key('user_name'):
+        if request.method =="POST":
+            feedback = request.POST['feedback']
+            value = order.objects.get(id=id)
+            value.seeker_feedback = feedback
+            value.save()
+            id = value.seeker.id
+            return redirect(seeker_order, id)
+            # return HttpResponse("success")
+    else:
+        return render(request, 'seeker/seekerlogin.html')
+
+def customer_feedback(request, id):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            feedback = request.POST['feedback']
+            value = order.objects.get(id=id)
+            value.customer_feedback = feedback
+            value.save()
+            return redirect(order_confirmation)
+    else:
+        return redirect(customer_homepage)
+
+
 
  ################################################################### rest API ##############################################################
 
@@ -762,10 +802,3 @@ class rest_common_home(APIView):
         # taking ip's location
         # location = geolocator.geocode(city)
         # print('^%$^%$%', location)
-
-
-def length(request):
-    name = JobSeeker.objects.all()
-    x = len(name)
-    print(x)
-    return HttpResponse("hh")

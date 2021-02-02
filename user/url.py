@@ -22,8 +22,9 @@ urlpatterns = [
     path('contact', views.contact, name="contact"),
     path('customer-order-cancel/<int:id>', views.customer_order_cancel, name="customer-order-cancel"),
     path('order-paytm', views.order_paytm, name="order-paytm"),
-    # path('location', views.location, name="location"),
-    path('length', views.length, name="length"),
+    path('customer-feedback/<int:id>', views.customer_feedback, name="customer-feedback"),
+
+
 
 
 
@@ -55,6 +56,7 @@ urlpatterns = [
     path('editing-profile', views.editing_profile, name="editing-profile"),
     path('seeker-order/<int:id>', views.seeker_order, name="seeker-order"),
     path('seeker-order-confirm/<int:id>', views.seeker_order_confirm, name="seeker-order-confirm"),
+    path('seeker-feedback/<int:id>', views.seeker_feedback, name="seeker-feedback"),
 
 
 

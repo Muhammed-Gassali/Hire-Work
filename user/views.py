@@ -99,12 +99,13 @@ def customer_register(request):
         return render(request, 'customer/registration.html')
 
 
-class rest_customer_register(APIView):
+class RestCustomerRegister(APIView):
     def post(self, request):
-        name = request.data['name']
+        first_name = request.data['fname']
+        last_name = request.data['lname']
         user_name = request.data['username']
         email = request.data['email']
-        mobile_number = request.data['mobile_number']
+        mobile_number = request.data['phone']
         password = request.data['password']
         if User.objects.filter(username=user_name).exists() or User.objects.filter(email=email).exists():
             if User.objects.filter(username=user_name).exists():
@@ -113,6 +114,7 @@ class rest_customer_register(APIView):
                 return Response({"status":"Email already exists"})
             return Response({"status":"failed"})
         else:
+            customer = User.objects.create_user(first_name=name, username=user_name, email=email, password=password, last_name=last_name)
             return Response({"status":"success"})
 
 

@@ -41,3 +41,16 @@ def get_geo(ip):
 #         return redirect(registered_customer_homepage)
 #     else: 
 #         return render(request, 'customer/location.html')
+
+
+
+
+  # ip  = '72.14.207.99'
+        # country, city, lat, lon = get_geo(ip)
+        # print('location country', country)
+        # print('location city', city)
+        # print('location lat, lon', lat, lon)
+        
+        # taking ip's location
+        # location = geolocator.geocode(city)
+        # print('^%$^%$%', location)

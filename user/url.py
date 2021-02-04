@@ -37,7 +37,14 @@ urlpatterns = [
     path('rest-otp-login', views.rest_otp_login.as_view(), name="rest-otp-login"),
     path('rest-otp-verify', views.rest_otp_verify.as_view(), name="rest-otp-verify"),
     path('Rest-Customer-Homepage', views.RestCustomerHomepage.as_view(), name="Rest-Customer-Homepage"),
-    path('Rest-Seeker-Detials', views.RestSeekerDetials.as_view(), name="Rest-Seeker-Detials"),
+    path('Rest-Seeker-Carpenter-Detials', views.RestSeekerCarpenterDetials.as_view(), name="Rest-Seeker-Carpenter-Detials"),
+    path('Rest-Seeker-Construction-Detials', views.RestSeekerConstructionDetials.as_view(), name="Rest-Seeker-Construction-Detials"),
+    path('Rest-Seeker-Plumber-Detials', views.RestSeekerPlumberDetials.as_view(), name="Rest-Seeker-Plumber-Detials"),
+    path('Rest-Seeker-Painter-Detials', views.RestSeekerPainterDetials.as_view(), name="Rest-Seeker-Painter-Detials"),
+    path('Rest-Seeker-Catering-Detials', views.RestSeekerCateringDetials.as_view(), name="Rest-Seeker-Catering-Detials"),
+    path('Rest-Seeker-Maid-Detials', views.RestSeekerMaidDetials.as_view(), name="Rest-Seeker-Maid-Detials"),
+    path('Rest-Seeker-Electrician-Detials', views.RestSeekerMaidDetials.as_view(), name="Rest-Seeker-Maid-Detials"),
+
 
 
 

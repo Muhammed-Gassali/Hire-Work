@@ -17,7 +17,7 @@ import requests
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from user.serializer import SerializeCustomerHomepage
+from user.serializer import *
 from rest_framework import status
 
 from geopy.geocoders import Nominatim
@@ -101,12 +101,17 @@ def customer_register(request):
 
 class RestCustomerRegister(APIView):
     def post(self, request):
+        # print(request.data['username'])
+        # return Response({"status":'done'})
+
         first_name = request.data['fname']
         last_name = request.data['lname']
         user_name = request.data['username']
         email = request.data['email']
         mobile_number = request.data['phone']
         password = request.data['password']
+        print(email)
+        # return Response({"status":'done'})
         if User.objects.filter(username=user_name).exists() or User.objects.filter(email=email).exists():
             if User.objects.filter(username=user_name).exists():
                 return Response({"status":"Username already exists"})
@@ -114,7 +119,7 @@ class RestCustomerRegister(APIView):
                 return Response({"status":"Email already exists"})
             return Response({"status":"failed"})
         else:
-            customer = User.objects.create_user(first_name=name, username=user_name, email=email, password=password, last_name=last_name)
+            customer = User.objects.create_user(first_name=first_name, username=user_name, email=email, password=password, last_name=last_name)
             return Response({"status":"success"})
 
 
@@ -290,26 +295,8 @@ def customer_homepage(request):
 
 
 
-#function for giving category detials in rest
-class RestCustomerHomepage(APIView):
-    def get(self, request):
-        category = Category.objects.all()
-        category_serialize = SerializeCustomerHomepage(category,many=True)
-        return Response(category_serialize.data)
 
-    def post(get, request):
-        serializeobj = SerializeCustomerHomepage(data=request.data)
-        if serializeobj.is_valid():
-            serializeobj.save()
-            return Response(serializeobj.data,status=status.HTTP_201_CREATED)
-        return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
 
-#class for giving seekers detials in rest
-class RestSeekerDetials(APIView):
-    def get(self, request):
-        seekers = JobSeeker.objects.all()
-        seekers_serialize = SerilazeSeekerDetials(seekers,many=True)
-        return Response(seekers_serialize.data)
 
 
 
@@ -792,20 +779,67 @@ class rest(APIView):
 
     
 
-
-
-
 class rest_common_home(APIView):
     def get(self, requests):
         return Response({"status":"done"})
 
 
-        # ip  = '72.14.207.99'
-        # country, city, lat, lon = get_geo(ip)
-        # print('location country', country)
-        # print('location city', city)
-        # print('location lat, lon', lat, lon)
-        
-        # taking ip's location
-        # location = geolocator.geocode(city)
-        # print('^%$^%$%', location)
+
+#function for giving category detials in rest
+class RestCustomerHomepage(APIView):
+    def get(self, request):
+        category = Category.objects.all()
+        category_serialize = SerializeCustomerHomepage(category,many=True)
+        return Response(category_serialize.data)
+
+    # def post(get, request):
+    #     serializeobj = SerializeCustomerHomepage(data=request.data)
+    #     if serializeobj.is_valid():
+    #         serializeobj.save()
+    #         return Response(serializeobj.data,status=status.HTTP_201_CREATED)
+    #     return Response(serializeobj.errors,status=status.HTTP_400_BAD_REQUEST)
+
+#class for giving carpenters detials in rest
+class RestSeekerCarpenterDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.filter(category=6)
+        print(seekers)
+        seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
+        return Response(seekers_serialize.data)
+
+class RestSeekerConstructionDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.filter(category=11)
+        print(seekers)
+        seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
+        return Response(seekers_serialize.data)
+
+class RestSeekerPlumberDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.filter(category=2)
+        print(seekers)
+        seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
+        return Response(seekers_serialize.data)
+
+
+class RestSeekerPainterDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.filter(category=4)
+        print(seekers)
+        seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
+        return Response(seekers_serialize.data)
+
+class RestSeekerCateringDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.filter(category=8)
+        print(seekers)
+        seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
+        return Response(seekers_serialize.data)
+
+
+class RestSeekerMaidDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.filter(category=9)
+        print(seekers)
+        seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
+        return Response(seekers_serialize.data)

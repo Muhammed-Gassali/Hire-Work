@@ -7,7 +7,7 @@ class SerializeCustomerHomepage(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class SerilazeSeekerDetials(serializers.ModelSerializer):
+class SerilazeSeekerCarpenterDetials(serializers.ModelSerializer):
     class Meta:
         model = JobSeeker
         fields = "__all__"

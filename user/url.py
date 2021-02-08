@@ -44,6 +44,8 @@ urlpatterns = [
     path('Rest-Seeker-Catering-Detials', views.RestSeekerCateringDetials.as_view(), name="Rest-Seeker-Catering-Detials"),
     path('Rest-Seeker-Maid-Detials', views.RestSeekerMaidDetials.as_view(), name="Rest-Seeker-Maid-Detials"),
     path('Rest-Seeker-Electrician-Detials', views.RestSeekerMaidDetials.as_view(), name="Rest-Seeker-Maid-Detials"),
+    path('Rest-Seeker-Welder-Detials', views.RestSeekerWelderDetials.as_view(), name="Rest-Seeker-Welder-Detials"),
+    path('Rest-Seeker-Driver-Detials', views.RestSeekerDriverDetials.as_view(), name="Rest-Seeker-Driver-Detials"),
 
 
 

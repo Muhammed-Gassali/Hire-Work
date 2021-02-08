@@ -56,7 +56,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <!---->
 		 
 			 <div class="top-nav">
-				<ul class="memenu skyblue"><li class="active"><a href="#">Home</a></li>
+				 {% if index == 0 %}
+				<ul class="memenu skyblue"><li class="active"><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
+					{% else %}
+				<ul class="memenu skyblue"><li class="active"><a href="{% url 'customer-homepage' %}">Home</a></li>
+					{% endif %}
 					<li class="grid"><a href="#">Category</a>
 						<div class="mepanel">
 							<div class="row">
@@ -129,7 +133,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="single-sec">
 	 <div class="container">
 		 <ol class="breadcrumb">
+			 {% if index == 0 %}
 			 <li><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
+			 {% else %}
+			 <li><a href="{% url 'customer-homepage' %}">Home</a></li>
+			{% endif %}
 			 <li class="active">View</li>
 		 </ol>
 		 <!-- start content -->	
@@ -165,14 +173,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <ul>								 
 								 <li>Expected salary per day:</li>
 								 <li class="active">Rs {{detials.expected_salary}}</li>
+								 {% if index == 0 %}
 								 <a href="{% url 'add-to-collection' detials.id %}">Hire NOW</a>
+								 {% else %}
+								 <a href="{% url 'customer-login' %}">Hire NOW</a>
+								 {% endif %}
 							 </ul>
 						 </div>
-						
 						 <div class="clearfix"></div>
-					  </div>
-					 
-					 				 
+					  </div>		 				 
 				  </div>
 				  <div class="clearfix"></div>
 					<div class="sofaset-info">
@@ -188,15 +197,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 {% endif %}							 
 						 </ul>
 				  </div>
-		  <!---->
-		  
+		  <!---->		  
 		 <div class="arrivals">	
 		 <h3>Related People</h3>
 		 <div class="arrival-grids">			 
-			 <ul id="flexiselDemo1">
-			
-				 {% for value in seekers %}
-				 
+			 <ul id="flexiselDemo1">			
+				 {% for value in seekers %}				 
 				 {% if value.category.category_name == category	 %}
 				 <li>
 					 <a href="{% url 'quickview' value.id %}"><img style="width: 150px; height :200px;" src="{{value.ImageURL}}" alt=""/>	
@@ -205,9 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <p>{{value.expected_salary}}</p>
 					 </div>
 					 </a>				 
-				 </li>
-
-				
+				 </li>				
 				 {% endif %}
 				 {% endfor %}
 				</ul>
@@ -241,12 +245,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 </div>
 			</div>			
 			<!---->
-		    </div>
-		 
+		    </div>		 
 		     <div class="clearfix"></div>
 	  </div>	 
 </div>
-
 <!---->
 <div class="footer">
 	 <div class="container">

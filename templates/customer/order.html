@@ -33,6 +33,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<!--header-->
+	{% if messages %}
+	{% for message in messages %}
+	<div class="alert alert-warning">
+		<strong>{{message}}</strong>
+	  </div>
+	  {% endfor %}
+	  {% endif %}
 	<div class="top_bg">
 		<div class="container">
 			<div class="header_top-sec">

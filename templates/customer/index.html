@@ -1,321 +1,360 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Hire&Get : Customer Homepage</title>
-<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
-<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />	
-<!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+	<title>Hire&Get : Customer Homepage</title>
+	<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
+	<!-- Custom Theme files -->
+	<!--theme-style-->
+	<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<!--//theme-style-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- start menu -->
-<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
-<!-- start menu -->
-<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
-<script>$(document).ready(function(){$(".memenu").memenu();});</script>	
-<!-- /start menu -->
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- start menu -->
+	<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
+	<!-- start menu -->
+	<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
+	<script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+	<!-- /start menu -->
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body> 
-<!--header-->	
-<div class="top_bg">
-	<div class="container">
-		<div class="header_top-sec">
-			<div class="top_right">
-				<ul>
-					<li><a href="{% url 'contact' %}">Contact</a></li>|
-					<li><a href="{% url 'customer-login' %}">Order Confirmations</a></li>
-				</ul>
-			</div>
-			<div class="top_left">
-				<ul>
-					<li class="top_link">Email:<a href="mailto:info@example.com">mail@example.com</a></li>|
-					<li class="top_link"><a href="login.html">My Account</a></li>					
-				</ul>
-			</div>
-				<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
-<div class="header-top">
-	 <div class="header-bottom">
-		 <div class="container">			
-				<div class="logo">
-					<a href="#"><h1>Hire&Work</h1></a>
+
+<body>
+	<!--header-->
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top-sec">
+				<div class="top_right">
+					<ul>
+						<li><a href="{% url 'contact' %}">Contact</a></li>|
+						<li><a href="{% url 'customer-login' %}">Order Confirmations</a></li>
+					</ul>
 				</div>
-			 <!---->
-		 
-			 <div class="top-nav">
-				<ul class="memenu skyblue"><li class="active"><a href="#">Home</a></li>
-					<li class="grid"><a href="#">Catogeory</a>
-						<div class="mepanel">
-							<div class="row">
-								<div class="col1 me-one">
-								
-									<ul>
-										<li><a href="#">Construction</a></li>
-										<li><a href="#">Painter</a></li>
-										<li><a href="#">Electrician</a></li>
-									</ul>
-								</div>
-								<div class="col1 me-one">
-							
-									<ul>
-										<li><a href="#">Carpenter</a></li>
-										<li><a href="#">Driver</a></li>
-										<li><a href="#">Catering</a></li>
-									</ul>	
-								</div>
-								<div class="col1 me-one">
-									
-									<ul>
-										<li><a href="#">Maid</a></li>
-										<li><a href="#">Welder</a></li>
-										<li><a href="#">Plumber</a></li>
-										
-									</ul>	
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="grid"><a href="#">Login</a>
-						<div class="mepanel">
-							<div class="row">
-								<div class="col1 me-one">
-									<ul>
-										<li><a href="{% url 'customer-login' %}">Customer</a></li>
-										<li><a href="{% url 'seeker-login' %}">Job Seeker</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-				<div class="clearfix"> </div>
-			 </div>
-			 <!---->
-			 <div id="jj" class="cart box_1">
-				<a href="{% url 'customer-login' %}">
-				   <h3> <div class="total">
-					   <img style="width: 30px; height:30px" src="{% static 'customerhomepageimages/man.png' %}" alt=""><br>
-					   <p>collections</p>
-			   </a>
+				<div class="top_left">
+					<ul>
+						<li class="top_link">Email:<a href="mailto:info@example.com">mail@example.com</a></li>|
+						<li class="top_link"><a href="login.html">My Account</a></li>
+					</ul>
+				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<div class="clearfix"> </div>
-	  </div>
-</div>
-<!---->
-<div class="banner">
-	 <div class="container">
-	 </div>
-</div>
-<!---->
-<div class="welcome">
-	 <div class="container">
-		 <div class="col-md-3 welcome-left">
-			 <h2>Welcome to Hire&Work</h2>
-		 </div>
-		 <div class="col-md-9 welcome-right">
-			 <h3>Proin ornare massa eu enim pretium efficitur.</h3>
-			 <p>Hire&Get is statnding for getting Jobs and Hire workers. Here you have two choices, either you can enroll as a worker and get job apt to you like we mentioned in the category section nor you can enroll as a customer and hire workers according to their profession for your needs.
+		</div>
+	</div>
+	<div class="header-top">
+		<div class="header-bottom">
+			<div class="container">
+				<div class="logo">
+					<a href="#">
+						<h1>Hire&Work</h1>
+					</a>
+				</div>
+				<!---->
 
-				For workers, Here we are offering best oppertunities to get works everyday if you guys properly follow our rules and regulations. You guys want to register here by providing some of details like your Name, profession, how much you expected salary per day, etc...
-				
-				For customers, Here we are offering the workers which will satisfies you with their works. You can hire workers accordig to their salary expecatation , how much year they have experience in that field etc..
-				
-				</p>
-		 </div>
-	 </div>
-</div>
-<!---->
-<div class="bride-grids">
-	 <div class="container">
-		 <div class="col-md-4 bride-grid">
-			 <div class="content-grid l-grids">
-						<img src="{% static 'customerhomepageimages/c.jpg' %}" alt=""/>
-				 <div class="clearfix"></div>
-				 <h3>Construction</h3>
-			 </div>
-			 <div class="content-grid l-grids">
-						<img src="{% static 'customerhomepageimages/cr.jpg' %}" alt=""/>	
-				 <div class="clearfix"></div>
-				 <h3>Carpentry</h3>
-			 </div>
-		 </div>
-		 <div class="col-md-4 bride-grid">
-				<div class="content-grid l-grids">
-						<img src="{% static 'customerhomepageimages/w.jpg' %}" alt=""/>
-				 <h3>Welding</h3>
-			 </div>
-		 </div>
-		 <div class="col-md-4 bride-grid">
-			 <div class="content-grid l-grids">
-						<img src="{% static 'customerhomepageimages/p.jpg' %}" alt=""/>	
-				 <div class="clearfix"></div>
-				 <h3>Painting</h3>
-			 </div>
-			 <div class="content-grid l-grids">
-						<img src="{% static 'customerhomepageimages/d.jpg' %}" alt=""/>
+				<div class="top-nav">
+					<ul class="memenu skyblue">
+						<li class="active"><a href="#">Home</a></li>
+						<li class="grid"><a href="#">Catogeory</a>
+							<div class="mepanel">
+								<div class="row">
+									<div class="col1 me-one">
+
+										<ul>
+											<li><a href="#">Construction</a></li>
+											<li><a href="#">Painter</a></li>
+											<li><a href="#">Electrician</a></li>
+										</ul>
+									</div>
+									<div class="col1 me-one">
+
+										<ul>
+											<li><a href="#">Carpenter</a></li>
+											<li><a href="#">Driver</a></li>
+											<li><a href="#">Catering</a></li>
+										</ul>
+									</div>
+									<div class="col1 me-one">
+
+										<ul>
+											<li><a href="#">Maid</a></li>
+											<li><a href="#">Welder</a></li>
+											<li><a href="#">Plumber</a></li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="grid"><a href="#">Login</a>
+							<div class="mepanel">
+								<div class="row">
+									<div class="col1 me-one">
+										<ul>
+											<li><a href="{% url 'customer-login' %}">Customer</a></li>
+											<li><a href="{% url 'seeker-login' %}">Job Seeker</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+				<!---->
+				<div id="jj" class="cart box_1">
+					<a href="{% url 'customer-login' %}">
+						<h3>
+							<div class="total">
+								<img style="width: 30px; height:30px"
+									src="{% static 'customerhomepageimages/man.png' %}" alt=""><br>
+								<p>collections</p>
+					</a>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!---->
+		<div class="banner">
+			<div class="container">
+			</div>
+		</div>
+		<!---->
+		<div class="welcome">
+			<div class="container">
+				<div class="col-md-3 welcome-left">
+					<h2>Welcome to Hire&Work</h2>
+				</div>
+				<div class="col-md-9 welcome-right">
+					<h3>Proin ornare massa eu enim pretium efficitur.</h3>
+					<p>Hire&Get is statnding for getting Jobs and Hire workers. Here you have two choices, either you
+						can enroll as a worker and get job apt to you like we mentioned in the category section nor you
+						can enroll as a customer and hire workers according to their profession for your needs.
+
+						For workers, Here we are offering best oppertunities to get works everyday if you guys properly
+						follow our rules and regulations. You guys want to register here by providing some of details
+						like your Name, profession, how much you expected salary per day, etc...
+
+						For customers, Here we are offering the workers which will satisfies you with their works. You
+						can hire workers accordig to their salary expecatation , how much year they have experience in
+						that field etc..
+
+					</p>
+				</div>
+			</div>
+		</div>
+		<!---->
+		<div class="bride-grids">
+			<div class="container">
+				<div class="col-md-4 bride-grid">
+					<div class="content-grid l-grids">
+						<img src="{% static 'customerhomepageimages/c.jpg' %}" alt="" />
+						<div class="clearfix"></div>
+						<h3>Construction</h3>
+					</div>
+					<div class="content-grid l-grids">
+						<img src="{% static 'customerhomepageimages/cr.jpg' %}" alt="" />
+						<div class="clearfix"></div>
+						<h3>Carpentry</h3>
+					</div>
+				</div>
+				<div class="col-md-4 bride-grid">
+					<div class="content-grid l-grids">
+						<img src="{% static 'customerhomepageimages/w.jpg' %}" alt="" />
+						<h3>Welding</h3>
+					</div>
+				</div>
+				<div class="col-md-4 bride-grid">
+					<div class="content-grid l-grids">
+						<img src="{% static 'customerhomepageimages/p.jpg' %}" alt="" />
+						<div class="clearfix"></div>
+						<h3>Painting</h3>
+					</div>
+					<div class="content-grid l-grids">
+						<img src="{% static 'customerhomepageimages/d.jpg' %}" alt="" />
+						<div class="clearfix"></div>
+						<h3>Driving</h3>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="featured">
+			<div class="container">
+				<h3>Construction</h3>
+				<div class="feature-grids">
+					{% for value in detials %}
+					{% if value.category.category_name == 'Construction' %}
+					<div class="col-md-3 feature-grid jewel">
+						<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+								src="{{value.ImageURL}}" alt="" /></a>
+						<div class="arrival-info">
+							<h4>{{value.name}}</h4>
+							<p>{{value.place}}</p>
+							<p>₹ {{value.expected_salary}}/day</p>
+							<p>{{value.experience}} yrs of experience</p>
+							<a href="{% url 'customer-login' %}"><button type="button" class="btn btn-success"
+									onclick="return confirm('Please login in tou your account please')">Hire</button></a>
+						</div>
+						<div class="viw">
+							<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+									aria-hidden="true"></span>Quick View</a>
+						</div>
+						<div class="shrt">
+							<a href="{% url 'customer-login' %}"><span class="glyphicon glyphicon-star"
+									aria-hidden="true"
+									onclick="return confirm('Please login in tou your account please'')"></span>Hire</a>
+						</div>
+					</div>
+					{% endif %}
+					{% endfor %}
 					<div class="clearfix"></div>
-				 <h3>Driving</h3>
-			 </div>
-		 </div>
-		 <div class="clearfix"></div>
-	 </div>
-</div>
-<div class="featured">
-	 <div class="container">
-		 <h3>Construction</h3>
-		 <div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Construction' %}
-			 <div class="col-md-3 feature-grid jewel">
-					<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>	
-					 <div class="arrival-info">
-						 <h4>{{value.name}}</h4>
-						 <p>{{value.place}}</p>
-						 <p>₹ {{value.expected_salary}}/day</p>
-						 <p>{{value.experience}} yrs of experience</p>
-						 <button type="button" class="btn btn-success">Hire</button>
-					 </div>
-					 <div class="viw">
-						<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					 </div>
-					 <div class="shrt">
-						<a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					 </div>
-			 </div>
-			 {% endif %}
-			 {% endfor %}
-			 <div class="clearfix"></div>
-		 </div>
-	 </div>
-</div>
-<div class="featured">
-	<h3>Painter</h3>
-	<div class="container">
-		<div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Painter' %}
-			<div class="col-md-3 feature-grid jewel">
-				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>
-					<div class="arrival-info">
-						<h4>{{value.name}}</h4>
-						<p>{{value.place}}</p>
-						<p>₹ {{value.expected_salary}}/day</p>
-						<p>{{value.experience}} yrs of experience</p>
-						<button type="button" class="btn btn-success">Hire</button>
-					</div>
-					<div class="viw">
-					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					</div>
-					<div class="shrt">
-					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					</div>
+				</div>
 			</div>
-			{% endif %}
-			{% endfor %}	
-			<div class="clearfix"></div>
 		</div>
-		
-	</div>
-	
-</div>
-<div class="featured">
-	<div class="container">
-		<h3>Electrician</h3>
-		<div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Electrician' %}
-			<div class="col-md-3 feature-grid jewel">
-				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>
-					<div class="arrival-info">
-						<h4>{{value.name}}</h4>
-						<p>{{value.place}}</p>
-						<p>₹ {{value.expected_salary}}/day</p>
-						<p>{{value.experience}} yrs of experience</p>
-						<button type="button" class="btn btn-success">Hire</button>
+		<div class="featured">
+			<h3>Painter</h3>
+			<div class="container">
+				<div class="feature-grids">
+					{% for value in detials %}
+					{% if value.category.category_name == 'Painter' %}
+					<div class="col-md-3 feature-grid jewel">
+						<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+								src="{{value.ImageURL}}" alt="" /></a>
+						<div class="arrival-info">
+							<h4>{{value.name}}</h4>
+							<p>{{value.place}}</p>
+							<p>₹ {{value.expected_salary}}/day</p>
+							<p>{{value.experience}} yrs of experience</p>
+							<a href="{% url 'customer-login' %}"><button type="button" class="btn btn-success"
+									onclick="return confirm('Please login in tou your account please')">Hire</button></a>
+						</div>
+						<div class="viw">
+							<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+									aria-hidden="true"></span>Quick View</a>
+						</div>
+						<div class="shrt">
+							<a href="{% url 'customer-login' %}"><span class="glyphicon glyphicon-star"
+									aria-hidden="true"
+									onclick="return confirm('Please login in tou your account please')"></span>Hire</a>
+						</div>
 					</div>
-					<div class="viw">
-					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					</div>
-					<div class="shrt">
-					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					</div>
-			</div>
-			{% endif %}
-			{% endfor %}
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
+					{% endif %}
+					{% endfor %}
+					<div class="clearfix"></div>
+				</div>
 
-<div class="featured">
-	<div class="container">
-		<h3>Carpenter</h3>
-		<div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Carpenter' %}
-			<div class="col-md-3 feature-grid jewel">
-				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/>	
-					<div class="arrival-info">
-						<h4>{{value.name}}</h4>
-						<p>{{value.place}}</p>
-						<p>₹ {{value.expected_salary}}/day</p>
-						<p>{{value.experience}} yrs of experience</p>
-						<button type="button" class="btn btn-success">Hire</button>
-					</div>
-					<div class="viw">
-					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					</div>
-					<div class="shrt">
-					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					</div>
 			</div>
-			{% endif %}
-			{% endfor %}
-			<div class="clearfix"></div>
+
 		</div>
-	</div>
-</div>
-<div class="featured">
-	<div class="container">
-		<h3>Driver</h3>
-		<div class="feature-grids">
-			{% for value in detials %}
-			{% if value.category.category_name == 'Driver' %}
-			<div class="col-md-3 feature-grid jewel">
-				<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;" src="{{value.ImageURL}}" alt=""/></a>
-					<div class="arrival-info">
-						<h4>{{value.name}}</h4>
-						<p>{{value.place}}</p>
-						<p>₹ {{value.expected_salary}}/day</p>
-						<p>{{value.experience}} yrs of experience</p>
-						<button type="button" class="btn btn-success">Hire</button>
+		<div class="featured">
+			<div class="container">
+				<h3>Electrician</h3>
+				<div class="feature-grids">
+					{% for value in detials %}
+					{% if value.category.category_name == 'Electrician' %}
+					<div class="col-md-3 feature-grid jewel">
+						<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+								src="{{value.ImageURL}}" alt="" /></a>
+						<div class="arrival-info">
+							<h4>{{value.name}}</h4>
+							<p>{{value.place}}</p>
+							<p>₹ {{value.expected_salary}}/day</p>
+							<p>{{value.experience}} yrs of experience</p>
+							<a href="{% url 'customer-login' %}"><button type="button" class="btn btn-success"
+									onclick="return confirm('Please login in tou your account please')">Hire</button></a>
+						</div>
+						<div class="viw">
+							<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+									aria-hidden="true"></span>Quick View</a>
+						</div>
+						<div class="shrt">
+							<a href="{% url 'customer-login' %}"><span class="glyphicon glyphicon-star"
+									aria-hidden="true"
+									onclick="return confirm('Please login in tou your account please')"></span>Hire</a>
+						</div>
 					</div>
-					<div class="viw">
-					   <a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
-					</div>
-					<div class="shrt">
-					   <a href=""><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Hire</a>
-					</div>
+					{% endif %}
+					{% endfor %}
+					<div class="clearfix"></div>
+				</div>
 			</div>
-			{% endif %}
-			{% endfor %}
-			<div class="clearfix"></div>
 		</div>
-	</div>
-</div>
-<!-- <div class="featured">
+
+		<div class="featured">
+			<div class="container">
+				<h3>Carpenter</h3>
+				<div class="feature-grids">
+					{% for value in detials %}
+					{% if value.category.category_name == 'Carpenter' %}
+					<div class="col-md-3 feature-grid jewel">
+						<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+								src="{{value.ImageURL}}" alt="" />
+							<div class="arrival-info">
+								<h4>{{value.name}}</h4>
+								<p>{{value.place}}</p>
+								<p>₹ {{value.expected_salary}}/day</p>
+								<p>{{value.experience}} yrs of experience</p>
+								<a href="{% url 'customer-login' %}"><button type="button" class="btn btn-success"
+										onclick="return confirm('Please login in tou your account please')">Hire</button></a>
+							</div>
+							<div class="viw">
+								<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+										aria-hidden="true"></span>Quick View</a>
+							</div>
+							<div class="shrt">
+								<a href="{% url 'customer-login' %}"><span class="glyphicon glyphicon-star"
+										aria-hidden="true"
+										onclick="return confirm('Please login in tou your account please')"></span>Hire</a>
+							</div>
+					</div>
+					{% endif %}
+					{% endfor %}
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="featured">
+			<div class="container">
+				<h3>Driver</h3>
+				<div class="feature-grids">
+					{% for value in detials %}
+					{% if value.category.category_name == 'Driver' %}
+					<div class="col-md-3 feature-grid jewel">
+						<a href="{% url 'quickview' value.id %}"><img style="width: 250px; height: 250px;"
+								src="{{value.ImageURL}}" alt="" /></a>
+						<div class="arrival-info">
+							<h4>{{value.name}}</h4>
+							<p>{{value.place}}</p>
+							<p>₹ {{value.expected_salary}}/day</p>
+							<p>{{value.experience}} yrs of experience</p>
+							<a href="{% url 'customer-login' %}"><button type="button" class="btn btn-success"
+									onclick="return confirm('Please login in tou your account please')">Hire</button></a>
+						</div>
+						<div class="viw">
+							<a href="{% url 'quickview' value.id %}"><span class="glyphicon glyphicon-eye-open"
+									aria-hidden="true"></span>Quick View</a>
+						</div>
+						<div class="shrt">
+							<a href="{% url 'customer-login' %}"><span class="glyphicon glyphicon-star"
+									aria-hidden="true"
+									onclick="return confirm('Please login in tou your account please')"></span>Hire</a>
+						</div>
+					</div>
+					{% endif %}
+					{% endfor %}
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="featured">
 	<div class="container">
 		<h3>Catering</h3>
 		<div class="feature-grids">
@@ -423,81 +462,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div> -->
-<!---->
-<div class="shoping">
-	 <div class="container">
-		 <div class="shpng-grids">
-			 <div class="col-md-4 shpng-grid">
-				 <h3>Free Shipping</h3>
-				 <p>On Order Over Rs999</p>
-			 </div>
-			 <div class="col-md-4 shpng-grid">
-				 <h3>Order Return</h3>
-				 <p>Return Within 14days</p>
-			 </div>
-			 <div class="col-md-4 shpng-grid">
-				 <h3>COD</h3>
-				 <p>Cash On Delivery</p>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>
-	 </div>
-</div>
-<!---->
-<div class="footer">
-	 <div class="container">
-		 <div class="ftr-grids">
-			 <div class="col-md-3 ftr-grid">
-				 <h4>About Us</h4>
-				 <ul>
-					 <li><a href="#">Who We Are</a></li>
-					 <li><a href="contact.html">Contact Us</a></li>
-					 <li><a href="#">Our Sites</a></li>
-					 <li><a href="#">In The News</a></li>
-					 <li><a href="#">Team</a></li>
-					 <li><a href="#">Careers</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Customer service</h4>
-				 <ul>
-					 <li><a href="#">FAQ</a></li>
-					 <li><a href="#">Shipping</a></li>
-					 <li><a href="#">Cancellation</a></li>
-					 <li><a href="#">Returns</a></li>
-					 <li><a href="#">Bulk Orders</a></li>
-					 <li><a href="#">Buying Guides</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Your account</h4>
-				 <ul>
-					 <li><a href="account.html">Your Account</a></li>
-					 <li><a href="#">Personal Information</a></li>
-					 <li><a href="#">Addresses</a></li>
-					 <li><a href="#">Discount</a></li>
-					 <li><a href="#">Track your order</a></li>					 					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Categories</h4>
-				 <ul>
-					 <li><a href="#">> Wedding</a></li>
-					 <li><a href="#">> Jewellerys</a></li>
-					 <li><a href="#">> Shoes</a></li>
-					 <li><a href="#">> Flowers</a></li>
-					 <li><a href="#">> Cakes</a></li>
-					 <li><a href="#">...More</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>		
-	 </div>
-</div>
-<!---->
- <div class="copywrite">
-	 <div class="container">
-		 </div>
-</div>		 
+
+		<div class="footer">
+			<div class="container">
+				<div class="ftr-grids">
+					<div class="col-md-3 ftr-grid">
+						<h4>About Us</h4>
+						<ul>
+							<li><a href="#">Who We Are</a></li>
+							<li><a href="contact.html">Contact Us</a></li>
+							<li><a href="#">Our Sites</a></li>
+							<li><a href="#">In The News</a></li>
+							<li><a href="#">Team</a></li>
+							<li><a href="#">Careers</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 ftr-grid">
+						<h4>Customer service</h4>
+						<ul>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Shipping</a></li>
+							<li><a href="#">Cancellation</a></li>
+							<li><a href="#">Returns</a></li>
+							<li><a href="#">Bulk Orders</a></li>
+							<li><a href="#">Buying Guides</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 ftr-grid">
+						<h4>Your account</h4>
+						<ul>
+							<li><a href="account.html">Your Account</a></li>
+							<li><a href="#">Personal Information</a></li>
+							<li><a href="#">Addresses</a></li>
+							<li><a href="#">Discount</a></li>
+							<li><a href="#">Track your order</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 ftr-grid">
+						<h4>Categories</h4>
+						<ul>
+							<li><a href="#">> Wedding</a></li>
+							<li><a href="#">> Jewellerys</a></li>
+							<li><a href="#">> Shoes</a></li>
+							<li><a href="#">> Flowers</a></li>
+							<li><a href="#">> Cakes</a></li>
+							<li><a href="#">...More</a></li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!---->
+		<div class="copywrite">
+			<div class="container">
+			</div>
+		</div>
 </body>
+
 </html>

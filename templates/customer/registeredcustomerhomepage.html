@@ -56,7 +56,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a href="">
 						<h1>Hire&Get</h1>
 					</a>
+					<!-- alert message  -->
+					{% if messages %}
+	{% for message in messages %}
+	<div class="alert alert-warning">
+		<strong>{{message}}</strong>
+	  </div>
+	  {% endfor %}
+	  {% endif %}
+					<!-- //alert message  -->
 				</div>
+				
 				<!---->
 				<div class="top-nav">
 					<ul class="memenu skyblue">

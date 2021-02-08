@@ -25,6 +25,9 @@ from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 
 
+import datetime 
+from datetime import date as dt
+
 
 # Create your views here.
 
@@ -65,6 +68,7 @@ class rest_customer_login(APIView):
         username = request.data['username']
         password = request.data['password']
         customer = User.objects.filter(username=username).first()
+        customer_id = customer.id
 
         if customer is not None and check_password(password,customer.password):
             if customer.is_active == False:
@@ -73,6 +77,13 @@ class rest_customer_login(APIView):
                 auth.login(request, customer, backend='django.contrib.auth.backends.ModelBackend')
                 # context = {"status":success, "username":username}
                 return Response({"status":"success"})
+                # return Response(customer_id)
+
+                # customer_data = User.objects.filter(id=customer_id)
+                # print(Customer_data)
+                # customer_serialize = SerializeCustomer(customer_data,many=True)
+                # return Response(customer_serialize.data)
+
         else:
             return Response({"status":"failed"})
 
@@ -294,13 +305,6 @@ def customer_homepage(request):
 
 
 
-
-
-
-
-
-
-
 def registered_customer_homepage(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -407,7 +411,6 @@ def quickview(request, id):
 
 def collection(request):
     if request.user.is_authenticated:
-        # data = Collection.objects.all()
         user = request.user
         data = Collection.objects.filter(customer=user)
         total_price = 0
@@ -424,10 +427,11 @@ def add_to_collection(request, id):
         user = request.user
         seeker = JobSeeker.objects.get(id=id)
         if Collection.objects.filter(customer=user, seeker=seeker).exists():
+            messages.warning(request, 'You already hired  ' + seeker.name )
             return redirect(registered_customer_homepage)
         else:
             data = Collection.objects.create(customer=user, seeker=seeker, total_price=seeker.expected_salary)
-            print(data)
+            messages.success(request,seeker.name+'  were added to collection' )
             return redirect(registered_customer_homepage)
     else:
         return redirect(customer_homepage)
@@ -456,9 +460,36 @@ def order_verify(request):
             date = request.POST['date']
             transaction_id = uuid.uuid4()
             collection = Collection.objects.filter(customer=user)
-            for x in collection:
-                confirm_order = order.objects.create(customer=user,seeker=x.seeker, name=name, address=address, mobile_number=mobile_number, place=place, land_mark=land_mark, pincode=pincode, time=time, date=date, transaction_id=transaction_id)
-            collection.delete()
+            for data in collection:
+                seeker_place = data.seeker.place
+                geolocator = Nominatim(user_agent='user')
+        
+                destination = geolocator.geocode(seeker_place)
+                print(destination)
+                d_lon = destination.longitude
+                d_lat = destination.latitude
+                pointA = (d_lat, d_lon)
+
+                destiny = geolocator.geocode(place)
+                sample_lat = destiny.latitude
+                sample_lon = destiny.longitude
+                pointB = (sample_lat, sample_lon)
+                distance = round(geodesic(pointA, pointB).km, 2)
+
+                if distance >= 50:
+                    messages.warning(request, 'Sorry,  one of you selected person in 50 km far from you. please select your location and hire people from Home page')
+                    return redirect(order_verify)
+            
+
+            today = dt.today()
+            if date <= today:
+                print("aavo")
+            else:
+                print("eeyyo")
+            
+            # for x in collection:
+            #     confirm_order = order.objects.create(customer=user,seeker=x.seeker, name=name, address=address, mobile_number=mobile_number, place=place, land_mark=land_mark, pincode=pincode, time=time, date=date, transaction_id=transaction_id)
+            # collection.delete()
 
             order_phone = order.objects.filter(transaction_id=transaction_id)
             for x in order_phone:
@@ -840,6 +871,21 @@ class RestSeekerCateringDetials(APIView):
 class RestSeekerMaidDetials(APIView):
     def get(self, request):
         seekers = JobSeeker.objects.filter(category=9)
+        print(seekers)
+        seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
+        return Response(seekers_serialize.data)
+
+
+class RestSeekerWelderDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.filter(category=10)
+        print(seekers)
+        seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
+        return Response(seekers_serialize.data)
+
+class RestSeekerDriverDetials(APIView):
+    def get(self, request):
+        seekers = JobSeeker.objects.filter(category=7)
         print(seekers)
         seekers_serialize = SerilazeSeekerCarpenterDetials(seekers,many=True)
         return Response(seekers_serialize.data)

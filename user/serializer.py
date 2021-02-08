@@ -11,3 +11,8 @@ class SerilazeSeekerCarpenterDetials(serializers.ModelSerializer):
     class Meta:
         model = JobSeeker
         fields = "__all__"
+
+class SerializeCustomer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = "__all__"

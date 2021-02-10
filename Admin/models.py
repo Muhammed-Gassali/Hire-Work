@@ -57,7 +57,6 @@ class order(models.Model):
     mobile_number = models.CharField(max_length=128, null=True, blank=True)
     place = models.CharField(max_length=128, null=True, blank=True)
     land_mark = models.CharField(max_length=128, null=True, blank=True)
-    pincode = models.CharField(max_length=128, null=True, blank=True)
     time =models.TimeField()
     date = models.DateField()
     order_verify = models.BooleanField(default=False, null=True, blank=False)
@@ -65,6 +64,8 @@ class order(models.Model):
     transaction_id = models.CharField(max_length=200, null=True)
     seeker_feedback = models.CharField(max_length=500, null=True, blank=True)
     customer_feedback = models.CharField(max_length=500, null=True, blank=True)
+    mode_of_payment = models.CharField(max_length=500, null=True, blank=True)
+    durability = models.CharField(max_length=500, null=True, blank=True)
 
 class Feedback(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)

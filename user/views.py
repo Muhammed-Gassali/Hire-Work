@@ -449,17 +449,29 @@ def delete_collection(request, id):
 def order_verify(request):
     if request.user.is_authenticated:
         user = request.user
+        collection = Collection.objects.filter(customer=user)
+        total_price = 0
+        for x in collection:
+            total_price = total_price + x.get_total
+
         if request.method == "POST":
             name = request.POST['full_name']
             address = request.POST['ad']    
             mobile_number = request.POST['mobile']
             place = request.POST['place']
             land_mark = request.POST['mark']
-            pincode = request.POST['pin']
+            durability = request.POST['type']
             time = request.POST['time']
             date = request.POST['date']
+            mode_of_payment = request.POST['button']
             transaction_id = uuid.uuid4()
-            collection = Collection.objects.filter(customer=user)
+            # collection = Collection.objects.filter(customer=user)
+
+            if durability == "Half day":
+                total_price = total_price/2
+
+            
+            # to check the distance between customer and seeker 
             for data in collection:
                 seeker_place = data.seeker.place
                 geolocator = Nominatim(user_agent='user')
@@ -480,16 +492,22 @@ def order_verify(request):
                     messages.warning(request, 'Sorry,  one of you selected person in 50 km far from you. please select your location and hire people from Home page')
                     return redirect(order_verify)
             
-
-            today = dt.today()
-            if date <= today:
-                print("aavo")
-            else:
-                print("eeyyo")
+            # razorpay integration
+            if mode_of_payment == "razorpay":
+                amount = 50000
+                order_currency = 'INR'
+                # order_receipt = 'order_rcptid_11'
+                # notes = {'Shipping address': 'Bommanahalli, Bangalore'} 
+                client = razorpay.Client(auth=('rzp_test_7aA8MfBmXS1RVM', 'jO3wj005U2brXjw6XezQfIgZ'))
+                payment = client.order.create({'amount':amount, 'currency':'INR', 'payment_capture':'1'})
+                
             
-            # for x in collection:
-            #     confirm_order = order.objects.create(customer=user,seeker=x.seeker, name=name, address=address, mobile_number=mobile_number, place=place, land_mark=land_mark, pincode=pincode, time=time, date=date, transaction_id=transaction_id)
-            # collection.delete()
+            for x in collection:
+                price = x.seeker.expected_salary
+                if durability == "Half day":
+                    price = price/2
+                confirm_order = order.objects.create(customer=user,seeker=x.seeker, durability=durability, total_price=price, name=name, address=address, mobile_number=mobile_number, place=place, land_mark=land_mark, mode_of_payment=mode_of_payment, time=time, date=date, transaction_id=transaction_id)
+            collection.delete()
 
             order_phone = order.objects.filter(transaction_id=transaction_id)
             for x in order_phone:
@@ -517,13 +535,8 @@ def order_verify(request):
                 # //sms verification
 
             return redirect(registered_customer_homepage)
-        detials = CustomerDetials.objects.filter(user=user)
-        collections = Collection.objects.filter(customer=user)
-        total_price = 0
-        for x in collections:
-            total_price = total_price + x.get_total
-
-        context = {"customer":user, "detials":detials, "collections":collections, "total_price":total_price}
+        detials = CustomerDetials.objects.get(user=user)
+        context = {"customer":user, "detials":detials, "collections":collection, "total_price":total_price}
         return render(request, 'customer/order.html', context)
     else:
         return redirect(customer_homepage)

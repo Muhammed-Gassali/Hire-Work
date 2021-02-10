@@ -114,24 +114,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<br><br><br>
 				<div class="check-out">
 					<div class=" cart-items">
-						<h3>My Orders</h3>
+						<!-- <h3>My Orders</h3> -->
 
 
 						<!-- copied  table -->
 						<div class="container">
-							<h2>My orders</h2>
+							<h2>My orders</h2><br>
 							<table class="table table-striped">
 								<thead>
 									<tr>
 										<!-- <th></th> -->
 										<th>Name</th>
 										<th>Category</th>
-										<th>Salary</th>
 										<th>Date</th>
 										<th>Time</th>
+										<th>Salary</th>
+										<th>Durability</th>
+										<th>mode of payment</th>
 										<th>Seeker Confirmation</th>
 										<th>your Confirmation</th>
-										<th>cancel yoour order</th>
+										<th>cancel your order</th>
 										<th></th>
 									</tr>
 								</thead>
@@ -141,9 +143,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<!-- <td>{{data.seeker.ImageURL}}</td> -->
 										<td>{{data.seeker.name}}</td>
 										<td>{{data.seeker.category.category_name}}</td>
-										<td>{{data.seeker.expected_salary}}</td>
 										<td>{{data.date}}</td>
 										<td>{{data.time}}</td>
+										<td>{{data.total_price}}</td>
+										<td>{{data.durability}}</td>
+										<td>{{data.mode_of_payment}}</td>
+										<!-- <td>{{data.durability}}</td> -->
 										{% if data.order_verify == True %}
 										<td>success</td>
 										{% else %}

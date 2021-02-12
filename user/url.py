@@ -17,12 +17,12 @@ urlpatterns = [
     path('collection', views.collection, name="collection"),
     path('add-to-collection/<int:id>', views.add_to_collection, name="add-to-collection"),
     path('delete-collection/<int:id>', views.delete_collection, name="delete-collection"),
-    path('order', views.order_verify, name="order"),
+    path('order/', views.order_verify, name="order"),
     path('order-confirmation', views.order_confirmation, name="order-confirmation"),
     path('contact', views.contact, name="contact"),
     path('customer-order-cancel/<int:id>', views.customer_order_cancel, name="customer-order-cancel"),
-    path('order-paytm', views.order_paytm, name="order-paytm"),
     path('customer-feedback/<int:id>', views.customer_feedback, name="customer-feedback"),
+    path('razorpay-confirm/', views.razorpay_confirm, name="razorpay-confirm"),
 
 
 

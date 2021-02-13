@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+    <title>Job Seeker Registration</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="{% static 'admincss/addcustomer/main.css' %}" rel="stylesheet" media="all">
+</head>
+<body>
+    <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">Register Here</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">Full name</div>
+                            <div class="value">
+                                <input class="input--style-6" type="text" name="name" placeholder="full name" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="email" name="email" placeholder="example@email.com" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Phone Number</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="number" name="phone" placeholder="phone number" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="textarea--style-6" name="address" placeholder="Address of the Customer" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Place</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="place" placeholder="place" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Age</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="number" name="age" placeholder="Age" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Gender</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input type="radio" name="gender" value="male"> Male
+                                    <input type="radio" name="gender" value="female"> Female
+                                    <input type="radio" name="gender" value="others"> Others
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Category</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <select name="category" id="category">
+                                        {% for x in value %}
+                                        <option value="{{x.id}}">{{x.category_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Expected Salary/day</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="number" name="salary" placeholder="expected salary" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Experience/year</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="number" name="experience" placeholder="Username" required>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="form-row">
+                            <div class="name">Username</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="text" name="username" placeholder="Username" required>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="form-row">
+                            <div class="name">Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="password" name="password" placeholder="Password" required>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="form-row">
+                            <div class="name">Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-6" type="password" name="password1" placeholder="Confirm password" required>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="form-row">
+                            <div class="name">Upload a photo</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <img id="myimg" src="" name="img" class="avatar img-circle img-thumbnail" alt="avatar">
+                                    <input class="input--style-6" type="file" name="image" onchange="viewImage(event)">
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="form-row">
+                            <div class="name">Id Proof</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <img id="myproof" src="" name="img" class="avatar img-circle img-thumbnail" alt="avatar">
+                                    <input class="input--style-6" type="file" name="proof" onchange="viewProof(event)">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Submit Application</button>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                   {% for message in messages %}
+                   <p style="color:black;">{{message}}</p>
+               {% endfor %}
+                </div>    
+            </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'adminjs/addcustomer/global.js' %}"></script>
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="js/input-field.js"></script>
+	<script>
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("Passwords Doesn't Match");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+	</script>
+    <script>
+        function viewImage(event){
+            document.getElementById('myimg').src = URL.createObjectURL(event.target.files[0])
+        }  
+        function viewProof(event){
+            document.getElementById('myproof').src = URL.createObjectURL(event.target.files[0])
+        }        
+    </script>
+</body>
+</html>

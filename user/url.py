@@ -67,9 +67,9 @@ urlpatterns = [
     path('seeker-order/<int:id>', views.seeker_order, name="seeker-order"),
     path('seeker-order-confirm/<int:id>', views.seeker_order_confirm, name="seeker-order-confirm"),
     path('seeker-feedback/<int:id>', views.seeker_feedback, name="seeker-feedback"),
-
-
-
+    path('seeker-register', views.seeker_register, name="seeker-register"),
+    path('seeker-otp-login', views.seeker_otp_login, name="seeker-otp-login"),
+    path('seeker-otp-verify', views.seeker_otp_verify, name="seeker-otp-verify"),
 
 
 

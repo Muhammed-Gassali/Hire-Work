@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Order confirmation</title>
 	<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
@@ -40,9 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
-
 </head>
-
 <body>
 	<!--header-->
 	<div class="top_bg">
@@ -56,8 +53,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="top_left">
 					<ul>
-						<li class="top_link">Email:<a href="">{{user.email}}</a></li>|
-						<li class="top_link"><a href="">{{user.username}}</a></li>
+						<li class="top_link">Email:{{user.email}}</li>|
+						<li class="top_link">{{user.username}}</li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -68,33 +65,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header-bottom">
 			<div class="container">
 				<div class="logo">
-					<a href="">
+					<a href="{% url 'registered-customer-homepage' %}">
 						<h1>Hire&Get</h1>
 					</a>
 				</div>
 				<!---->
-
 				<div class="top-nav">
 					<ul class="memenu skyblue">
 						<li class="active"><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
-
-						<!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
 						<li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
 						<li class="grid"><a href="{% url 'customer-profile' %}">Make a profile</a></li>
-
-
 					</ul>
 					<div class="clearfix"> </div>
 				</div>
 				<!---->
 				<div class="cart box_1">
-					<a href="{% url 'collection' %}">
+					<a href="">
 						<h3>
-							<div class="total">
-								<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-						</h3>
+							<img style="width: 30px; height:30px" src="{% static 'customerhomepageimages/man.png' %}"
+								alt=""><br>
 					</a>
-					<!-- <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p> -->
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>
@@ -114,9 +104,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<br><br><br>
 				<div class="check-out">
 					<div class=" cart-items">
-						<!-- <h3>My Orders</h3> -->
-
-
 						<!-- copied  table -->
 						<div class="container">
 							<h2>My orders</h2><br>
@@ -205,7 +192,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</tbody>
 							</table>
 						</div>
-
 						<!-- //copied table -->
 						</form>
 					</div>
@@ -214,7 +200,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!---->
-
 	<!---->
 	<div class="footer">
 		<div class="container">
@@ -222,44 +207,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-3 ftr-grid">
 					<h4>About Us</h4>
 					<ul>
-						<li><a href="#">Who We Are</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						<li><a href="#">Our Sites</a></li>
-						<li><a href="#">In The News</a></li>
-						<li><a href="#">Team</a></li>
-						<li><a href="#">Careers</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 ftr-grid">
-					<h4>Customer service</h4>
-					<ul>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Shipping</a></li>
-						<li><a href="#">Cancellation</a></li>
-						<li><a href="#">Returns</a></li>
-						<li><a href="#">Bulk Orders</a></li>
-						<li><a href="#">Buying Guides</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 ftr-grid">
-					<h4>Your account</h4>
-					<ul>
-						<li><a href="account.html">Your Account</a></li>
-						<li><a href="#">Personal Information</a></li>
-						<li><a href="#">Addresses</a></li>
-						<li><a href="#">Discount</a></li>
-						<li><a href="#">Track your order</a></li>
+						<li><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
+						<li><a href="{% url 'contact' %}">Contact Us</a></li>
+						<li><a href="{% url 'collection' %}">Collections</a></li>
+						<li><a href="{% url 'order' %}">Orders</a></li>
+						<li><a href="{% url 'customer-profile' %}">Profile</a></li>
+						<li><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 ftr-grid">
 					<h4>Categories</h4>
 					<ul>
-						<li><a href="#">> Wedding</a></li>
-						<li><a href="#">> Jewellerys</a></li>
-						<li><a href="#">> Shoes</a></li>
-						<li><a href="#">> Flowers</a></li>
-						<li><a href="#">> Cakes</a></li>
-						<li><a href="#">...More</a></li>
+						<li><a href="#">Construction</a></li>
+						<li><a href="#">Carpenter</a></li>
+						<li><a href="#">Catering</a></li>
+						<li><a href="#">Plumber</a></li>
+						<li><a href="#">Painter</a></li>
+						<li><a href="#">Driver</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -269,10 +233,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!---->
 	<div class="copywrite">
 		<div class="container">
-			<p>Copyright © 2015 Wedding Store. All Rights Reserved | Design by <a
-					href="http://w3layouts.com">W3layouts</a></p>
+			<p>Copyright © 2020 Hire&Get</p>
 		</div>
 	</div>
 </body>
-
 </html>

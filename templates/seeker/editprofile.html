@@ -1,347 +1,321 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="zxx">
-    <head>
-        <title>Job Seeker Profile</title>
-        <!--/tags -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-            Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
-        <script>
-            addEventListener("load", function () {
-                setTimeout(hideURLbar, 0);
-            }, false);
 
-            function hideURLbar() {
-                window.scrollTo(0, 1);
-            }
-        </script>
-        <!--//tags -->
-        <link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
-        <script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
-        <link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
-        <script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"></script>
-        <link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all"/>
-        <script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
-        <script>
-            $(document).ready(function () {
-                $(".memenu").memenu();
-            });
-        </script>
-        <link href="{% static 'customerprofile/userhomepagenew/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
-        <link href="{% static 'customerprofile/userhomepagenew/css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
-        <link
-        href="{% static 'customerprofile/userhomepagenew/css/font-awesome.css' %}" rel="stylesheet">
-        <!--pop-up-box-->
-        <link href="{% static 'customerprofile/userhomepagenew/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all"/>
-        <!--//pop-up-box-->
-        <!-- price range -->
-        <link
-        rel="stylesheet" type="text/css" href="{% static 'customerprofile/userhomepagenew/css/jquery-ui1.css' %}"> <!-- flexslider -->
-        <link
-        rel="stylesheet" href="{% static 'customerprofile/userhomepagenew/css/flexslider.css' %}" type="text/css" media="screen"/>
-        <!-- fonts -->
-        <link
-        href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
-        <!--copied items for profile template-->
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!------ Include the above in your HEAD tag ---------->
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <!--//copied items-->
-        <!-- javascript cdn  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/x.y.z/underscore-min.js"></script>
-        <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
-        <!-- //javascript cdn -->
-    </head>
-    <body>
-        <div class="top_bg">
+<head>
+    <title>Job Seeker Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords"
+        content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+            Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
+    <link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"></script>
+    <link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $(".memenu").memenu();
+        });
+    </script>
+    <link href="{% static 'customerprofile/userhomepagenew/css/bootstrap.css' %}" rel="stylesheet" type="text/css"
+        media="all" />
+    <link href="{% static 'customerprofile/userhomepagenew/css/style.css' %}" rel="stylesheet" type="text/css"
+        media="all" />
+    <link href="{% static 'customerprofile/userhomepagenew/css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'customerprofile/userhomepagenew/css/popuo-box.css' %}" rel="stylesheet" type="text/css"
+        media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'customerprofile/userhomepagenew/css/jquery-ui1.css' %}">
+    <!-- flexslider -->
+    <link rel="stylesheet" href="{% static 'customerprofile/userhomepagenew/css/flexslider.css' %}" type="text/css"
+        media="screen" />
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <!--copied items for profile template-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--//copied items-->
+    <!-- javascript cdn  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/x.y.z/underscore-min.js"></script>
+</head>
+
+<body>
+    <div class="top_bg">
+        <div class="container">
+            <div class="header_top-sec">
+                <div class="top_right">
+                    <ul>
+                        <li>
+                            <a href="{% url 'contact' %}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="top_left">
+                    <ul>
+                        <li class="top_link">Email:{{seeker.email}}
+                        </li>|
+                        <li class="top_link">
+                            {{ seeker.name }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="header-top">
+        <div class="header-bottom">
             <div class="container">
-                <div class="header_top-sec">
-                    <div class="top_right">
-                        <ul>
-                            <li>
-                                <a href="contact.html">Contact</a>
-                            </li>|
-                            <li>
-                                <a href="login.html">Order Confirmations</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="top_left">
-                        <ul>
-                            <li class="top_link">Email:<a href="mailto:info@example.com">mail@example.com</a>
-                            </li>|
-                            <li class="top_link">
-                                <a href="login.html">{{ seeker.name }}</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
+                <div class="logo">
+                    <a href="#">
+                        <h1>Hire&Get</h1>
+                    </a>
+                </div>
+                <!---->
+                <div class="top-nav">
+                    <ul class="memenu skyblue">
+                        <li class="active">
+                            <a href="{% url 'seeker-profile' %}">Profile</a>
+                        </li>
+                        <li class="grid">
+                            <a href="{% url 'seeker-logout' %}">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="header-top">
-            <div class="header-bottom">
-                <div class="container">
-                    <div class="logo">
-                        <a href="#">
-                            <h1>Hire&Work</h1>
-                        </a>
-                    </div>
-                    <!---->
-
-                    <div class="top-nav">
-                        <ul class="memenu skyblue">
-                            <li class="active">
-                                <a href="{% url 'seeker-profile' %}">Profile</a>
-                            </li>
-
-                            <!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
-                            <li class="grid">
-                                <a href="{% url 'seeker-logout' %}">Logout</a>
-                            </li>
-
-
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!---->
-                    <div id="jj" class="cart box_1">
-                        <a href="{% url 'collection' %}">
-                            <h3>
-                                <div
-                                    class="total">
-                                    <!-- <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>)</div> -->
-                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                                </h3>
-                            </a>
-                            <p>
-                                <a href="" class="simpleCart_empty">Collections</a>
-                            </p>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <!---->
-                    </div>
-                    <div class="clearfix"></div>
+    </div>
+    <hr>
+    <div class="container bootstrap snippet">
+        <div class="row">
+            <div class="col-sm-3">
+                <!--left col-->
+                <div class="text-center">
+                    <form enctype="multipart/form-data" method="POST" action="{% url 'editing-profile' %}">
+                        {% csrf_token %}
+                        <img id="myimg" src="{{ seeker.ImageURL }}" class="avatar img-circle img-thumbnail"
+                            alt="avatar">
+                        <h6>Upload a different photo...</h6>
+                        <input type="file" name="image" class="text-center center-block file-upload"
+                            onchange="viewImage(event)">
                 </div>
+                </hr><br>
             </div>
-            <!-- contenct starting -->
-            <hr>
-            <div class="container bootstrap snippet">
-
-                <div class="row">
-                    <div
-                        class="col-sm-3">
-                        <!--left col-->
-                        <div class="text-center">
-                            <form enctype="multipart/form-data" method="POST" action="{% url 'editing-profile' %}">
-                                {% csrf_token %}
-                                <img
-                                id="myimg" src="{{ seeker.ImageURL }}" class="avatar img-circle img-thumbnail" alt="avatar">
-                                <!-- <img id="myimg" style="height: 200px; width:200px" src="" alt=""> -->
-                                <h6>Upload a different photo...</h6>
-                                <input type="file" name="image" class="text-center center-block file-upload" onchange="viewImage(event)">
-
+            <!--/col-3-->
+            <div class="col-sm-9">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#detials">Detials</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#edit">Add detials</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="detials">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="first_name">
+                                    <h4>First Name</h4>
+                                </label>
+                                <input type="text" class="form-control" name="name" id="name" readonly
+                                    value="{{ seeker.name }}">
                             </div>
-                        </hr><br>
-                    </div>
-                    <!--/col-3-->
-                    <div class="col-sm-9">
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a data-toggle="tab" href="#detials">Detials</a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#edit">Add detials</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div
-                                class="tab-pane active" id="detials">
-                                <!-- <hr>                  <form class="form" action="#" method="post" id="registrationForm"> -->
-                                <div class="form-group">
-
-                                    <div class="col-xs-6">
-                                        <label for="first_name">
-                                            <h4>First Name</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="name" id="name" readonly value="{{ seeker.name }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="last_name">
-                                            <h4>
-                                                Place</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="place" id="place" readonly value="{{ seeker.place }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="email">
-                                            <h4>Address</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="address" id="email" readonly value="{{ seeker.address }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Email</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="email" id="mobile" readonly value="{{ seeker.email }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Phone Number</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="mobile" id="mobile" readonly value="{{ seeker.phone_number }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Salary</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="mobile" id="salary" readonly value="{{ seeker.expected_salary }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Age</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="mobile" id="salary" readonly value="{{ seeker.age }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Username</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="mobile" id="salary" readonly value="{{ seeker.username }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Experience</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="mobile" id="salary" readonly value="{{ seeker.experience }} yrs">
-                                    </div>
-                                </div>
-                                <!-- </form> -->
-
-                                <hr>
-
-                            </div>
-                            <!--/tab-pane-->
-                            <!--/tab-pane-->
-                            <div class="tab-pane" id="edit">
-                                <hr>
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="first_name">
-                                            <h4>First Name</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="enter name here..." value="{{ seeker.name }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="last_name">
-                                            <h4>Place</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="place" id="username" placeholder="enter place here..." value="{{ seeker.place }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="email">
-                                            <h4>Address</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="address" id="email" placeholder="enter address here..." value="{{ seeker.address }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Email</h4>
-                                        </label>
-                                        <input type="email" class="form-control" name="email" id="mobile" placeholder="enter email here.." value="{{ seeker.email }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Phone Number</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="phone" id="mobile" placeholder="enter your phone number here.." value="{{ seeker.phone_number }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Salary</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="salary" id="mobile" placeholder="enter your salary here" value="{{ seeker.expected_salary }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Age</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="age" id="mobile" placeholder="enter your age here" value="{{ seeker.age }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Experience</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="experience" id="mobile" placeholder="enter your experience " value="{{ seeker.experience }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="mobile">
-                                            <h4>Username</h4>
-                                        </label>
-                                        <input type="text" class="form-control" name="username" id="mobile" placeholder="enter your username" value="{{ seeker.username }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <br>
-                                        <button class="btn btn-lg btn-success pull-right" type="submit">
-                                            <i class="glyphicon glyphicon-ok-sign"></i>
-                                            Save</button>
-                                        <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
-                                    </div>
-                                </div>
-                            </form>
                         </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="last_name">
+                                    <h4>
+                                        Place</h4>
+                                </label>
+                                <input type="text" class="form-control" name="place" id="place" readonly
+                                    value="{{ seeker.place }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="email">
+                                    <h4>Address</h4>
+                                </label>
+                                <input type="text" class="form-control" name="address" id="email" readonly
+                                    value="{{ seeker.address }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Email</h4>
+                                </label>
+                                <input type="text" class="form-control" name="email" id="mobile" readonly
+                                    value="{{ seeker.email }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Phone Number</h4>
+                                </label>
+                                <input type="text" class="form-control" name="mobile" id="mobile" readonly
+                                    value="{{ seeker.phone_number }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Salary</h4>
+                                </label>
+                                <input type="text" class="form-control" name="mobile" id="salary" readonly
+                                    value="{{ seeker.expected_salary }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Age</h4>
+                                </label>
+                                <input type="text" class="form-control" name="mobile" id="salary" readonly
+                                    value="{{ seeker.age }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Username</h4>
+                                </label>
+                                <input type="text" class="form-control" name="mobile" id="salary" readonly
+                                    value="{{ seeker.username }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Experience</h4>
+                                </label>
+                                <input type="text" class="form-control" name="mobile" id="salary" readonly
+                                    value="{{ seeker.experience }} yrs">
+                            </div>
+                        </div>
+                        <!-- </form> -->
+                        <hr>
                     </div>
-                    <!--/tab-pane-->
-
+                    <div class="tab-pane" id="edit">
+                        <hr>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="first_name">
+                                    <h4>First Name</h4>
+                                </label>
+                                <input type="text" class="form-control" name="name" id="name"
+                                    placeholder="enter name here..." value="{{ seeker.name }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="last_name">
+                                    <h4>Place</h4>
+                                </label>
+                                <input type="text" class="form-control" name="place" id="username"
+                                    placeholder="enter place here..." value="{{ seeker.place }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="email">
+                                    <h4>Address</h4>
+                                </label>
+                                <input type="text" class="form-control" name="address" id="email"
+                                    placeholder="enter address here..." value="{{ seeker.address }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Email</h4>
+                                </label>
+                                <input type="email" class="form-control" name="email" id="mobile"
+                                    placeholder="enter email here.." value="{{ seeker.email }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Phone Number</h4>
+                                </label>
+                                <input type="text" class="form-control" name="phone" id="mobile"
+                                    placeholder="enter your phone number here.." value="{{ seeker.phone_number }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Salary</h4>
+                                </label>
+                                <input type="text" class="form-control" name="salary" id="mobile"
+                                    placeholder="enter your salary here" value="{{ seeker.expected_salary }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Age</h4>
+                                </label>
+                                <input type="text" class="form-control" name="age" id="mobile"
+                                    placeholder="enter your age here" value="{{ seeker.age }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Experience</h4>
+                                </label>
+                                <input type="text" class="form-control" name="experience" id="mobile"
+                                    placeholder="enter your experience " value="{{ seeker.experience }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="mobile">
+                                    <h4>Username</h4>
+                                </label>
+                                <input type="text" class="form-control" name="username" id="mobile"
+                                    placeholder="enter your username" value="{{ seeker.username }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success pull-right" type="submit">
+                                    <i class="glyphicon glyphicon-ok-sign"></i>
+                                    Save</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
                 </div>
-                <!--/tab-content-->
-                <!-- addresses showing  -->
-                <!-- <br><br><br>	
+
+            </div>
+            <!--/tab-content-->
+            <!-- addresses showing  -->
+            <!-- <br><br><br>	
                 			<div class="row">
                 				{% for x in address %}
                 				<div class="col-sm-6 p-5">
@@ -352,149 +326,72 @@
                 					  <p class="card-text">{{x.state}}<p>
                 					  <p class="card-text">{{x.city}}<p></p>
                 					  <p class="card-text">{{x.zipcode}}<p></p>
-                					  <!-- <button  class="btn btn-primary" onclick="addAddress('{{x.address}}','{{x.state}}','{{x.city}}','{{x.zipcode}}','{{x.id}}')">Edit This Address</button> --><button class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm" onclick="addAddress('{{ x.address }}','{{ x.state }}','{{ x.city }}','{{ x.zipcode }}','{{ x.id }}')"> Edit This Address</button>
-            </div>
-
-            <br>
+                					  <!-- <button  class="btn btn-primary" onclick="addAddress('{{x.address}}','{{x.state}}','{{x.city}}','{{x.zipcode}}','{{x.id}}')">Edit This Address</button> --><button
+                class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm"
+                onclick="addAddress('{{ x.address }}','{{ x.state }}','{{ x.city }}','{{ x.zipcode }}','{{ x.id }}')">
+                Edit This Address</button>
         </div>
-    </body>
-</html></div>{% endfor %}</div>--><!-- <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body mx-3">
-            <div class="md-form mb-5">
-    		<form method="post" action="">
-    		{% csrf_token %}
-    		<input type="text" style="display:none" id="idi" name="id" class="form-control validate"><br>
-    		Address<input type="text" id="ida" name="address" class="form-control validate"><br>
-    		State <input type="text" id="ids" name="state" class="form-control validate"><br>
-    		City <input type="text" id="idc" name="city" class="form-control validate"><br>
-    		zipcode <input type="text" id="idz" name="zipcode" class="form-control validate"><br>
+
+        <br>
+    </div>
+</body>
+
+</html>
+</div>{% endfor %}</div>-->
+<br><br>
+<h3></h3>
+</div>
+</div>
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="ftr-grids">
+                <div class="col-md-3 ftr-grid">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="{% url 'seeker-profile' %}">Profile</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'seeker-logout' %}">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix">
+                </div>
             </div>
-          </div>
-          <div class="modal-footer d-flex justify-content-center">
-           <a href="#">
-    		    <button class="btn btn-deep-orange">Save</button></a>
-    	  </div>
-    	  
-    	</form>
         </div>
-      </div>
-    </div> --><br><br><h3></h3><!-- //addresses showing  --></div><!--/col-9--></div><!--/row--><!--// copied ############################################################################## body--><footer><div class="footer"><div class="container"><div class="ftr-grids">
-<div class="col-md-3 ftr-grid">
-    <h4>About Us</h4>
-    <ul>
-        <li><a href="#">Who We Are</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="#">Our Sites</a></li>
-        <li><a href="#">In The News</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Careers</a></li>
-    </ul>
-</div>
-<div class="col-md-3 ftr-grid">
-    <h4>Customer service</h4>
-    <ul>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Shipping</a></li>
-        <li><a href="#">Cancellation</a></li>
-        <li><a href="#">Returns</a></li>
-        <li><a href="#">Bulk Orders</a></li>
-        <li><a href="#">Buying Guides</a></li>
-    </ul>
-</div>
-<div class="col-md-3 ftr-grid">
-    <h4>Your account</h4>
-    <ul>
-        <li><a href="account.html">Your Account</a></li>
-        <li><a href="#">Personal Information</a></li>
-        <li><a href="#">Addresses</a></li>
-        <li><a href="#">Discount</a></li>
-        <li><a href="#">Track your order</a></li>
-    </ul>
-</div>
-<div class="col-md-3 ftr-grid">
-    <h4>Categories</h4>
-    <ul>
-        <li><a href="#">> Wedding</a></li>
-        <li><a href="#">> Jewellerys</a></li>
-        <li><a href="#">> Shoes</a></li>
-        <li><a href="#">> Flowers</a></li>
-        <li><a href="#">> Cakes</a></li>
-        <li><a href="#">...More</a></li>
-    </ul>
-</div>
-<div class="clearfix"></div></div></div></div></footer><!-- jquery --><script src="{% static 'customerprofile/userhomepagenew/js/jquery-2.1.4.min.js' %}"></script><!-- //jquery --><!-- popup modal (for signin & signup)--><script src="{% static 'customerprofile/userhomepagenew/js/jquery.magnific-popup.js' %}"></script><!-- getting address from card to form  --><script>function addAddress(address, state, city, zipcode, id) {
-    document.getElementById("ida").value = address
-    document.getElementById("ids").value = state
-    document.getElementById("idc").value = city
-    document.getElementById("idz").value = zipcode
-    document.getElementById("idi").value = id
+    </div>
+</footer>
+<!-- jquery -->
+<script src="{% static 'customerprofile/userhomepagenew/js/jquery-2.1.4.min.js' %}"></script><!-- //jquery -->
+<!-- popup modal (for signin & signup)-->
+<script src="{% static 'customerprofile/userhomepagenew/js/jquery.magnific-popup.js' %}"></script>
+<!-- smoothscroll -->
+<script src="{% static 'customerprofile/userhomepagenew/js/SmoothScroll.min.js' %}"></script><!-- //smoothscroll -->
+<!-- start-smooth-scrolling -->
+<script src="{% static 'customerprofile/userhomepagenew/js/move-top.js' %}"></script>
+<script src="{% static 'customerprofile/userhomepagenew/js/easing.js' %}"></script>
+<script type="text/javascript">$(document).ready(function () { // show Valida's version.
+        $('#version').valida('version');
 
-}</script><!-- //getting address from card to form  --><!-- password-script --><script>window.onload = function () {
-    document.getElementById("password1").onchange = validatePassword;
-    document.getElementById("password2").onchange = validatePassword;
-}
-
-function validatePassword() {
-    var pass2 = document.getElementById("password2").value;
-    var pass1 = document.getElementById("password1").value;
-    if (pass1 != pass2) 
-        document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-     else 
-        document.getElementById("password2").setCustomValidity('');
-    
-    // empty string means no validation error
-}</script><!-- //password-script --><!-- smoothscroll --><script src="{% static 'customerprofile/userhomepagenew/js/SmoothScroll.min.js' %}"></script><!-- //smoothscroll --><!-- start-smooth-scrolling --><script src="{% static 'customerprofile/userhomepagenew/js/move-top.js' %}"></script><script src="{% static 'customerprofile/userhomepagenew/js/easing.js' %}"></script><script type="text/javascript">$(document).ready(function () { // show Valida's version.
-    $('#version').valida('version');
-
-    // Exemple 1
-    $('.valida').valida();
+        // Exemple 1
+        $('.valida').valida();
 
 
-    // setup the partial validation
-    $('#partial-1').on('click', function (ev) {
-        ev.preventDefault();
-        $('#res-1').click(); // clear form error msgs
-        $('form').valida('partial', '#field-1'); // validate only field-1
-        $('form').valida('partial', '#field-1-3'); // validate only field-1-3
+        // setup the partial validation
+        $('#partial-1').on('click', function (ev) {
+            ev.preventDefault();
+            $('#res-1').click(); // clear form error msgs
+            $('form').valida('partial', '#field-1'); // validate only field-1
+            $('form').valida('partial', '#field-1-3'); // validate only field-1-3
+        });
+
     });
-
-});
-function viewImage(event) {
-    document.getElementById('myimg').src = URL.createObjectURL(event.target.files[0])
-}</script><!-- //end-smooth-scrolling --><!-- smooth-scrolling-of-move-up --><!-- //smooth-scrolling-of-move-up --><!-- imagezoom --><script src="{% static 'customerprofile/userhomepagenew/js/imagezoom.js' %}"> </script><!-- //imagezoom --><!-- FlexSlider --><script src="{% static 'customerprofile/userhomepagenew/js/jquery.flexslider.js' %}"></script><script>// Can also be used with $(document).ready()
-$(window).load(function () {
-    $('.flexslider').flexslider({animation: "slide", controlNav: "thumbnails"});
-});</script><!-- //FlexSlider--><!-- flexisel (for special offers) --><script src="{% static 'customerprofile/userhomepagenew/js/jquery.flexisel.js' %}"></script><script>$(window).load(function () {
-    $("#flexiselDemo1").flexisel({
-        visibleItems: 3,
-        animationSpeed: 1000,
-        autoPlay: true,
-        autoPlaySpeed: 3000,
-        pauseOnHover: true,
-        enableResponsiveBreakpoints: true,
-        responsiveBreakpoints: {
-            portrait: {
-                changePoint: 480,
-                visibleItems: 1
-            },
-            landscape: {
-                changePoint: 640,
-                visibleItems: 2
-            },
-            tablet: {
-                changePoint: 768,
-                visibleItems: 2
-            }
-        }
-    });
-
-});</script><!-- //flexisel (for special offers) --><!-- for bootstrap working --><script src="{% static 'customerprofile/userhomepagenew/js/bootstrap.js' %}"></script><!-- //for bootstrap working --><!-- //js-files --></body></html>
+    function viewImage(event) {
+        document.getElementById('myimg').src = URL.createObjectURL(event.target.files[0])
+    }</script><!-- //end-smooth-scrolling -->
+<script src="{% static 'customerprofile/userhomepagenew/js/imagezoom.js' %}"> </script><!-- //imagezoom -->
+<!-- FlexSlider -->
+<script src="{% static 'customerprofile/userhomepagenew/js/jquery.flexslider.js' %}"></script>
+<script src="{% static 'customerprofile/userhomepagenew/js/jquery.flexisel.js' %}"></script>
+<script src="{% static 'customerprofile/userhomepagenew/js/bootstrap.js' %}"></script><!-- //for bootstrap working -->
+</body>
+</html>

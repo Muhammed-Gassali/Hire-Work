@@ -31,7 +31,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!---- start-smoth-scrolling---->
 </head>
 	<body>
-		<!-- container -->
 			<!-- header -->
 			<div id="home" class="header">
 				<div class="container">
@@ -42,9 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="top-nav">
 					<div class="navigation">
 					<div >
-						<!-- <h1><a href="index.html"><span>P</span>REFACE</a></h1> -->
 						<h1 style="color: black;"><a href="">Hire&Get</a></h1>
-
 					</div>
 					<div class="navigation-right">
 						<span class="menu"><img src="{% static 'seekerprofileimages/menu.png' %}" alt=" " /></span>
@@ -56,7 +53,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="active"><a  href="{% url 'seeker-order' detials.id %}" >Your Orders</a></li>
 							</ul>
 						</nav>
-							<!-- script-for-menu -->
 								<script>
 								   $( "span.menu" ).click(function() {
 									 $( "ul.nav1" ).slideToggle( 300, function() {
@@ -80,7 +76,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- <h1>{{detials.available}}</h1> -->
 					<h6>{{detials.category.category_name}}</h6>
 					<ul class="address">
-					
 					<li>
 							<ul class="address-text">
 								<li><b>NAME</b></li>
@@ -141,32 +136,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li>{{detials.username}}</li>
 					</ul>
 						</li>
-						
 					</ul>
 				</div>
 				<div class="col-md-5 header-left">
 					<img src="{{detials.ImageURL}}" alt="ff"><br><br>
-					<!-- <img src="{{detials.ImageURL}}"	> -->
-					<!-- <button type="button" class="btn btn-primary" onclick="change()" value="available"></button> -->
-					<!-- <input onclick="change()" type="button" value="Available" id="myButton1"></input> -->
 					{% if detials.available == True %}
 					<button><a href="{% url 'seeker-available' detials.id %}">Not Available</a></button>
 					{% elif detials.available == False %}
 					<button><a href="{% url 'seeker-not-available' detials.id %}">Available</a></button>
 					{% endif %}
 				</div>
-				<div class="clearfix"> </div>
-						
+				<div class="clearfix"> </div>		
 		      </div>
 			</div>
 		</div>
 	</div>
-
-
-		
-
 <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-	<!--start-smooth-scrolling-->
 						<script type="text/javascript">
 									$(document).ready(function() {
 										/*
@@ -182,8 +167,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										
 									});
 								</script>
-								<!--end-smooth-scrolling-->
-<!-- //for bootstrap working -->
 	<script src="{% static 'seekerprofilejs/bootstrap.js' %}"></script>
 	<script>
 		function change() // no ';' here
@@ -193,7 +176,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     		else elem.value = "Not Available";
 		}
 	</script>
-
 	</body>
 </html>
 

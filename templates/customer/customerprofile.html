@@ -3,7 +3,6 @@
 <html lang="zxx">
 <head>
 	<title>User Profile</title>
-	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -12,12 +11,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
 		}, false);
-
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<!--//tags -->
 	<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
 	<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
 	<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />
@@ -28,14 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href="{% static 'customerprofile/userhomepagenew/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{% static 'customerprofile/userhomepagenew/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{% static 'customerprofile/userhomepagenew/css/font-awesome.css' %}" rel="stylesheet">
-	<!--pop-up-box-->
 	<link href="{% static 'customerprofile/userhomepagenew/css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all" />
-	<!--//pop-up-box-->
-	<!-- price range -->
 	<link rel="stylesheet" type="text/css" href="{% static 'customerprofile/userhomepagenew/css/jquery-ui1.css' %}">
-	<!-- flexslider -->
 	<link rel="stylesheet" href="{% static 'customerprofile/userhomepagenew/css/flexslider.css' %}" type="text/css" media="screen" />
-	<!-- fonts -->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
     <!--copied items for profile template-->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -51,7 +43,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--//copied items-->
 	 <!-- javascript cdn  -->
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/x.y.z/underscore-min.js"></script>
-	 <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
 	 <!-- //javascript cdn -->
 </head>
 <body>
@@ -60,14 +51,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header_top-sec">
 				<div class="top_right">
 					<ul>
-						<li><a href="contact.html">Contact</a></li>|
-						<li><a href="login.html">Order Confirmations</a></li>
+						<li><a href="{% url 'contact' %}">Contact</a></li>|
+						<li><a href="{% url 'order' %}">Order Confirmations</a></li>
 					</ul>
 				</div>
 				<div class="top_left">
 					<ul>
-						<li class="top_link">Email:<a href="mailto:info@example.com">mail@example.com</a></li>|
-						<li class="top_link"><a href="login.html">{{user.username}}</a></li>					
+						<li class="top_link">Email:{{user.email}}</li>|
+						<li class="top_link">{{user.username}}</li>					
 					</ul>
 				</div>
 					<div class="clearfix"> </div>
@@ -78,29 +69,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header-bottom">
 			<div class="container">			
 				   <div class="logo">
-					   <a href="#"><h1>Hire&Work</h1></a>
+					   <a href="{% url 'registered-customer-homepage' %}"><h1>Hire&Get</h1></a>
 				   </div>
 				<!---->
-			
 				<div class="top-nav">
-				   <ul class="memenu skyblue"><li class="active"><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
-					   
-					   <!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
+				   <ul class="memenu skyblue"><li><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
 					   <li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
-					   <li class="grid"><a href="">Make a profile</a></li>
-					   
-					   
+					   <li class="grid"><a href="#">Make a profile</a></li>				   
 				   </ul>
 				   <div class="clearfix"> </div>
 				</div>
 				<!---->
 				<div id="jj" class="cart box_1">
-					<a href="checkout.html">
+					<a href="{% url 'collection' %}">
 					   <h3> <div class="total">
 						<img style="width: 30px; height:30px" src="{% static 'customerhomepageimages/man.png' %}" alt=""><br>
 						<p>collections</p>
 				   </a>
-				   
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>
@@ -115,53 +100,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
-              
-
       <div class="text-center">
 		  <form enctype="multipart/form-data" method="POST" action="">
 			  {% csrf_token %}
-		<!-- <img id="myimg" src="" class="avatar img-circle img-thumbnail" alt="avatar"> -->
-		<!-- <img id="myimg" style="height: 200px; width:200px" src="" alt=""> -->
-        <!-- <h6>Upload a different photo...</h6> -->
-		<!-- <input type="file" name="image" class="text-center center-block file-upload" onchange="viewImage(event)"> -->
-	
       </div></hr><br>
                 </div><!--/col-3-->
     	<div class="col-sm-9">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#detials">Detials</a></li>
-              
                 <li><a data-toggle="tab" href="#edit">Add detials</a></li>
               </ul>
-
-              
           <div class="tab-content">
-            <div class="tab-pane active" id="detials">
-                <!-- <hr>                  <form class="form" action="#" method="post" id="registrationForm"> -->
-
-					 
-                      <div class="form-group">
-                          
+            <div class="tab-pane active" id="detials">					 
+                      <div class="form-group">                       
                           <div class="col-xs-6">
                               <label for="first_name"><h4>First Name</h4></label>
                               <input type="text" class="form-control" name="name" id="name"  readonly value ="{{value.first_name}}">
                           </div>
                       </div>
-                      <div class="form-group">
-                          
+                      <div class="form-group">                     
                           <div class="col-xs-6">
                             <label for="last_name"><h4>	Last name</h4></label>
                               <input type="text" class="form-control" name="username" id="username"   readonly value ="{{value.last_name}}">
                           </div>
-                      </div>
-          
+                      </div>       
 					  <div class="form-group">  
 						<div class="col-xs-6">
 							<label for="email"><h4>Email</h4></label>
 							<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com"  readonly value ="{{value.email}}">
 						</div>
-					</div>	
-          
+					</div>	         
                       <div class="form-group">
                           <div class="col-xs-6">
                              <label for="mobile"><h4>Mobile Number</h4></label>
@@ -181,11 +149,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
               	<!-- </form> -->
-              
-              <hr>
-              
-             </div><!--/tab-pane-->
-             <!--/tab-pane-->
+              <hr>              
+             </div>
              <div class="tab-pane" id="edit">
                   <hr>
 					{% csrf_token %}
@@ -229,7 +194,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                            <div class="col-xs-12">
                                 <br>
                               	<button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                               	<!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
                             </div>
                       </div>
               	</form>
@@ -252,7 +216,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					  <!-- <button  class="btn btn-primary" onclick="addAddress('{{x.address}}','{{x.state}}','{{x.city}}','{{x.zipcode}}','{{x.id}}')">Edit This Address</button> -->
 					  <button  class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm" onclick="addAddress('{{x.address}}','{{x.state}}','{{x.city}}','{{x.zipcode}}','{{x.id}}')">Edit This Address</button>
 					</div>
-			
 					<br>
 				  </div>
 				</div>
@@ -293,7 +256,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- //addresses showing  -->
         </div><!--/col-9-->
     </div><!--/row-->
-
     <!--// copied ############################################################################## body-->
 	<footer>
 		<div class="footer">
@@ -302,61 +264,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-3 ftr-grid">
 						<h4>About Us</h4>
 						<ul>
-							<li><a href="#">Who We Are</a></li>
-							<li><a href="contact.html">Contact Us</a></li>
-							<li><a href="#">Our Sites</a></li>
-							<li><a href="#">In The News</a></li>
-							<li><a href="#">Team</a></li>
-							<li><a href="#">Careers</a></li>					 
-						</ul>
-					</div>
-					<div class="col-md-3 ftr-grid">
-						<h4>Customer service</h4>
-						<ul>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Shipping</a></li>
-							<li><a href="#">Cancellation</a></li>
-							<li><a href="#">Returns</a></li>
-							<li><a href="#">Bulk Orders</a></li>
-							<li><a href="#">Buying Guides</a></li>					 
-						</ul>
-					</div>
-					<div class="col-md-3 ftr-grid">
-						<h4>Your account</h4>
-						<ul>
-							<li><a href="account.html">Your Account</a></li>
-							<li><a href="#">Personal Information</a></li>
-							<li><a href="#">Addresses</a></li>
-							<li><a href="#">Discount</a></li>
-							<li><a href="#">Track your order</a></li>					 					 
+							<li><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
+							<li><a href="{% url 'contact' %}">Contact Us</a></li>
+							<li><a href="{% url 'collection' %}">Collections</a></li>
+							<li><a href="{% url 'order' %}">Orders</a></li>
+							<li><a href="{% url 'customer-profile' %}">Profile</a></li>
+							<li><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3 ftr-grid">
 						<h4>Categories</h4>
 						<ul>
-							<li><a href="#">> Wedding</a></li>
-							<li><a href="#">> Jewellerys</a></li>
-							<li><a href="#">> Shoes</a></li>
-							<li><a href="#">> Flowers</a></li>
-							<li><a href="#">> Cakes</a></li>
-							<li><a href="#">...More</a></li>					 
+							<li><a href="#">Construction</a></li>
+							<li><a href="#">Carpenter</a></li>
+							<li><a href="#">Catering</a></li>
+							<li><a href="#">Plumber</a></li>
+							<li><a href="#">Painter</a></li>
+							<li><a href="#">Driver</a></li>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
-				</div>		
+				</div>
 			</div>
-	   </div>
+		</div>
 	</footer>
-	
-	
-	<!-- jquery -->
 	<script src="{% static 'customerprofile/userhomepagenew/js/jquery-2.1.4.min.js' %}"></script>
-	<!-- //jquery -->
-
-	<!-- popup modal (for signin & signup)-->
 	<script src="{% static 'customerprofile/userhomepagenew/js/jquery.magnific-popup.js' %}"></script>
-	
-	 <!-- getting address from card to form  -->
 	 <script>
 		function addAddress(address,state,city,zipcode,id) {
 			document.getElementById("ida").value = address	
@@ -364,37 +297,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			document.getElementById("idc").value = city
 			document.getElementById("idz").value = zipcode
 			document.getElementById("idi").value = id
-			
-		}
-		
+
+		}		
 	  </script>
-		<!-- //getting address from card to form  -->
-		
-
-	<!-- password-script -->
-	<script>
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
-
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
-	</script>
-	<!-- //password-script -->
-
-	<!-- smoothscroll -->
 	<script src="{% static 'customerprofile/userhomepagenew/js/SmoothScroll.min.js' %}"></script>
-	<!-- //smoothscroll -->
-
-	<!-- start-smooth-scrolling -->
 	<script src="{% static 'customerprofile/userhomepagenew/js/move-top.js' %}"></script>
 	<script src="{% static 'customerprofile/userhomepagenew/js/easing.js' %}"></script>
 	<script type="text/javascript" >

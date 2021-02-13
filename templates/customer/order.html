@@ -28,7 +28,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- //delete icon -->
-
 </head>
 
 <body>
@@ -37,24 +36,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	{% for message in messages %}
 	<div class="alert alert-warning">
 		<strong>{{message}}</strong>
-	  </div>
-	  {% endfor %}
-	  {% endif %}
-	  
-	  <!-- <span id="span" style="color: blue;"></span> -->
+	</div>
+	{% endfor %}
+	{% endif %}
 	<div class="top_bg">
 		<div class="container">
 			<div class="header_top-sec">
 				<div class="top_right">
 					<ul>
-						<li><a href="#">Contact</a></li>|
+						<li><a href="{% url 'contact' %}">Contact</a></li>|
 						<li><a href="{% url 'order-confirmation' %}">Order Confirmation</a></li>
 					</ul>
 				</div>
 				<div class="top_left">
 					<ul>
-						<li class="top_link">Email:<a href="mailto:info@example.com">{{user.email}}</a></li>|
-						<li class="top_link"><a href="login.html">{{user.username}}</a></li>
+						<li class="top_link">Email:{{user.email}}</li>|
+						<li class="top_link">{{user.username}}</li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -65,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header-bottom">
 			<div class="container">
 				<div class="logo">
-					<a href="">
+					<a href="{% url 'registered-customer-homepage' %}">
 						<h1>Hire&Get</h1>
 					</a>
 				</div>
@@ -126,8 +123,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<label for="last_name">
 							<h4>Address</h4>
 						</label>
-						<input type="text" class="form-control" name="ad" id="address" placeholder="enter your address here... "
-							value="{{detials.address}}" required>
+						<input type="text" class="form-control" name="ad" id="address"
+							placeholder="enter your address here... " value="{{detials.address}}" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -145,7 +142,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<label for="mobile">
 							<h4>Place</h4>
 						</label>
-						<input type="text" class="form-control" name="place" id="place" placeholder="enter the place" value="{{detials.place}}" required>
+						<input type="text" class="form-control" name="place" id="place" placeholder="enter the place"
+							value="{{detials.place}}" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -159,13 +157,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="form-group">
 					<div class="col-xs-6">
-						<label for="mobile"> 
+						<label for="mobile">
 							<h4>Durability</h4>
 						</label>
 						<select name="type" class="form-control" id="durability">
 							<option value="Full day">Full Day</option>
 							<option value="Half day">Half Day</option>
-						  </select>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
@@ -222,14 +220,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a class="order" href="#"><button name="button" value="cash on delivery"
 									onclick="return confirm('Your order is successfull and it will be shown in your order confirmation section')">Place
 									Order</button></a>
-								</form>
-								<form>
-									<a class="order" href="#"><button 
-										onclick="razorpay()"> pay with razorpay</button></a>
-								</form>
+							</form>
+							<form>
+								<a class="order" href="#"><button onclick="razorpay()"> pay with razorpay</button></a>
+							</form>
 						</div>
 						<!-- </form> -->
-						
+
 					</div>
 				</div>
 			</div>
@@ -238,79 +235,78 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!--razor pay scrpt ---->
 
-						<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-						<script>
-							function razorpay(){
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script>
+		function razorpay() {
 
-							var total = '{{total_price}}'*100
-							var payment_status = 'razorpay'
-							var options = {
-								"key": "rzp_test_7aA8MfBmXS1RVM", // Enter the Key ID generated from the Dashboard
-								"amount": total, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-								"currency": "INR",
-								"name": "Hire&Get",
-								"description": "Test Transaction",
-								"image": "https://example.com/your_logo",
-								"order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-								"handler": function (response) 
-										{
-									
-									
-									successRazorpay()
-									//submitFormData(payment)
-								},
-								"prefill": {
-									"name": "{{customer.first_name}}",
-									"email": "{{customer.email}}",
-									"contact": "{{detials.mobile_number}}"
-								},
-								"notes": {
-									"address": "Razorpay Corporate Office"
-								},
-								"theme": {
-									"color": "#F37254"
-								}
-							};
-							var rzp1 = new Razorpay(options);
-						
-								rzp1.open();
-								
-						}
-						function successRazorpay(){
-							var userData = {
-								csrfmiddlewaretoken: '{{ csrf_token }}',
-								full_name:$('#name').val(),
-								ad:$('#address').val(),
-								mobile:$('#mobile').val(),
-								place:$('#place').val(),
-								mark:$('#land').val(),
-								type	:$('#durability').val(),
-								time:$('#time').val(),
-								date:$('#date').val(),
-								paymentMethod:"razorpay",
-								button:"razorpay"
+			var total = '{{total_price}}' * 100
+			var payment_status = 'razorpay'
+			var options = {
+				"key": "rzp_test_7aA8MfBmXS1RVM", // Enter the Key ID generated from the Dashboard
+				"amount": total, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+				"currency": "INR",
+				"name": "Hire&Get",
+				"description": "Test Transaction",
+				"image": "https://example.com/your_logo",
+				"order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+				"handler": function (response) {
 
-							}
-							$.ajax({
-								url : '/razorpay-confirm/',
-								type: "POST",
-								data : userData,
-								dataType : "json",
-								success: function( data  ){
-								  if (data == 'success'){
-									alert("success")	
-									window.location.replace('/registered-customer-homepage')
-								  }
-								else if(data == 'distance_over'){
-									$('#span').html('Sorry,  one of you selected person in 50 km far from you. please select your location and hire people from Home page')
-								}
-							
-					  
-								}
-							});
-							
-						}
-					</script>
+
+					successRazorpay()
+					//submitFormData(payment)
+				},
+				"prefill": {
+					"name": "{{customer.first_name}}",
+					"email": "{{customer.email}}",
+					"contact": "{{detials.mobile_number}}"
+				},
+				"notes": {
+					"address": "Razorpay Corporate Office"
+				},
+				"theme": {
+					"color": "#F37254"
+				}
+			};
+			var rzp1 = new Razorpay(options);
+
+			rzp1.open();
+
+		}
+		function successRazorpay() {
+			var userData = {
+				csrfmiddlewaretoken: '{{ csrf_token }}',
+				full_name: $('#name').val(),
+				ad: $('#address').val(),
+				mobile: $('#mobile').val(),
+				place: $('#place').val(),
+				mark: $('#land').val(),
+				type: $('#durability').val(),
+				time: $('#time').val(),
+				date: $('#date').val(),
+				paymentMethod: "razorpay",
+				button: "razorpay"
+
+			}
+			$.ajax({
+				url: '/razorpay-confirm/',
+				type: "POST",
+				data: userData,
+				dataType: "json",
+				success: function (data) {
+					if (data == 'success') {
+						alert("success")
+						window.location.replace('/registered-customer-homepage')
+					}
+					else if (data == 'distance_over') {
+						$('#span').html('Sorry,  one of you selected person in 50 km far from you. please select your location and hire people from Home page')
+					}
+
+
+				}
+			});
+
+		}
+	</script>
 
 	<!--// razorpay ---->
 	<div class="footer">
@@ -319,44 +315,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-3 ftr-grid">
 					<h4>About Us</h4>
 					<ul>
-						<li><a href="#">Who We Are</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						<li><a href="#">Our Sites</a></li>
-						<li><a href="#">In The News</a></li>
-						<li><a href="#">Team</a></li>
-						<li><a href="#">Careers</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 ftr-grid">
-					<h4>Customer service</h4>
-					<ul>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Shipping</a></li>
-						<li><a href="#">Cancellation</a></li>
-						<li><a href="#">Returns</a></li>
-						<li><a href="#">Bulk Orders</a></li>
-						<li><a href="#">Buying Guides</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 ftr-grid">
-					<h4>Your account</h4>
-					<ul>
-						<li><a href="account.html">Your Account</a></li>
-						<li><a href="#">Personal Information</a></li>
-						<li><a href="#">Addresses</a></li>
-						<li><a href="#">Discount</a></li>
-						<li><a href="#">Track your order</a></li>
+						<li><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
+						<li><a href="{% url 'contact' %}">Contact Us</a></li>
+						<li><a href="{% url 'collection' %}">Collections</a></li>
+						<li><a href="{% url 'order' %}">Orders</a></li>
+						<li><a href="{% url 'customer-profile' %}">Profile</a></li>
+						<li><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 ftr-grid">
 					<h4>Categories</h4>
 					<ul>
-						<li><a href="#">> Wedding</a></li>
-						<li><a href="#">> Jewellerys</a></li>
-						<li><a href="#">> Shoes</a></li>
-						<li><a href="#">> Flowers</a></li>
-						<li><a href="#">> Cakes</a></li>
-						<li><a href="#">...More</a></li>
+						<li><a href="#">Construction</a></li>
+						<li><a href="#">Carpenter</a></li>
+						<li><a href="#">Catering</a></li>
+						<li><a href="#">Plumber</a></li>
+						<li><a href="#">Painter</a></li>
+						<li><a href="#">Driver</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

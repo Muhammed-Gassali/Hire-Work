@@ -1,48 +1,33 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Your Orders</title>
+	<title>Job Seeker  Orders</title>
 	<link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
-	<!-- Custom Theme files -->
-	<!--theme-style-->
 	<link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />
-	<!--//theme-style-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 	<script
 		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<!-- start menu -->
 	<script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
-	<!-- start menu -->
 	<link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
 	<script>$(document).ready(function () { $(".memenu").memenu(); });</script>
-	<!-- /start menu -->
 	<!-- delete icon  -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- //delete icon -->
-	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
-
 </head>
-
 <body>
 	<!--header-->
 	<div class="top_bg">
@@ -50,14 +35,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header_top-sec">
 				<div class="top_right">
 					<ul>
-						<li><a href="{% url 'contact' %}">Contact</a></li>|
-						<li><a href="#">Order Confirmation</a></li>
+						<li><a href="{% url 'contact' %}">Contact</a></li>
 					</ul>
 				</div>
 				<div class="top_left">
 					<ul>
-						<li class="top_link">Email:<a href="">{{user.email}}</a></li>|
-						<li class="top_link"><a href="">{{user.username}}</a></li>
+						<li class="top_link">Email:<a href="">{{seeker.email}}</a></li>|
+						<li class="top_link"><a href="">{{seeker.name}}</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -68,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header-bottom">
 			<div class="container">
 				<div class="logo">
-					<a href="">
+					<a href="{% url 'seeker-profile' %}">
 						<h1>Hire&Get</h1>
 					</a>
 				</div>
@@ -172,72 +156,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</table>
 						</div>
 						<!-- //copied table -->
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!---->
-
-	<!---->
 	<div class="footer">
-		<div class="container">
-			<div class="ftr-grids">
-				<div class="col-md-3 ftr-grid">
-					<h4>About Us</h4>
-					<ul>
-						<li><a href="#">Who We Are</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						<li><a href="#">Our Sites</a></li>
-						<li><a href="#">In The News</a></li>
-						<li><a href="#">Team</a></li>
-						<li><a href="#">Careers</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 ftr-grid">
-					<h4>Customer service</h4>
-					<ul>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Shipping</a></li>
-						<li><a href="#">Cancellation</a></li>
-						<li><a href="#">Returns</a></li>
-						<li><a href="#">Bulk Orders</a></li>
-						<li><a href="#">Buying Guides</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 ftr-grid">
-					<h4>Your account</h4>
-					<ul>
-						<li><a href="account.html">Your Account</a></li>
-						<li><a href="#">Personal Information</a></li>
-						<li><a href="#">Addresses</a></li>
-						<li><a href="#">Discount</a></li>
-						<li><a href="#">Track your order</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 ftr-grid">
-					<h4>Categories</h4>
-					<ul>
-						<li><a href="#">> Wedding</a></li>
-						<li><a href="#">> Jewellerys</a></li>
-						<li><a href="#">> Shoes</a></li>
-						<li><a href="#">> Flowers</a></li>
-						<li><a href="#">> Cakes</a></li>
-						<li><a href="#">...More</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
+        <div class="container">
+            <div class="ftr-grids">
+                <div class="col-md-3 ftr-grid">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="{% url 'seeker-profile' %}">Profile</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'seeker-logout' %}">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </div>
+    </div>
 	<!---->
 	<div class="copywrite">
 		<div class="container">
-			<p>Copyright © 2015 Wedding Store. All Rights Reserved | Design by <a
-					href="http://w3layouts.com">W3layouts</a></p>
+			<p>Copyright © 2020 Hire&Get.</p>
 		</div>
 	</div>
 </body>
-
 </html>

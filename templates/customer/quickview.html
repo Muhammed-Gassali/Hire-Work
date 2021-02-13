@@ -4,26 +4,18 @@
 <head>
 <title>QuickView</title>
 <link href="{% static 'customerhomepagecss/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{% static 'customerhomepagejs/jquery.min.js' %}"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
 <link href="{% static 'customerhomepagecss/style.css' %}" rel="stylesheet" type="text/css" media="all" />	
-<!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- start menu -->
 <script src="{% static 'customerhomepagejs/simpleCart.min.js' %}"> </script>
-<!-- start menu -->
 <link href="{% static 'customerhomepagecss/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="{% static 'customerhomepagejs/memenu.js' %}"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>	
-<!-- /start menu -->
 <link href="{% static 'customerhomepagecss/form.css' %}" rel="stylesheet" type="text/css" media="all" />
-
 </head>
 <body> 
 <!--header-->	
@@ -31,16 +23,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="header_top-sec">
 			<div class="top_right">
-				<ul>
-					
-					<li><a href="contact.html">Contact</a></li>|
-					<li><a href="login.html">Order Confirmation</a></li>
+				<ul>	
+					<li><a href="{% url 'contact' %}">Contact</a></li>|
+					<li><a href="{% url 'order-confirmation' %}">Order Confirmation</a></li>
 				</ul>
 			</div>
 			<div class="top_left">
 				<ul>
-					<li class="top_link">Email:<a href="mailto:info@example.com">{{user.email}}</a></li>|
-					<li class="top_link"><a href="login.html">{{user.username}}</a></li>				
+					<li class="top_link">Email:{{user.email}}</li>|
+					<li class="top_link">{{user.username}}</li>				
 				</ul>
 			</div>
 				<div class="clearfix"> </div>
@@ -51,47 +42,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <div class="header-bottom">
 		 <div class="container">			
 				<div class="logo">
-					<a href="index.html"><h1>Hire&Get</h1></a>
+					<a href="{% url 'registered-customer-homepage' %}"><h1>Hire&Get</h1></a>
 				</div>
 			 <!---->
-		 
 			 <div class="top-nav">
 				 {% if index == 0 %}
 				<ul class="memenu skyblue"><li class="active"><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
 					{% else %}
 				<ul class="memenu skyblue"><li class="active"><a href="{% url 'customer-homepage' %}">Home</a></li>
 					{% endif %}
-					<li class="grid"><a href="#">Category</a>
-						<div class="mepanel">
-							<div class="row">
-								<div class="col1 me-one">
-								
-									<ul>
-										<li><a href="#">Construction</a></li>
-										<li><a href="#">Painter</a></li>
-										<li><a href="#">Electrician</a></li>
-									</ul>
-								</div>
-								<div class="col1 me-one">
-							
-									<ul>
-										<li><a href="#">Carpenter</a></li>
-										<li><a href="#">Driver</a></li>
-										<li><a href="#">Catering</a></li>
-									</ul>	
-								</div>
-								<div class="col1 me-one">
-									
-									<ul>
-										<li><a href="#">Maid</a></li>
-										<li><a href="#">Welder</a></li>
-										<li><a href="#">Plumber</a></li>
-										
-									</ul>	
-								</div>
-							</div>
-						</div>
-					</li>
+				
 					<!-- <li class="grid"><a href="typo.html">Typo</a></li> -->
 					{% if index == 0 %}
                     <li class="grid"><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
@@ -147,8 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<ul class="slides">
 								<!-- <li data-thumb="{% static 'customerhomepageimages/s11.jpeg' %}"> -->
 									<img  src="{{detials.ImageURL}}" />
-								</li>
-								
+								</li>	
 							</ul>
 						</div>
 						<!-- FlexSlider -->
@@ -250,60 +209,71 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  </div>	 
 </div>
 <!---->
+{% if index == 0 %}
 <div class="footer">
-	 <div class="container">
-		 <div class="ftr-grids">
-			 <div class="col-md-3 ftr-grid">
-				 <h4>About Us</h4>
-				 <ul>
-					 <li><a href="#">Who We Are</a></li>
-					 <li><a href="contact.html">Contact Us</a></li>
-					 <li><a href="#">Our Sites</a></li>
-					 <li><a href="#">In The News</a></li>
-					 <li><a href="#">Team</a></li>
-					 <li><a href="#">Careers</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Customer service</h4>
-				 <ul>
-					 <li><a href="#">FAQ</a></li>
-					 <li><a href="#">Shipping</a></li>
-					 <li><a href="#">Cancellation</a></li>
-					 <li><a href="#">Returns</a></li>
-					 <li><a href="#">Bulk Orders</a></li>
-					 <li><a href="#">Buying Guides</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Your account</h4>
-				 <ul>
-					 <li><a href="account.html">Your Account</a></li>
-					 <li><a href="#">Personal Information</a></li>
-					 <li><a href="#">Addresses</a></li>
-					 <li><a href="#">Discount</a></li>
-					 <li><a href="#">Track your order</a></li>					 					 
-				 </ul>
-			 </div>
-			 <div class="col-md-3 ftr-grid">
-				 <h4>Categories</h4>
-				 <ul>
-					 <li><a href="#">> Wedding</a></li>
-					 <li><a href="#">> Jewellerys</a></li>
-					 <li><a href="#">> Shoes</a></li>
-					 <li><a href="#">> Flowers</a></li>
-					 <li><a href="#">> Cakes</a></li>
-					 <li><a href="#">...More</a></li>					 
-				 </ul>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>		
-	 </div>
+	<div class="container">
+		<div class="ftr-grids">
+			<div class="col-md-3 ftr-grid">
+				<h4>About Us</h4>
+				<ul>
+					<li><a href="{% url 'registered-customer-homepage' %}">Home</a></li>
+					<li><a href="{% url 'contact' %}">Contact Us</a></li>
+					<li><a href="{% url 'collection' %}">Collections</a></li>
+					<li><a href="{% url 'order' %}">Orders</a></li>
+					<li><a href="{% url 'customer-profile' %}">Profile</a></li>
+					<li><a href="{% url 'registered-customer-logout' %}">Logout</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 ftr-grid">
+				<h4>Categories</h4>
+				<ul>
+					<li><a href="#">Construction</a></li>
+					<li><a href="#">Carpenter</a></li>
+					<li><a href="#">Catering</a></li>
+					<li><a href="#">Plumber</a></li>
+					<li><a href="#">Painter</a></li>
+					<li><a href="#">Driver</a></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
 </div>
+{% else %}
+<div class="footer">
+	<div class="container">
+		<div class="ftr-grids">
+			<div class="col-md-3 ftr-grid">
+				<h4>About Us</h4>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Collections</a></li>
+					<li><a href="#">Orders</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Logout</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 ftr-grid">
+				<h4>Categories</h4>
+				<ul>
+					<li><a href="#">Construction</a></li>
+					<li><a href="#">Carpenter</a></li>
+					<li><a href="#">Catering</a></li>
+					<li><a href="#">Plumber</a></li>
+					<li><a href="#">Painter</a></li>
+					<li><a href="#">Driver</a></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+{% endif %}
 <!---->
  <div class="copywrite">
 	 <div class="container">
-		 <p>Copyright © 2015 Wedding Store. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		 <p>Copyright © 2020 Hire&Get.</p>
 		 </div>
 </div>	
 </body>

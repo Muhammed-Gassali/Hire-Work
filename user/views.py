@@ -115,9 +115,6 @@ def customer_register(request):
 
 class RestCustomerRegister(APIView):
     def post(self, request):
-        # print(request.data['username'])
-        # return Response({"status":'done'})
-
         first_name = request.data['fname']
         last_name = request.data['lname']
         user_name = request.data['username']
@@ -135,9 +132,6 @@ class RestCustomerRegister(APIView):
         else:
             customer = User.objects.create_user(first_name=first_name, username=user_name, email=email, password=password, last_name=last_name)
             return Response({"status":"success"})
-
-
-
 
 
 def otp_login(request):
@@ -220,7 +214,6 @@ class rest_otp_login(APIView):
 def confirm_otp(request):
     if request.user.is_authenticated:
         return redirect(registered_customer_homepage)
-        # return redirect(registered_user_home_page)
     else:
         if request.method == 'POST':
             otp_number = request.POST['otp']
@@ -643,8 +636,14 @@ def order_confirmation(request):
 
 
 def contact(request):
-    return render(request, 'customer/contact.html')
-
+    if request.user.is_authenticated:
+        value = 0
+        context = {"value":value}
+        return render(request, 'customer/contact.html', context)
+    else:
+        value = 1
+        context = {"value":value}
+        return render(request, 'customer/contact.html', context)
 
 
 
@@ -755,7 +754,8 @@ def seeker_order(request, id):
         print(id)
         my_order = order.objects.filter(seeker=id)
         print(my_order)
-        context = {"my_order":my_order}
+        seeker = JobSeeker.objects.get(id=id)
+        context = {"my_order":my_order, "seeker":seeker}
         return render(request, 'seeker/seekerorder.html', context)
 
     else:
@@ -800,8 +800,6 @@ def customer_order_cancel(request, id):
 def seeker_order_confirm(request, id):
     if request.session.has_key('user_name'):
         order_data = order.objects.get(id=id)
-        # print(order_data.order_verify)
-        # return HttpResponse("olakka")
         if order_data.order_verify == False:
             order_data.order_verify = True
             # mobile_number = str(91) + order_data.mobile_number
@@ -879,7 +877,121 @@ def customer_feedback(request, id):
         return redirect(customer_homepage)
 
 
+def seeker_register(request):
+    value = Category.objects.all()
+    context = {"value":value}
+    if request.method == "POST":
+        full_name = request.POST['name']
+        email = request.POST['email']
+        phone_number = request.POST['phone']
+        address = request.POST['address']
+        place = request.POST['place']
+        age = request.POST['age']
+        gender = request.POST['gender']
+        cat = Category.objects.get(id=request.POST['category'])
+        expected_salary = request.POST['salary']
+        user_name = request.POST['username']
+        pswrd =  request.POST['password']
+        password2 =  request.POST['password1']
+        img = request.FILES.get('image')
+        experience =  request.POST['experience']
+        id_proof = request.FILES.get('proof')
 
+        if pswrd == password2:
+            if JobSeeker.objects.filter(username=user_name).exists() or User.objects.filter(email=email).exists():
+                if JobSeeker.objects.filter(username=user_name).exists():
+                    messages.info(request, 'username already exists')
+                    return render(request, 'seeker/register.html', context)
+                elif JobSeeker.objects.filter(email=email).exists():
+                    messages.info(request, 'email already exists')
+                    return render(request, 'seeker/register.html', context)
+            else:
+                seeker = JobSeeker.objects.create(category=cat,name=full_name,gender=gender,place=place,email=email,phone_number=phone_number,address=address,expected_salary=expected_salary,age=age,username=user_name,password=password2,image=img,experience=experience,id_proof=id_proof)
+                return redirect(seeker_login)
+        else:
+            messages.info(request, 'Password does not match')
+            return render(request, 'seeker/register.html')
+
+    else:
+        return render(request, 'seeker/register.html', context)
+
+    
+def seeker_otp_login(request):
+    otp = 1
+    if request.method == 'POST':
+        phone_number = request.POST['phone']
+        request.session['phone_number'] = phone_number
+        
+        if JobSeeker.objects.filter(phone_number=phone_number).exists():
+            otp = 0
+            # adding otp creation 
+            phone_number = str(91) + phone_number
+            url = "https://d7networks.com/api/verifier/send"
+
+            payload = {'mobile': phone_number,
+            'sender_id': 'SMSINFO',
+            'message': 'Your otp code is {code}',
+            'expiry': '900'}
+            files = [
+
+            ]
+            headers = {
+            # 'Authorization': 'Token 13ff28cd8a3bc23d426420f75b84879c7f958c4c'
+            'Authorization': 'Token 7b965deb9feaf5d0601c369eda9ff2e04c56d9ce'   
+            }
+            response = requests.request("POST", url, headers=headers, data = payload, files = files)
+            print(response.text.encode('utf8'))
+
+            data=response.text.encode('utf8')
+            datadict=json.loads(data)
+
+            id=datadict['otp_id']
+            request.session['id'] = id
+
+             # //otp creation 
+            return render(request, 'seeker/otplogin.html', {'otp':otp})
+        else:
+            messages.info(request, 'Mobile Number does not exist')
+            return render(request, 'seeker/otplogin.html',{'otp':otp})
+    else:
+        return render(request, 'seeker/otplogin.html', {'otp':otp})
+
+
+def seeker_otp_verify(request):
+    if request.method == 'POST':
+        otp_number = request.POST['otp']
+            
+        id_otp = request.session['id']
+        url = "https://d7networks.com/api/verifier/verify"
+
+        payload = {'otp_id': id_otp,
+        'otp_code': otp_number}
+        files = [
+        ]
+        headers = {
+        'Authorization': 'Token 7b965deb9feaf5d0601c369eda9ff2e04c56d9ce'
+        # 'Authorization': 'Token 13ff28cd8a3bc23d426420f75b84879c7f958c4c'
+        }
+        response = requests.request("POST", url, headers=headers, data = payload, files = files)
+        print(response.text.encode('utf8'))
+        data=response.text.encode('utf8')
+        datadict=json.loads(data)
+        status=datadict['status']
+
+        if status == 'success':
+            phone_number = request.session['phone_number']  
+            seeker = JobSeeker.objects.filter(phone_number=phone_number).first()
+            user_name = seeker.username
+            request.session['user_name'] = user_name
+            return redirect(seeker_profile)
+        else:
+            messages.info(request, 'entered otp is incorrect')
+            return redirect(seeker_otp_login)
+    else:
+        return redirect(seeker_otp_login)
+
+
+            
  ################################################################### rest API ##############################################################
 
 class rest(APIView):

@@ -46,22 +46,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			if (!screenfull.enabled) {
 				return false;
 			}
-
-			
-
 			$('#toggle').click(function () {
 				screenfull.toggle($('#container')[0]);
 			});
-			
-
-			
 		});
 		</script>
 </head>
 <body>
 <div id="wrapper">
-
-
         <nav class="navbar-default navbar-static-top" role="navigation">
              <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -75,63 +67,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class=" border-bottom">
         	<div class="full-left">
         	  <section class="full-top">
-				<button id="toggle"><i class="fa fa-arrows-alt"></i></button>	
 			</section>
-			<form class=" navbar-left-right">
-              <input type="text"  value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
-              <input type="submit" value="" class="fa fa-search">
-            </form>
             <div class="clearfix"> </div>
            </div>
-     
-       
-            <!-- Brand and toggle get grouped for better mobile display -->
-		 
-		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="drop-men" >
 		        <ul class=" nav_1">
-		           
-		    	
 					<li class="dropdown">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown"><span class=" name-caret">Rackham<i class="caret"></i></span><img src="{% static 'adminimages/wo.jpg' %}"></a>
 		              <ul class="dropdown-menu " role="menu">
-		                <li><a href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
-		                <li><a href="{% url 'admin-logout' %}"><i class="fa fa-envelope"></i>Logout</a></li>
-		                
+		                <li><a href="{% url 'admin-logout' %}"><i class="fa "></i>Logout</a></li> 
 		              </ul>
 		            </li>
-		           
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 			<div class="clearfix">
-       
      </div>
-	  
-		    <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-				
-                    <li>
-                        <a href="{% url 'admin-homepage' %}" class=" hvr-bounce-to-right "><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Dashboards</span> </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'category-management' %}" class=" hvr-bounce-to-right "><i class="fa fa-dashboard nav_icon "></i><span class="nav-label">Category Management</span> </a>
-                    </li>
-                   
-                    <li>
-                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">User Management</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="{% url 'customer-management' %}" class=" hvr-bounce-to-right"> <i class="fa fa-area-chart nav_icon"></i>Customer</a></li>
-                            
-                            <li><a href="{% url 'seeker-manage' %}" class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i>Job seeker</a></li>
-			
-						
+     <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="{% url 'admin-homepage' %}" class=" hvr-bounce-to-right "><i class="fa  nav_icon"></i><span
+                            class="nav-label">Dashboard</span> </a>
+                </li>
+                <li>
+                    <a href="{% url 'category-management' %}" class=" hvr-bounce-to-right "><i
+                            class="fa  nav_icon "></i><span class="nav-label">Category
+                            Management</span> </a>
+                </li>
+                <li>
+                    <a href="{% url 'feedback-admin' %}" class=" hvr-bounce-to-right "><i
+                            class="fa  nav_icon "></i><span class="nav-label">feedbacks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span
+                            class="nav-label">User Management</span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{% url 'customer-management' %}" class=" hvr-bounce-to-right"> <i
+                                    class="fa  nav_icon"></i>Customer</a></li>
 
-					   </ul>
-                    </li>
-					
-            </div>
-			</div>
+                        <li><a href="{% url 'seeker-manage' %}" class=" hvr-bounce-to-right"><i
+                                    class="fa  nav_icon"></i>Job seeker</a></li>
+                    </ul>
+                </li>
+        </div>
+    </div>
         </nav>
         <div id="page-wrapper" class="gray-bg dashbard-1">
        <div class="content-main">

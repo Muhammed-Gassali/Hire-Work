@@ -501,24 +501,24 @@ def order_verify(request):
                 phone_number=x.seeker.phone_number
             
                 # sms verificaion
-                # mobile_number = str(91) + phone_number
-                # url = "https://http-api.d7networks.com/send"
-                # querystring = {
-                # "username":"imjq2616",
-                # "password":"MfEcnAqr",
-                # "from":"Test%20SMS",
-                # "content":"Hi sir, you are hired.Detials you can see in your profile, Please confirm it ASAP",
-                # "dlr-method":"POST",
-                # "dlr-url":"https://4ba60af1.ngrok.io/receive",
-                # "dlr":"yes",
-                # "dlr-level":"3",
-                # "to":mobile_number,
-                # }
-                # headers = {
-                # 'cache-control': "no-cache"
-                # }
-                # response = requests.request("GET", url, headers=headers, params=querystring)
-                # print(response.text)
+                mobile_number = str(91) + phone_number
+                url = "https://http-api.d7networks.com/send"
+                querystring = {
+                "username":"imjq2616",
+                "password":"MfEcnAqr",
+                "from":"Test%20SMS",
+                "content":"Hi sir, you are hired.Detials you can see in your profile, Please confirm it ASAP",
+                "dlr-method":"POST",
+                "dlr-url":"https://4ba60af1.ngrok.io/receive",
+                "dlr":"yes",
+                "dlr-level":"3",
+                "to":mobile_number,
+                }
+                headers = {
+                'cache-control': "no-cache"
+                }
+                response = requests.request("GET", url, headers=headers, params=querystring)
+                print(response.text)
                 # //sms verification
             
             return redirect(registered_customer_homepage)
@@ -595,31 +595,28 @@ def razorpay_confirm(request):
                 phone_number=x.seeker.phone_number
             
                 # sms verificaion
-                # mobile_number = str(91) + phone_number
-                # url = "https://http-api.d7networks.com/send"
-                # querystring = {
-                # "username":"imjq2616",
-                # "password":"MfEcnAqr",
-                # "from":"Test%20SMS",
-                # "content":"Hi sir, you are hired.Detials you can see in your profile, Please confirm it ASAP",
-                # "dlr-method":"POST",
-                # "dlr-url":"https://4ba60af1.ngrok.io/receive",
-                # "dlr":"yes",
-                # "dlr-level":"3",
-                # "to":mobile_number,
-                # }
-                # headers = {
-                # 'cache-control': "no-cache"
-                # }
-                # response = requests.request("GET", url, headers=headers, params=querystring)
-                # print(response.text)
+                mobile_number = str(91) + phone_number
+                url = "https://http-api.d7networks.com/send"
+                querystring = {
+                "username":"imjq2616",
+                "password":"MfEcnAqr",
+                "from":"Test%20SMS",
+                "content":"Hi sir, you are hired.Detials you can see in your profile, Please confirm it ASAP",
+                "dlr-method":"POST",
+                "dlr-url":"https://4ba60af1.ngrok.io/receive",
+                "dlr":"yes",
+                "dlr-level":"3",
+                "to":mobile_number,
+                }
+                headers = {
+                'cache-control': "no-cache"
+                }
+                response = requests.request("GET", url, headers=headers, params=querystring)
+                print(response.text)
                 # //sms verification
             return JsonResponse('success',safe=False)     
     else:
         return redirect(customer_homepage)
-
-
-
 
 
 
@@ -770,23 +767,23 @@ def customer_order_cancel(request, id):
             order_data.customer_cancel = True
         else:
             # sms notification 
-            # url = "https://http-api.d7networks.com/send"
-            # querystring = {
-            # "username":"ibmg4607",
-            # "password":"8Hw24TjM",
-            # "from":"Test%20SMS",
-            # "content":"Sorry.. your order is cancelled by "+ order_data.customer.first_name + order_data.customer.last_name +". Please check your profile for more detials.",
-            # "dlr-method":"POST",
-            # "dlr-url":"https://4ba60af1.ngrok.io/receive",
-            # "dlr":"yes",
-            # "dlr-level":"3",
-            # "to":mobile_number
-            # }
-            # headers = {
-            # 'cache-control': "no-cache"
-            # }
-            # response = requests.request("GET", url, headers=headers, params=querystring)
-            # print(response.text)
+            url = "https://http-api.d7networks.com/send"
+            querystring = {
+            "username":"ibmg4607",
+            "password":"8Hw24TjM",
+            "from":"Test%20SMS",
+            "content":"Sorry.. your order is cancelled by "+ order_data.customer.first_name + order_data.customer.last_name +". Please check your profile for more detials.",
+            "dlr-method":"POST",
+            "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            "dlr":"yes",
+            "dlr-level":"3",
+            "to":mobile_number
+            }
+            headers = {
+            'cache-control': "no-cache"
+            }
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            print(response.text)
             # //sms notification
             order_data.customer_cancel = False
         order_data.save()
@@ -802,47 +799,47 @@ def seeker_order_confirm(request, id):
         order_data = order.objects.get(id=id)
         if order_data.order_verify == False:
             order_data.order_verify = True
-            # mobile_number = str(91) + order_data.mobile_number
-            # # sms notification 
-            # url = "https://http-api.d7networks.com/send"
-            # querystring = {
-            # "username":"ibmg4607",
-            # "password":"8Hw24TjM",
-            # "from":"Test%20SMS",
-            # "content":"Your order is confirmed by "+ order_data.seeker.name +". Please check your order confirmation for more detials.",
-            # "dlr-method":"POST",
-            # "dlr-url":"https://4ba60af1.ngrok.io/receive",
-            # "dlr":"yes",
-            # "dlr-level":"3",
-            # "to":mobile_number
-            # }
-            # headers = {
-            # 'cache-control': "no-cache"
-            # }
-            # response = requests.request("GET", url, headers=headers, params=querystring)
-            # print(response.text)
+            mobile_number = str(91) + order_data.mobile_number
+            # sms notification 
+            url = "https://http-api.d7networks.com/send"
+            querystring = {
+            "username":"ibmg4607",
+            "password":"8Hw24TjM",
+            "from":"Test%20SMS",
+            "content":"Your order is confirmed by "+ order_data.seeker.name +". Please check your order confirmation for more detials.",
+            "dlr-method":"POST",
+            "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            "dlr":"yes",
+            "dlr-level":"3",
+            "to":mobile_number
+            }
+            headers = {
+            'cache-control': "no-cache"
+            }
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            print(response.text)
             # //sms notification
         else:
             order_data.order_verify = False
-            # mobile_number = str(91) + order_data.mobile_number
-            # # sms notification 
-            # url = "https://http-api.d7networks.com/send"
-            # querystring = {
-            # "username":"ibmg4607",
-            # "password":"8Hw24TjM",
-            # "from":"Test%20SMS",
-            # "content":"Your order is cancelled by "+ order_data.seeker.name +" . Please check your order confirmation for more detials.",
-            # "dlr-method":"POST",
-            # "dlr-url":"https://4ba60af1.ngrok.io/receive",
-            # "dlr":"yes",
-            # "dlr-level":"3",
-            # "to":mobile_number
-            # }
-            # headers = {
-            # 'cache-control': "no-cache"
-            # }
-            # response = requests.request("GET", url, headers=headers, params=querystring)
-            # print(response.text)
+            mobile_number = str(91) + order_data.mobile_number
+            # sms notification 
+            url = "https://http-api.d7networks.com/send"
+            querystring = {
+            "username":"ibmg4607",
+            "password":"8Hw24TjM",
+            "from":"Test%20SMS",
+            "content":"Your order is cancelled by "+ order_data.seeker.name +" . Please check your order confirmation for more detials.",
+            "dlr-method":"POST",
+            "dlr-url":"https://4ba60af1.ngrok.io/receive",
+            "dlr":"yes",
+            "dlr-level":"3",
+            "to":mobile_number
+            }
+            headers = {
+            'cache-control': "no-cache"
+            }
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            print(response.text)
             # //sms notification
         order_data.save()
         id = order_data.seeker.id
@@ -878,6 +875,8 @@ def customer_feedback(request, id):
 
 
 def seeker_register(request):
+    if request.session.has_key('user_name'):
+        return redirect(seeker_profile)
     value = Category.objects.all()
     context = {"value":value}
     if request.method == "POST":
@@ -917,6 +916,8 @@ def seeker_register(request):
 
     
 def seeker_otp_login(request):
+    if request.session.has_key('user_name'):
+        return redirect(seeker_profile)
     otp = 1
     if request.method == 'POST':
         phone_number = request.POST['phone']
@@ -958,6 +959,8 @@ def seeker_otp_login(request):
 
 
 def seeker_otp_verify(request):
+    if request.session.has_key('user_name'):
+        return redirect(seeker_profile)
     if request.method == 'POST':
         otp_number = request.POST['otp']
             
